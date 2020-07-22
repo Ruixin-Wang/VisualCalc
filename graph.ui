@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Graph</class>
+ <widget class="QDialog" name="Graph">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Graph</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">
+background-color: #fbfcfc;</string>
+  </property>
+  <property name="sizeGripEnabled">
+   <bool>true</bool>
+  </property>
+  <widget class="QSlider" name="HorizontalSlider">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>550</y>
+     <width>160</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QSlider" name="VerticalSlider">
+   <property name="geometry">
+    <rect>
+     <x>750</x>
+     <y>220</y>
+     <width>21</width>
+     <height>160</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="right">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>550</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+	border:1px solid rgb(236, 240, 241);
+	background-color: #F4F6F7;
+}
+QPushButton:hover {
+	
+	border:1px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.148, x2:1, y2:0.875, stop:0 rgba(208, 211, 212, 57), stop:1 rgba(151, 154, 154, 58));
+}
+QPushButton:pressed {
+	
+	border:1px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.148, x2:1, y2:0.875, stop:0 rgba(208, 211, 212, 77), stop:1 rgba(151, 154, 154, 78));
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/image/image/right.png</normaloff>:/image/image/right.png</iconset>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="left">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>550</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+	border:1px solid rgb(236, 240, 241);
+	background-color: #F4F6F7;
+}
+QPushButton:hover {
+	
+	border:1px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.148, x2:1, y2:0.875, stop:0 rgba(208, 211, 212, 57), stop:1 rgba(151, 154, 154, 58));
+}
+QPushButton:pressed {
+	
+	border:1px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.148, x2:1, y2:0.875, stop:0 rgba(208, 211, 212, 77), stop:1 rgba(151, 154, 154, 78));
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/image/image/left.png</normaloff>:/image/image/left.png</iconset>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="down">
+   <property name="geometry">
+    <rect>
+     <x>750</x>
+     <y>390</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+	border:1px solid rgb(236, 240, 241);
+	background-color: #F4F6F7;
+}
+QPushButton:hover {
+	
+	border:1px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.148, x2:1, y2:0.875, stop:0 rgba(208, 211, 212, 57), stop:1 rgba(151, 154, 154, 58));
+}
+QPushButton:pressed {
+	
+	border:1px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.148, x2:1, y2:0.875, stop:0 rgba(208, 211, 212, 77), stop:1 rgba(151, 154, 154, 78));
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/image/image/down.png</normaloff>:/image/image/down.png</iconset>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="up">
+   <property name="geometry">
+    <rect>
+     <x>750</x>
+     <y>190</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+	border:1px solid rgb(236, 240, 241);
+	background-color: #F4F6F7;
+}
+QPushButton:hover {
+	
+	border:1px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.148, x2:1, y2:0.875, stop:0 rgba(208, 211, 212, 57), stop:1 rgba(151, 154, 154, 58));
+}
+QPushButton:pressed {
+	
+	border:1px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.148, x2:1, y2:0.875, stop:0 rgba(208, 211, 212, 77), stop:1 rgba(151, 154, 154, 78));
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/image/image/up.png</normaloff>:/image/image/up.png</iconset>
+   </property>
+  </widget>
+ </widget>
+ <resources>
+  <include location="visualcalc.qrc"/>
+ </resources>
+ <connections/>
+</ui>

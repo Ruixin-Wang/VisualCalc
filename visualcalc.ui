@@ -1,0 +1,3410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>VisualCalc</class>
+ <widget class="QMainWindow" name="VisualCalc">
+  <property name="windowModality">
+   <enum>Qt::NonModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>560</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>400</width>
+    <height>560</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1920</width>
+    <height>1080</height>
+   </size>
+  </property>
+  <property name="font">
+   <font>
+    <family>Times New Roman</family>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>VisCal</string>
+  </property>
+  <property name="layoutDirection">
+   <enum>Qt::LeftToRight</enum>
+  </property>
+  <property name="dockOptions">
+   <set>QMainWindow::AllowTabbedDocks|QMainWindow::AnimatedDocks</set>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <item row="1" column="18">
+     <widget class="QPushButton" name="dummy17">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:0px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:reflect, x1:1, y1:1, x2:1, y2:0, stop:0.0298507 rgb(212, 230, 241), stop:0.995025 rgba(212, 230, 241, 255));
+}
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="8" colspan="4">
+     <widget class="QPushButton" name="Sqrt">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>80</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Cambria</family>
+        <pointsize>10</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: rgb(31, 97, 141);
+	color: white;
+}
+QPushButton:hover {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.125, x2:0.985, y2:0.892045, stop:0.0298507 rgba(31, 97, 141, 235), stop:1 rgba(21, 67, 96, 235));
+}
+QPushButton:pressed {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.125, x2:0.985, y2:0.892045, stop:0.0298507 rgba(31, 97, 141, 205), stop:1 rgba(21, 67, 96, 205));
+}</string>
+      </property>
+      <property name="text">
+       <string>√</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="9">
+     <widget class="QPushButton" name="dummy10">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:0px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:reflect, x1:1, y1:1, x2:1, y2:0, stop:0.0298507 rgb(212, 230, 241), stop:0.995025 rgba(212, 230, 241, 255));
+}
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="10" colspan="5">
+     <widget class="QPushButton" name="Button9">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+        <horstretch>100</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Segoe UI</family>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:1px solid rgb(236, 240, 241);
+	background-color: #F4F6F7;
+}
+QPushButton:hover {
+	
+	border:1px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.148, x2:1, y2:0.875, stop:0 rgba(208, 211, 212, 57), stop:1 rgba(151, 154, 154, 58));
+}
+QPushButton:pressed {
+	
+	border:1px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.148, x2:1, y2:0.875, stop:0 rgba(208, 211, 212, 77), stop:1 rgba(151, 154, 154, 78));
+}</string>
+      </property>
+      <property name="text">
+       <string>9</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="16" colspan="4">
+     <widget class="QPushButton" name="E">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>80</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Cambria</family>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <italic>false</italic>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: rgb(31, 97, 141);
+	color: white;
+}
+QPushButton:hover {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.125, x2:0.985, y2:0.892045, stop:0.0298507 rgba(31, 97, 141, 235), stop:1 rgba(21, 67, 96, 235));
+}
+QPushButton:pressed {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.125, x2:0.985, y2:0.892045, stop:0.0298507 rgba(31, 97, 141, 205), stop:1 rgba(21, 67, 96, 205));
+}</string>
+      </property>
+      <property name="text">
+       <string>e</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="12" colspan="4">
+     <widget class="QPushButton" name="DEL">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>80</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <italic>false</italic>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:1px solid rgb(250, 215, 160);
+	border-style: outset;
+	background-color: rgb(243, 156, 18);
+}
+QPushButton:hover {
+	
+	border:1px solid rgb(250, 215, 160);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.097, x2:1, y2:0.881, stop:0.124378 rgba(230, 126, 34, 155), stop:0.656716 rgba(175, 96, 26, 152));
+}
+QPushButton:pressed {
+	
+	border:1px solid rgb(250, 215, 160);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.097, x2:1, y2:0.881, stop:0.124378 rgba(230, 126, 34, 204), stop:0.656716 rgba(175, 96, 26, 207));
+}</string>
+      </property>
+      <property name="text">
+       <string>DEL</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="10" colspan="5">
+     <widget class="QPushButton" name="Pow">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+        <horstretch>100</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Segoe UI</family>
+        <pointsize>12</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: rgba(169, 204, 227, 155);
+}
+QPushButton:hover {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.097, x2:1, y2:0.881, stop:0.124378 rgba(84, 153, 199, 105), stop:0.656716 rgba(36, 113, 163, 104));
+}
+QPushButton:pressed {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.097, x2:1, y2:0.881, stop:0.124378 rgba(84, 153, 199, 165), stop:0.656716 rgba(36, 113, 163, 164));
+}</string>
+      </property>
+      <property name="text">
+       <string>^</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="8">
+     <widget class="QPushButton" name="dummy14">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:0px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:reflect, x1:1, y1:1, x2:1, y2:0, stop:0.0298507 rgb(212, 230, 241), stop:0.995025 rgba(212, 230, 241, 255));
+}
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="10" column="5" colspan="5">
+     <widget class="QPushButton" name="Button0">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+        <horstretch>100</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Segoe UI</family>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:1px solid rgb(236, 240, 241);
+	background-color: #F4F6F7;
+}
+QPushButton:hover {
+	
+	border:1px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.148, x2:1, y2:0.875, stop:0 rgba(208, 211, 212, 57), stop:1 rgba(151, 154, 154, 58));
+}
+QPushButton:pressed {
+	
+	border:1px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.148, x2:1, y2:0.875, stop:0 rgba(208, 211, 212, 77), stop:1 rgba(151, 154, 154, 78));
+}</string>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="14">
+     <widget class="QPushButton" name="dummy13">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:0px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:reflect, x1:1, y1:1, x2:1, y2:0, stop:0.0298507 rgb(212, 230, 241), stop:0.995025 rgba(212, 230, 241, 255));
+}
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0" colspan="4">
+     <widget class="QPushButton" name="Sin">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>80</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Cambria</family>
+        <pointsize>10</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: rgb(31, 97, 141);
+	color: white;
+}
+QPushButton:hover {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.125, x2:0.985, y2:0.892045, stop:0.0298507 rgba(31, 97, 141, 235), stop:1 rgba(21, 67, 96, 235));
+}
+QPushButton:pressed {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.125, x2:0.985, y2:0.892045, stop:0.0298507 rgba(31, 97, 141, 205), stop:1 rgba(21, 67, 96, 205));
+}</string>
+      </property>
+      <property name="text">
+       <string>sin</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="2">
+     <widget class="QPushButton" name="dummy03">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:0px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:reflect, x1:1, y1:1, x2:1, y2:0, stop:0.0298507 rgb(212, 230, 241), stop:0.995025 rgba(212, 230, 241, 255));
+}
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="12" colspan="4">
+     <widget class="QPushButton" name="Fact">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>80</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Cambria</family>
+        <pointsize>10</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: rgb(31, 97, 141);
+	color: white;
+}
+QPushButton:hover {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.125, x2:0.985, y2:0.892045, stop:0.0298507 rgba(31, 97, 141, 235), stop:1 rgba(21, 67, 96, 235));
+}
+QPushButton:pressed {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.125, x2:0.985, y2:0.892045, stop:0.0298507 rgba(31, 97, 141, 205), stop:1 rgba(21, 67, 96, 205));
+}</string>
+      </property>
+      <property name="text">
+       <string>x!</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="8" colspan="4">
+     <widget class="QPushButton" name="Arctan">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>80</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Cambria</family>
+        <pointsize>10</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: rgb(31, 97, 141);
+	color: white;
+}
+QPushButton:hover {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.125, x2:0.985, y2:0.892045, stop:0.0298507 rgba(31, 97, 141, 235), stop:1 rgba(21, 67, 96, 235));
+}
+QPushButton:pressed {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.125, x2:0.985, y2:0.892045, stop:0.0298507 rgba(31, 97, 141, 205), stop:1 rgba(21, 67, 96, 205));
+}</string>
+      </property>
+      <property name="text">
+       <string>arctan</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="3">
+     <widget class="QPushButton" name="dummy04">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:0px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:reflect, x1:1, y1:1, x2:1, y2:0, stop:0.0298507 rgb(212, 230, 241), stop:0.995025 rgba(212, 230, 241, 255));
+}
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="12" colspan="4">
+     <widget class="QPushButton" name="Abs">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>80</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Cambria</family>
+        <pointsize>10</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: rgb(31, 97, 141);
+	color: white;
+}
+QPushButton:hover {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.125, x2:0.985, y2:0.892045, stop:0.0298507 rgba(31, 97, 141, 235), stop:1 rgba(21, 67, 96, 235));
+}
+QPushButton:pressed {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.125, x2:0.985, y2:0.892045, stop:0.0298507 rgba(31, 97, 141, 205), stop:1 rgba(21, 67, 96, 205));
+}</string>
+      </property>
+      <property name="text">
+       <string>|x|</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="16">
+     <widget class="QPushButton" name="dummy19">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:0px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:reflect, x1:1, y1:1, x2:1, y2:0, stop:0.0298507 rgb(212, 230, 241), stop:0.995025 rgba(212, 230, 241, 255));
+}
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="5" colspan="5">
+     <widget class="QPushButton" name="Button8">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+        <horstretch>100</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Segoe UI</family>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:1px solid rgb(236, 240, 241);
+	background-color: #F4F6F7;
+}
+QPushButton:hover {
+	
+	border:1px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.148, x2:1, y2:0.875, stop:0 rgba(208, 211, 212, 57), stop:1 rgba(151, 154, 154, 58));
+}
+QPushButton:pressed {
+	
+	border:1px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.148, x2:1, y2:0.875, stop:0 rgba(208, 211, 212, 77), stop:1 rgba(151, 154, 154, 78));
+}</string>
+      </property>
+      <property name="text">
+       <string>8</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="15" colspan="5">
+     <widget class="QPushButton" name="Add">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+        <horstretch>100</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Segoe UI</family>
+        <pointsize>12</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: rgba(169, 204, 227, 155);
+}
+QPushButton:hover {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.097, x2:1, y2:0.881, stop:0.124378 rgba(84, 153, 199, 105), stop:0.656716 rgba(36, 113, 163, 104));
+}
+QPushButton:pressed {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.097, x2:1, y2:0.881, stop:0.124378 rgba(84, 153, 199, 165), stop:0.656716 rgba(36, 113, 163, 164));
+}</string>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="8" colspan="4">
+     <widget class="QPushButton" name="Ln">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>80</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Cambria</family>
+        <pointsize>10</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: rgb(31, 97, 141);
+	color: white;
+}
+QPushButton:hover {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.125, x2:0.985, y2:0.892045, stop:0.0298507 rgba(31, 97, 141, 235), stop:1 rgba(21, 67, 96, 235));
+}
+QPushButton:pressed {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.125, x2:0.985, y2:0.892045, stop:0.0298507 rgba(31, 97, 141, 205), stop:1 rgba(21, 67, 96, 205));
+}</string>
+      </property>
+      <property name="text">
+       <string>ln</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="4" colspan="4">
+     <widget class="QPushButton" name="Arccos">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>80</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Cambria</family>
+        <pointsize>10</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: rgb(31, 97, 141);
+	color: white;
+}
+QPushButton:hover {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.125, x2:0.985, y2:0.892045, stop:0.0298507 rgba(31, 97, 141, 235), stop:1 rgba(21, 67, 96, 235));
+}
+QPushButton:pressed {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.125, x2:0.985, y2:0.892045, stop:0.0298507 rgba(31, 97, 141, 205), stop:1 rgba(21, 67, 96, 205));
+}</string>
+      </property>
+      <property name="text">
+       <string>arccos</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0" colspan="4">
+     <widget class="QPushButton" name="Basenlog">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>80</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Cambria</family>
+        <pointsize>10</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: rgb(31, 97, 141);
+	color: white;
+}
+QPushButton:hover {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.125, x2:0.985, y2:0.892045, stop:0.0298507 rgba(31, 97, 141, 235), stop:1 rgba(21, 67, 96, 235));
+}
+QPushButton:pressed {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.125, x2:0.985, y2:0.892045, stop:0.0298507 rgba(31, 97, 141, 205), stop:1 rgba(21, 67, 96, 205));
+}</string>
+      </property>
+      <property name="text">
+       <string>log</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="11">
+     <widget class="QPushButton" name="dummy15">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:0px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:reflect, x1:1, y1:1, x2:1, y2:0, stop:0.0298507 rgb(212, 230, 241), stop:0.995025 rgba(212, 230, 241, 255));
+}
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QPushButton" name="dummy01">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:0px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:reflect, x1:1, y1:1, x2:1, y2:0, stop:0.0298507 rgb(212, 230, 241), stop:0.995025 rgba(212, 230, 241, 255));
+}
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="13">
+     <widget class="QPushButton" name="dummy16">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:0px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:reflect, x1:1, y1:1, x2:1, y2:0, stop:0.0298507 rgb(212, 230, 241), stop:0.995025 rgba(212, 230, 241, 255));
+}
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="4">
+     <widget class="QPushButton" name="dummy07">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:0px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:reflect, x1:1, y1:1, x2:1, y2:0, stop:0.0298507 rgb(212, 230, 241), stop:0.995025 rgba(212, 230, 241, 255));
+}
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="15" colspan="5">
+     <widget class="QPushButton" name="Divide">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+        <horstretch>100</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Segoe UI</family>
+        <pointsize>12</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: rgba(169, 204, 227, 155);
+}
+QPushButton:hover {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.097, x2:1, y2:0.881, stop:0.124378 rgba(84, 153, 199, 105), stop:0.656716 rgba(36, 113, 163, 104));
+}
+QPushButton:pressed {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.097, x2:1, y2:0.881, stop:0.124378 rgba(84, 153, 199, 165), stop:0.656716 rgba(36, 113, 163, 164));
+}</string>
+      </property>
+      <property name="text">
+       <string>/</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="5" colspan="5">
+     <widget class="QPushButton" name="Button2">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+        <horstretch>100</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Segoe UI</family>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:1px solid rgb(236, 240, 241);
+	background-color: #F4F6F7;
+}
+QPushButton:hover {
+	
+	border:1px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.148, x2:1, y2:0.875, stop:0 rgba(208, 211, 212, 57), stop:1 rgba(151, 154, 154, 58));
+}
+QPushButton:pressed {
+	
+	border:1px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.148, x2:1, y2:0.875, stop:0 rgba(208, 211, 212, 77), stop:1 rgba(151, 154, 154, 78));
+}</string>
+      </property>
+      <property name="text">
+       <string>2</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="15" colspan="5">
+     <widget class="QPushButton" name="Mul">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+        <horstretch>100</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Segoe UI</family>
+        <pointsize>12</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: rgba(169, 204, 227, 155);
+}
+QPushButton:hover {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.097, x2:1, y2:0.881, stop:0.124378 rgba(84, 153, 199, 105), stop:0.656716 rgba(36, 113, 163, 104));
+}
+QPushButton:pressed {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.097, x2:1, y2:0.881, stop:0.124378 rgba(84, 153, 199, 165), stop:0.656716 rgba(36, 113, 163, 164));
+}</string>
+      </property>
+      <property name="text">
+       <string>*</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="0" colspan="5">
+     <widget class="QPushButton" name="Button7">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+        <horstretch>100</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Segoe UI</family>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:1px solid rgb(236, 240, 241);
+	background-color: #F4F6F7;
+}
+QPushButton:hover {
+	
+	border:1px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.148, x2:1, y2:0.875, stop:0 rgba(208, 211, 212, 57), stop:1 rgba(151, 154, 154, 58));
+}
+QPushButton:pressed {
+	
+	border:1px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.148, x2:1, y2:0.875, stop:0 rgba(208, 211, 212, 77), stop:1 rgba(151, 154, 154, 78));
+}</string>
+      </property>
+      <property name="text">
+       <string>7</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="0" colspan="5">
+     <widget class="QPushButton" name="LeftBrac">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+        <horstretch>100</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Segoe UI</family>
+        <pointsize>12</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: rgba(169, 204, 227, 155);
+}
+QPushButton:hover {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.097, x2:1, y2:0.881, stop:0.124378 rgba(84, 153, 199, 105), stop:0.656716 rgba(36, 113, 163, 104));
+}
+QPushButton:pressed {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.097, x2:1, y2:0.881, stop:0.124378 rgba(84, 153, 199, 165), stop:0.656716 rgba(36, 113, 163, 164));
+}</string>
+      </property>
+      <property name="text">
+       <string>(</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QPushButton" name="dummy02">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:0px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:reflect, x1:1, y1:1, x2:1, y2:0, stop:0.0298507 rgb(212, 230, 241), stop:0.995025 rgba(212, 230, 241, 255));
+}
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="10" column="10" colspan="5">
+     <widget class="QPushButton" name="Dot">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+        <horstretch>100</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Segoe UI</family>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:1px solid rgb(236, 240, 241);
+	background-color: #F4F6F7;
+}
+QPushButton:hover {
+	
+	border:1px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.148, x2:1, y2:0.875, stop:0 rgba(208, 211, 212, 57), stop:1 rgba(151, 154, 154, 58));
+}
+QPushButton:pressed {
+	
+	border:1px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.148, x2:1, y2:0.875, stop:0 rgba(208, 211, 212, 77), stop:1 rgba(151, 154, 154, 78));
+}</string>
+      </property>
+      <property name="text">
+       <string>.</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="17">
+     <widget class="QPushButton" name="dummy18">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:0px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:reflect, x1:1, y1:1, x2:1, y2:0, stop:0.0298507 rgb(212, 230, 241), stop:0.995025 rgba(212, 230, 241, 255));
+}
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="4" colspan="4">
+     <widget class="QPushButton" name="Cube">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>80</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Cambria</family>
+        <pointsize>10</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: rgb(31, 97, 141);
+	color: white;
+}
+QPushButton:hover {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.125, x2:0.985, y2:0.892045, stop:0.0298507 rgba(31, 97, 141, 235), stop:1 rgba(21, 67, 96, 235));
+}
+QPushButton:pressed {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.125, x2:0.985, y2:0.892045, stop:0.0298507 rgba(31, 97, 141, 205), stop:1 rgba(21, 67, 96, 205));
+}</string>
+      </property>
+      <property name="text">
+       <string>x³</string>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="10" colspan="5">
+     <widget class="QPushButton" name="Button3">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+        <horstretch>100</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Segoe UI</family>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:1px solid rgb(236, 240, 241);
+	background-color: #F4F6F7;
+}
+QPushButton:hover {
+	
+	border:1px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.148, x2:1, y2:0.875, stop:0 rgba(208, 211, 212, 57), stop:1 rgba(151, 154, 154, 58));
+}
+QPushButton:pressed {
+	
+	border:1px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.148, x2:1, y2:0.875, stop:0 rgba(208, 211, 212, 77), stop:1 rgba(151, 154, 154, 78));
+}</string>
+      </property>
+      <property name="text">
+       <string>3</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="19">
+     <widget class="QPushButton" name="dummy20">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:0px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:reflect, x1:1, y1:1, x2:1, y2:0, stop:0.0298507 rgb(212, 230, 241), stop:0.995025 rgba(212, 230, 241, 255));
+}
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="10">
+     <widget class="QPushButton" name="dummy12">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:0px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:reflect, x1:1, y1:1, x2:1, y2:0, stop:0.0298507 rgb(212, 230, 241), stop:0.995025 rgba(212, 230, 241, 255));
+}
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0" colspan="4">
+     <widget class="QPushButton" name="Sqare">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>80</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Cambria</family>
+        <pointsize>10</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: rgb(31, 97, 141);
+	color: white;
+}
+QPushButton:hover {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.125, x2:0.985, y2:0.892045, stop:0.0298507 rgba(31, 97, 141, 235), stop:1 rgba(21, 67, 96, 235));
+}
+QPushButton:pressed {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.125, x2:0.985, y2:0.892045, stop:0.0298507 rgba(31, 97, 141, 205), stop:1 rgba(21, 67, 96, 205));
+}</string>
+      </property>
+      <property name="text">
+       <string>x²</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="4" colspan="4">
+     <widget class="QPushButton" name="Cos">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>80</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Cambria</family>
+        <pointsize>10</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: rgb(31, 97, 141);
+	color: white;
+}
+QPushButton:hover {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.125, x2:0.985, y2:0.892045, stop:0.0298507 rgba(31, 97, 141, 235), stop:1 rgba(21, 67, 96, 235));
+}
+QPushButton:pressed {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.125, x2:0.985, y2:0.892045, stop:0.0298507 rgba(31, 97, 141, 205), stop:1 rgba(21, 67, 96, 205));
+}</string>
+      </property>
+      <property name="text">
+       <string>cos</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="7">
+     <widget class="QPushButton" name="dummy08">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:0px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:reflect, x1:1, y1:1, x2:1, y2:0, stop:0.0298507 rgb(212, 230, 241), stop:0.995025 rgba(212, 230, 241, 255));
+}
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="12" colspan="4">
+     <widget class="QPushButton" name="NRoot">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>80</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Cambria</family>
+        <pointsize>10</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: rgb(31, 97, 141);
+	color: white;
+}
+QPushButton:hover {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.125, x2:0.985, y2:0.892045, stop:0.0298507 rgba(31, 97, 141, 235), stop:1 rgba(21, 67, 96, 235));
+}
+QPushButton:pressed {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.125, x2:0.985, y2:0.892045, stop:0.0298507 rgba(31, 97, 141, 205), stop:1 rgba(21, 67, 96, 205));
+}</string>
+      </property>
+      <property name="text">
+       <string>ⁿ√</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="16" colspan="4">
+     <widget class="QPushButton" name="AC">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>80</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <italic>false</italic>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:1px solid rgb(250, 215, 160);
+	border-style: outset;
+	background-color: rgb(243, 156, 18);
+}
+QPushButton:hover {
+	
+	border:1px solid rgb(250, 215, 160);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.097, x2:1, y2:0.881, stop:0.124378 rgba(230, 126, 34, 155), stop:0.656716 rgba(175, 96, 26, 152));
+}
+QPushButton:pressed {
+	
+	border:1px solid rgb(250, 215, 160);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.097, x2:1, y2:0.881, stop:0.124378 rgba(230, 126, 34, 204), stop:0.656716 rgba(175, 96, 26, 207));
+}</string>
+      </property>
+      <property name="text">
+       <string>AC</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="16" colspan="4">
+     <widget class="QPushButton" name="Pi">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>80</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Cambria</family>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <italic>false</italic>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: rgb(31, 97, 141);
+	color: white;
+}
+QPushButton:hover {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.125, x2:0.985, y2:0.892045, stop:0.0298507 rgba(31, 97, 141, 235), stop:1 rgba(21, 67, 96, 235));
+}
+QPushButton:pressed {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.125, x2:0.985, y2:0.892045, stop:0.0298507 rgba(31, 97, 141, 205), stop:1 rgba(21, 67, 96, 205));
+}</string>
+      </property>
+      <property name="text">
+       <string>π</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="0" colspan="5">
+     <widget class="QPushButton" name="Button4">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+        <horstretch>100</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Segoe UI</family>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:1px solid rgb(236, 240, 241);
+	background-color: #F4F6F7;
+}
+QPushButton:hover {
+	
+	border:1px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.148, x2:1, y2:0.875, stop:0 rgba(208, 211, 212, 57), stop:1 rgba(151, 154, 154, 58));
+}
+QPushButton:pressed {
+	
+	border:1px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.148, x2:1, y2:0.875, stop:0 rgba(208, 211, 212, 77), stop:1 rgba(151, 154, 154, 78));
+}</string>
+      </property>
+      <property name="text">
+       <string>4</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="10" column="0" colspan="5">
+     <widget class="QPushButton" name="ChangeSign">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+        <horstretch>100</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Segoe UI</family>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:1px solid rgb(236, 240, 241);
+	background-color: #F4F6F7;
+}
+QPushButton:hover {
+	
+	border:1px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.148, x2:1, y2:0.875, stop:0 rgba(208, 211, 212, 57), stop:1 rgba(151, 154, 154, 58));
+}
+QPushButton:pressed {
+	
+	border:1px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.148, x2:1, y2:0.875, stop:0 rgba(208, 211, 212, 77), stop:1 rgba(151, 154, 154, 78));
+}</string>
+      </property>
+      <property name="text">
+       <string>+/-</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="6">
+     <widget class="QPushButton" name="dummy06">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:0px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:reflect, x1:1, y1:1, x2:1, y2:0, stop:0.0298507 rgb(212, 230, 241), stop:0.995025 rgba(212, 230, 241, 255));
+}
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="10" colspan="5">
+     <widget class="QPushButton" name="Button6">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+        <horstretch>100</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Segoe UI</family>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:1px solid rgb(236, 240, 241);
+	background-color: #F4F6F7;
+}
+QPushButton:hover {
+	
+	border:1px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.148, x2:1, y2:0.875, stop:0 rgba(208, 211, 212, 57), stop:1 rgba(151, 154, 154, 58));
+}
+QPushButton:pressed {
+	
+	border:1px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.148, x2:1, y2:0.875, stop:0 rgba(208, 211, 212, 77), stop:1 rgba(151, 154, 154, 78));
+}</string>
+      </property>
+      <property name="text">
+       <string>6</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="12">
+     <widget class="QPushButton" name="dummy09">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:0px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:reflect, x1:1, y1:1, x2:1, y2:0, stop:0.0298507 rgb(212, 230, 241), stop:0.995025 rgba(212, 230, 241, 255));
+}
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="8" colspan="4">
+     <widget class="QPushButton" name="Tan">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>80</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Cambria</family>
+        <pointsize>10</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: rgb(31, 97, 141);
+	color: white;
+}
+QPushButton:hover {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.125, x2:0.985, y2:0.892045, stop:0.0298507 rgba(31, 97, 141, 235), stop:1 rgba(21, 67, 96, 235));
+}
+QPushButton:pressed {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.125, x2:0.985, y2:0.892045, stop:0.0298507 rgba(31, 97, 141, 205), stop:1 rgba(21, 67, 96, 205));
+}</string>
+      </property>
+      <property name="text">
+       <string>tan</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="15">
+     <widget class="QPushButton" name="dummy11">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:0px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:reflect, x1:1, y1:1, x2:1, y2:0, stop:0.0298507 rgb(212, 230, 241), stop:0.995025 rgba(212, 230, 241, 255));
+}
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="10" column="15" colspan="5">
+     <widget class="QPushButton" name="Equals">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+        <horstretch>100</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Segoe UI</family>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: rgb(127, 179, 213);
+}
+QPushButton:hover {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.097, x2:1, y2:0.881, stop:0.124378 rgba(84, 153, 199, 175), stop:0.656716 rgba(36, 113, 163, 174));
+}
+QPushButton:pressed {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.097, x2:1, y2:0.881, stop:0.124378 rgba(84, 153, 199, 225), stop:0.656716 rgba(36, 113, 163, 224));
+}</string>
+      </property>
+      <property name="text">
+       <string>=</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="16" colspan="4">
+     <widget class="QPushButton" name="Var">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>80</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Times New Roman</family>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <italic>true</italic>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: rgb(31, 97, 141);
+	color: white;
+}
+QPushButton:hover {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.125, x2:0.985, y2:0.892045, stop:0.0298507 rgba(31, 97, 141, 235), stop:1 rgba(21, 67, 96, 235));
+}
+QPushButton:pressed {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.125, x2:0.985, y2:0.892045, stop:0.0298507 rgba(31, 97, 141, 205), stop:1 rgba(21, 67, 96, 205));
+}</string>
+      </property>
+      <property name="text">
+       <string>x</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="5">
+     <widget class="QPushButton" name="dummy05">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:0px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:reflect, x1:1, y1:1, x2:1, y2:0, stop:0.0298507 rgb(212, 230, 241), stop:0.995025 rgba(212, 230, 241, 255));
+}
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="4" colspan="4">
+     <widget class="QPushButton" name="Lg">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>80</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Cambria</family>
+        <pointsize>10</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: rgb(31, 97, 141);
+	color: white;
+}
+QPushButton:hover {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.125, x2:0.985, y2:0.892045, stop:0.0298507 rgba(31, 97, 141, 235), stop:1 rgba(21, 67, 96, 235));
+}
+QPushButton:pressed {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.125, x2:0.985, y2:0.892045, stop:0.0298507 rgba(31, 97, 141, 205), stop:1 rgba(21, 67, 96, 205));
+}</string>
+      </property>
+      <property name="text">
+       <string>lg</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0" colspan="4">
+     <widget class="QPushButton" name="Arcsin">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>80</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Cambria</family>
+        <pointsize>10</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: rgb(31, 97, 141);
+	color: white;
+}
+QPushButton:hover {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.125, x2:0.985, y2:0.892045, stop:0.0298507 rgba(31, 97, 141, 235), stop:1 rgba(21, 67, 96, 235));
+}
+QPushButton:pressed {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.125, x2:0.985, y2:0.892045, stop:0.0298507 rgba(31, 97, 141, 205), stop:1 rgba(21, 67, 96, 205));
+}</string>
+      </property>
+      <property name="text">
+       <string>arcsin</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="15" colspan="5">
+     <widget class="QPushButton" name="Sub">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+        <horstretch>100</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Segoe UI</family>
+        <pointsize>12</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: rgba(169, 204, 227, 155);
+}
+QPushButton:hover {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.097, x2:1, y2:0.881, stop:0.124378 rgba(84, 153, 199, 105), stop:0.656716 rgba(36, 113, 163, 104));
+}
+QPushButton:pressed {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.097, x2:1, y2:0.881, stop:0.124378 rgba(84, 153, 199, 165), stop:0.656716 rgba(36, 113, 163, 164));
+}</string>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="0" colspan="5">
+     <widget class="QPushButton" name="Button1">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+        <horstretch>100</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Segoe UI</family>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:1px solid rgb(236, 240, 241);
+	background-color: #F4F6F7;
+}
+QPushButton:hover {
+	
+	border:1px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.148, x2:1, y2:0.875, stop:0 rgba(208, 211, 212, 57), stop:1 rgba(151, 154, 154, 58));
+}
+QPushButton:pressed {
+	
+	border:1px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.148, x2:1, y2:0.875, stop:0 rgba(208, 211, 212, 77), stop:1 rgba(151, 154, 154, 78));
+}</string>
+      </property>
+      <property name="text">
+       <string>1</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="5" colspan="5">
+     <widget class="QPushButton" name="Button5">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+        <horstretch>100</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Segoe UI</family>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:1px solid rgb(236, 240, 241);
+	background-color: #F4F6F7;
+}
+QPushButton:hover {
+	
+	border:1px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.148, x2:1, y2:0.875, stop:0 rgba(208, 211, 212, 57), stop:1 rgba(151, 154, 154, 58));
+}
+QPushButton:pressed {
+	
+	border:1px solid rgb(236, 240, 241);
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.148, x2:1, y2:0.875, stop:0 rgba(208, 211, 212, 77), stop:1 rgba(151, 154, 154, 78));
+}</string>
+      </property>
+      <property name="text">
+       <string>5</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="5" colspan="5">
+     <widget class="QPushButton" name="RightBrac">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+        <horstretch>100</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Segoe UI</family>
+        <pointsize>12</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: rgba(169, 204, 227, 155);
+}
+QPushButton:hover {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.097, x2:1, y2:0.881, stop:0.124378 rgba(84, 153, 199, 105), stop:0.656716 rgba(36, 113, 163, 104));
+}
+QPushButton:pressed {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.097, x2:1, y2:0.881, stop:0.124378 rgba(84, 153, 199, 165), stop:0.656716 rgba(36, 113, 163, 164));
+}</string>
+      </property>
+      <property name="text">
+       <string>)</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0" colspan="20">
+     <widget class="QTabWidget" name="_Tabs_Display">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QTabWidget::pane {
+    border-top: 5px solid qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0.104478 rgba(251, 252, 252, 255), stop:0.711443 rgba(212, 230, 241, 255));
+	border-bottom: 5px solid qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:1, stop:0.104478 rgba(251, 252, 252, 255), stop:0.711443 rgba(212, 230, 241, 255));
+	border-left: 5px solid qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:0, stop:0.104478 rgba(251, 252, 252, 255), stop:0.711443 rgba(212, 230, 241, 255));
+	border-right: 5px solid qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0.104478 rgba(251, 252, 252, 255), stop:0.711443 rgba(212, 230, 241, 255));
+    background: #FBFCFC;
+	padding: 2px
+}
+
+QTabWidget::tab-bar:top {
+    top: 1px;
+}
+
+
+QTabBar::tab:selected {
+	border: 1px solid rgb(41, 128, 185);
+    background: qlineargradient(spread:reflect, x1:0.308, y1:0, x2:0.766, y2:1, stop:0 rgba(234, 242, 248, 255), stop:0.895522 rgba(212, 230, 241, 255));
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	font: 75 9pt &quot;Arial&quot;;
+	font-weight: bold;
+	
+}
+
+QTabBar::tab:!selected {
+    background: qlineargradient(spread:reflect, x1:0, y1:0.102273, x2:1, y2:0.881, stop:0 rgba(41, 128, 185, 255), stop:0.895522 rgba(26, 82, 118, 255));
+	
+	color: rgb(255, 255, 255);
+	font: 75 9pt &quot;Arial&quot;;
+	font-weight: bold;
+	
+
+}
+
+QTabBar::tab:!selected:hover {
+    background: qlineargradient(spread:reflect, x1:0, y1:0.102273, x2:1, y2:0.881, stop:0 rgba(127, 179, 213, 255), stop:0.895522 rgba(41, 128, 185, 255));
+}
+
+QTabBar::tab:top:!selected {
+    margin-top: 3px;
+}
+
+QTabBar::tab:bottom:!selected {
+    margin-bottom: 3px;
+}
+
+QTabBar::tab:top, QTabBar::tab:bottom {
+    min-width: 8ex;
+    margin-right: -1px;
+    padding: 5px 10px 5px 10px;
+}
+
+QTabBar::tab:top:selected {
+    border-bottom-color: none;
+}
+
+QTabBar::tab:bottom:selected {
+    border-top-color: none;
+}
+
+QTabBar::tab:top:last, QTabBar::tab:bottom:last,
+QTabBar::tab:top:only-one, QTabBar::tab:bottom:only-one {
+    margin-right: 0;
+}
+
+QTabBar::tab:left:!selected {
+    margin-right: 3px;
+}
+
+QTabBar::tab:right:!selected {
+    margin-left: 3px;
+}
+
+QTabBar::tab:left, QTabBar::tab:right {
+    min-height: 8ex;
+    margin-bottom: -1px;
+    padding: 10px 5px 10px 5px;
+}
+
+QTabBar::tab:left:selected {
+    border-left-color: none;
+}
+
+QTabBar::tab:right:selected {
+    border-right-color: none;
+}
+
+QTabBar::tab:left:last, QTabBar::tab:right:last,
+QTabBar::tab:left:only-one, QTabBar::tab:right:only-one {
+    margin-bottom: 0;
+}</string>
+      </property>
+      <property name="tabPosition">
+       <enum>QTabWidget::North</enum>
+      </property>
+      <property name="tabShape">
+       <enum>QTabWidget::Rounded</enum>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <property name="elideMode">
+       <enum>Qt::ElideNone</enum>
+      </property>
+      <property name="movable">
+       <bool>false</bool>
+      </property>
+      <property name="tabBarAutoHide">
+       <bool>false</bool>
+      </property>
+      <widget class="QWidget" name="tab_COMP">
+       <attribute name="title">
+        <string> COMPUTE </string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QTextEdit" name="Title">
+          <property name="styleSheet">
+           <string notr="true">QTextEdit {
+    background-color: #fbfcfc; 
+	border: 0px solid gray;
+	color: #000000;
+	font: 75 11pt &quot;Arial&quot;;
+	font-weight: Bold;
+}</string>
+          </property>
+          <property name="verticalScrollBarPolicy">
+           <enum>Qt::ScrollBarAlwaysOff</enum>
+          </property>
+          <property name="horizontalScrollBarPolicy">
+           <enum>Qt::ScrollBarAlwaysOff</enum>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+          <property name="html">
+           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Arial'; font-size:11pt; font-weight:600; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Arial Black','sans-serif'; font-size:14pt;&quot;&gt;SCIENTIFIC COMPUTE&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="textInteractionFlags">
+           <set>Qt::NoTextInteraction</set>
+          </property>
+          <property name="placeholderText">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="Expr">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>31</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>31</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Cambria Math</family>
+            <pointsize>11</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="layoutDirection">
+           <enum>Qt::RightToLeft</enum>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLineEdit {
+    background-color: #fbfcfc; 
+	border: 0px solid gray;
+	color: #7F8C8D;
+	font: 75 11pt &quot;Cambria Math&quot;;
+	font-weight: normal;
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="Val">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>64</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Segoe UI</family>
+            <pointsize>34</pointsize>
+            <weight>75</weight>
+            <italic>false</italic>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLineEdit {
+    background-color: #F0F3F4; 
+	border: 0px solid gray;
+	color: #000000;
+	
+	
+	
+	font: 75 34pt &quot;Segoe UI&quot;;
+	font-weight: Bold;
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_EQN">
+       <attribute name="title">
+        <string> EQUATION </string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_2" columnstretch="2,3,2">
+        <property name="leftMargin">
+         <number>5</number>
+        </property>
+        <property name="topMargin">
+         <number>20</number>
+        </property>
+        <property name="rightMargin">
+         <number>5</number>
+        </property>
+        <property name="bottomMargin">
+         <number>20</number>
+        </property>
+        <item row="0" column="0" rowspan="4">
+         <widget class="QPushButton" name="dummy0">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>60</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>1000</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton{
+	Background-color:#fbfcfc;
+	border: 0px;
+}	</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2" rowspan="4">
+         <widget class="QPushButton" name="dummy1">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>60</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>1000</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton{
+	Background-color:#fbfcfc;
+	border: 0px;
+}	</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QPushButton" name="NonPolyEQN">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: rgba(169, 204, 227, 155);
+	
+	font: 10pt &quot;Cambria Math&quot;;
+}
+QPushButton:hover {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.097, x2:1, y2:0.881, stop:0.124378 rgba(84, 153, 199, 105), stop:0.656716 rgba(36, 113, 163, 104));
+}
+QPushButton:pressed {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.097, x2:1, y2:0.881, stop:0.124378 rgba(84, 153, 199, 165), stop:0.656716 rgba(36, 113, 163, 164));
+}</string>
+          </property>
+          <property name="text">
+           <string>non-Polynomial</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QPushButton" name="PolyEQN">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: rgba(169, 204, 227, 155);
+	
+	font: 10pt &quot;Cambria Math&quot;;
+}
+QPushButton:hover {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.097, x2:1, y2:0.881, stop:0.124378 rgba(84, 153, 199, 105), stop:0.656716 rgba(36, 113, 163, 104));
+}
+QPushButton:pressed {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.097, x2:1, y2:0.881, stop:0.124378 rgba(84, 153, 199, 165), stop:0.656716 rgba(36, 113, 163, 164));
+}</string>
+          </property>
+          <property name="text">
+           <string>Polynomial</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_MATRIX">
+       <attribute name="title">
+        <string> MATRIX </string>
+       </attribute>
+      </widget>
+      <widget class="QWidget" name="tab_STAT">
+       <attribute name="title">
+        <string> STAT </string>
+       </attribute>
+      </widget>
+      <widget class="QWidget" name="tab_CALC">
+       <attribute name="title">
+        <string> CALCULUS </string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_3">
+        <property name="leftMargin">
+         <number>11</number>
+        </property>
+        <property name="topMargin">
+         <number>11</number>
+        </property>
+        <property name="bottomMargin">
+         <number>11</number>
+        </property>
+        <property name="horizontalSpacing">
+         <number>7</number>
+        </property>
+        <property name="verticalSpacing">
+         <number>2</number>
+        </property>
+        <item row="3" column="1" colspan="3">
+         <widget class="QLabel" name="dummy3">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QLineEdit" name="CalcExpr">
+          <property name="styleSheet">
+           <string notr="true">QLineEdit {
+	
+	border: 1px solid rgb(169, 204, 227);
+	font: 14pt &quot;Times New Roman&quot;;
+	font-weight: normal;
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLineEdit" name="Lower">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>40</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="layoutDirection">
+           <enum>Qt::LeftToRight</enum>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLineEdit {
+	
+	border: 1px solid rgb(169, 204, 227);
+	font: 9pt &quot;Times New Roman&quot;;
+	font-weight: normal;
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1" colspan="3">
+         <widget class="QLabel" name="dummy2">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0" colspan="4">
+         <widget class="Line" name="line">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0" colspan="4">
+         <widget class="QLineEdit" name="CalcRes">
+          <property name="styleSheet">
+           <string notr="true">QLineEdit {
+	font: 14pt &quot;Times New Roman&quot;;
+	font-weight: normal;
+	Border: 0px;
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="3">
+         <widget class="QPushButton" name="OK">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>30</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>30</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: rgba(169, 204, 227, 155);
+	
+	font: 75 9pt &quot;Arial&quot;;
+	font-weight: Bold;
+}
+QPushButton:hover {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.097, x2:1, y2:0.881, stop:0.124378 rgba(84, 153, 199, 105), stop:0.656716 rgba(36, 113, 163, 104));
+}
+QPushButton:pressed {
+	
+	border:1px solid rgb(212, 230, 241);
+	border-style: outset;
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0.097, x2:1, y2:0.881, stop:0.124378 rgba(84, 153, 199, 165), stop:0.656716 rgba(36, 113, 163, 164));
+}</string>
+          </property>
+          <property name="text">
+           <string>=</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="2">
+         <widget class="QLabel" name="Dx">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLabel {
+	font: 14pt &quot;Cambria Math&quot;;
+	font-weight: normal;
+}</string>
+          </property>
+          <property name="text">
+           <string>dx</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QLineEdit" name="Upper">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>40</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLineEdit {
+	
+	border: 1px solid rgb(169, 204, 227);
+	font: 9pt &quot;Times New Roman&quot;;
+	font-weight: normal;
+}</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="CalcSym">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLabel {
+	font: 30pt &quot;Cambria Math&quot;;
+	font-weight: normal;
+}</string>
+          </property>
+          <property name="text">
+           <string>∫</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_GRAPH">
+       <attribute name="title">
+        <string> GRAPH </string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_4" columnstretch="0,0,0">
+        <item row="1" column="2">
+         <widget class="QCommandLinkButton" name="Generate">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+            <horstretch>105</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>105</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="layoutDirection">
+           <enum>Qt::RightToLeft</enum>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton{
+	background-color:#EAF2F8;   
+	border: 1px groove #A9CCE3 ; 
+	border-style: outset;
+}
+QPushButton:hover {
+	background-color:#D4E6F1; 
+	color: black;
+}
+QPushButton:pressed{
+	background-color:#A9CCE3; 
+	border-style: inset;
+}
+
+</string>
+          </property>
+          <property name="text">
+           <string>Generate</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1" colspan="2">
+         <widget class="QLineEdit" name="DrawExpr">
+          <property name="styleSheet">
+           <string notr="true">QLineEdit {
+	
+	border: 1px solid rgb(169, 204, 227);
+	font: 14pt &quot;Times New Roman&quot;;
+	font-weight: normal;
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QLabel" name="Func">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLabel {
+	font: 14pt &quot;Cambria Math&quot;;
+	font-weight: normal;
+}</string>
+          </property>
+          <property name="text">
+           <string>f(x)=</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>400</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="font">
+    <font>
+     <family>等线</family>
+    </font>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="defaultUp">
+    <bool>false</bool>
+   </property>
+   <property name="nativeMenuBar">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
