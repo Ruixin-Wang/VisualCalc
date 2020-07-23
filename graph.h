@@ -18,8 +18,10 @@ public:
 private:
     Ui::Graph *ui;
 
+    double minX, minY, maxX, maxY;
+
 protected:
-    void paintEvent(QPaintEvent*, double posX, double posY);
+    void paintEvent(QPaintEvent*);
 
 
 
