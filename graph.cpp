@@ -59,6 +59,23 @@ void Graph::paintEvent(QPaintEvent*)
         QPointF prevP = QPointF(j, -fx(j * (maxX - minX) / width()) * height() / (maxY - minY));
         painter.drawLine(prevP, currP);
     }
+}
 
-
+void Graph::mousePressEvent(QMouseEvent *event){
+	if(event->button() == Qt::LeftButton){
+		startPos = event->pos();
+		isMoving = true;
+	}
+}
+void Graph::mouseMoveEvent(QMouseEvent *event){
+	if(true == isMoving){
+		QPointF point = event->pos() - startPos;
+		double deltaX = point.x() / width() * (maxX - minX);
+		double deltaY = point.y() / height() * (maxY - minY);
+		minX -= deltaX, minX -= deltaX, minY -= deltaY, maxY -= deltaY;
+		update();
+	}
+}
+void Graph::mouseReleaseEvent(QMouseEvent *event){
+	isMoving = false;
 }

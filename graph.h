@@ -2,6 +2,8 @@
 #define GRAPH_H
 
 #include <QDialog>
+#include <QMouseEvent>
+#include <QPointF>
 
 namespace Ui {
 class Graph;
@@ -19,9 +21,15 @@ private:
     Ui::Graph *ui;
 
     double minX, minY, maxX, maxY;
+    
+    QPointF startPos;
+    bool isMoving;
 
 protected:
     void paintEvent(QPaintEvent*);
+    void mousePressEvent(QMouseEvent *event);
+    void mouseMoveEvent(QMouseEvent *event);
+    void mouseReleaseEvent(QMouseEvent *event);
 
 
 
