@@ -41,6 +41,11 @@ void VarNode::toString()
 	std::cout << "Var: " << name << " = " << variables[name] << std::endl;
 }
 
+AddNode::~AddNode()
+{
+	delete left;
+	delete right;
+}
 
 double AddNode::eval()
 {
@@ -63,6 +68,12 @@ void AddNode::toString()
 	right->toString();
 	std::cout << "EndOfRightNode" << std::endl;
 	std::cout << "EndOfAddNode" << std::endl;
+}
+
+MutliplyNode::~MutliplyNode()
+{
+	delete left;
+	delete right;
 }
 
 double MutliplyNode::eval()
@@ -90,11 +101,15 @@ void MutliplyNode::toString()
 	std::cout << "EndOfMutliplyNode" << std::endl;
 }
 
+SinNode::~SinNode()
+{
+	delete child;
+}
+
 double SinNode::eval()
 {
 	return sin(child->eval());
 }
-
 
 Node* SinNode::derivate(std::string x)
 {
@@ -111,6 +126,11 @@ void SinNode::toString()
 	child->toString();
 	std::cout << "EndOfChildNode" << std::endl;
 	std::cout << "EndOfSinNode" << std::endl;
+}
+
+CosNode::~CosNode()
+{
+	delete child;
 }
 
 double CosNode::eval()
