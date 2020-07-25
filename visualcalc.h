@@ -26,13 +26,6 @@ private:
     Ui::VisualCalc *ui;
     ExprTree *Tree;
 
-    inline void renewExpr(QString String)
-    {
-        QString Expr = ui->Expr->text();
-        Expr += " ";
-        Expr += String;
-        ui->Expr->setText(Expr);
-    }
 
 private slots:
     void NumPressed();

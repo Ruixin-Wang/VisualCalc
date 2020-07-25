@@ -118,7 +118,7 @@ QPushButton:pressed {
      </widget>
     </item>
     <item row="5" column="8" colspan="4">
-     <widget class="QPushButton" name="Sqrt">
+     <widget class="QPushButton" name="Opr9">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
         <horstretch>0</horstretch>
@@ -139,6 +139,9 @@ QPushButton:pressed {
         <italic>false</italic>
         <bold>false</bold>
        </font>
+      </property>
+      <property name="whatsThis">
+       <string>sqrt</string>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
@@ -212,7 +215,7 @@ QPushButton:pressed {
      </widget>
     </item>
     <item row="7" column="15" colspan="5">
-     <widget class="QPushButton" name="Mul">
+     <widget class="QPushButton" name="Opr3">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
         <horstretch>100</horstretch>
@@ -232,6 +235,9 @@ QPushButton:pressed {
         <weight>50</weight>
         <bold>false</bold>
        </font>
+      </property>
+      <property name="whatsThis">
+       <string>*</string>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
@@ -316,7 +322,7 @@ QPushButton:pressed {
      </widget>
     </item>
     <item row="3" column="16" colspan="4">
-     <widget class="QPushButton" name="Pi">
+     <widget class="QPushButton" name="ConstPi">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
         <horstretch>0</horstretch>
@@ -543,7 +549,7 @@ QPushButton:pressed {
      </widget>
     </item>
     <item row="4" column="12" colspan="4">
-     <widget class="QPushButton" name="Fact">
+     <widget class="QPushButton" name="Opr12">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
         <horstretch>0</horstretch>
@@ -564,6 +570,9 @@ QPushButton:pressed {
         <italic>false</italic>
         <bold>false</bold>
        </font>
+      </property>
+      <property name="whatsThis">
+       <string>!</string>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
@@ -701,7 +710,7 @@ QPushButton:pressed {
      </widget>
     </item>
     <item row="2" column="0" colspan="4">
-     <widget class="QPushButton" name="Sin">
+     <widget class="QPushButton" name="Opr22">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
         <horstretch>0</horstretch>
@@ -722,6 +731,9 @@ QPushButton:pressed {
         <italic>false</italic>
         <bold>false</bold>
        </font>
+      </property>
+      <property name="whatsThis">
+       <string>sin</string>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
@@ -795,7 +807,7 @@ QPushButton:pressed {
      </widget>
     </item>
     <item row="4" column="8" colspan="4">
-     <widget class="QPushButton" name="Ln">
+     <widget class="QPushButton" name="Opr13">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
         <horstretch>0</horstretch>
@@ -816,6 +828,9 @@ QPushButton:pressed {
         <italic>false</italic>
         <bold>false</bold>
        </font>
+      </property>
+      <property name="whatsThis">
+       <string>ln</string>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
@@ -956,7 +971,7 @@ QPushButton:pressed {
      </widget>
     </item>
     <item row="3" column="12" colspan="4">
-     <widget class="QPushButton" name="Abs">
+     <widget class="QPushButton" name="Opr16">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
         <horstretch>0</horstretch>
@@ -977,6 +992,9 @@ QPushButton:pressed {
         <italic>false</italic>
         <bold>false</bold>
        </font>
+      </property>
+      <property name="whatsThis">
+       <string>abs</string>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
@@ -1096,7 +1114,7 @@ QPushButton:pressed {
      </widget>
     </item>
     <item row="2" column="4" colspan="4">
-     <widget class="QPushButton" name="Cos">
+     <widget class="QPushButton" name="Opr21">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
         <horstretch>0</horstretch>
@@ -1117,6 +1135,9 @@ QPushButton:pressed {
         <italic>false</italic>
         <bold>false</bold>
        </font>
+      </property>
+      <property name="whatsThis">
+       <string>cos</string>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
@@ -1167,7 +1188,7 @@ QPushButton:pressed {
      </widget>
     </item>
     <item row="5" column="4" colspan="4">
-     <widget class="QPushButton" name="Cube">
+     <widget class="QPushButton" name="Opr10">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
         <horstretch>0</horstretch>
@@ -1188,6 +1209,9 @@ QPushButton:pressed {
         <italic>false</italic>
         <bold>false</bold>
        </font>
+      </property>
+      <property name="whatsThis">
+       <string>^3</string>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
@@ -1215,7 +1239,7 @@ QPushButton:pressed {
      </widget>
     </item>
     <item row="2" column="8" colspan="4">
-     <widget class="QPushButton" name="Tan">
+     <widget class="QPushButton" name="Opr20">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
         <horstretch>0</horstretch>
@@ -1236,6 +1260,9 @@ QPushButton:pressed {
         <italic>false</italic>
         <bold>false</bold>
        </font>
+      </property>
+      <property name="whatsThis">
+       <string>tan</string>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
@@ -1499,7 +1526,7 @@ QPushButton:pressed {
      </widget>
     </item>
     <item row="3" column="8" colspan="4">
-     <widget class="QPushButton" name="Arctan">
+     <widget class="QPushButton" name="Opr17">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
         <horstretch>0</horstretch>
@@ -1520,6 +1547,9 @@ QPushButton:pressed {
         <italic>false</italic>
         <bold>false</bold>
        </font>
+      </property>
+      <property name="whatsThis">
+       <string>arctan</string>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
@@ -1547,7 +1577,7 @@ QPushButton:pressed {
      </widget>
     </item>
     <item row="5" column="12" colspan="4">
-     <widget class="QPushButton" name="NRoot">
+     <widget class="QPushButton" name="Opr8">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
         <horstretch>0</horstretch>
@@ -1568,6 +1598,9 @@ QPushButton:pressed {
         <italic>false</italic>
         <bold>false</bold>
        </font>
+      </property>
+      <property name="whatsThis">
+       <string>times root</string>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
@@ -1595,7 +1628,7 @@ QPushButton:pressed {
      </widget>
     </item>
     <item row="3" column="4" colspan="4">
-     <widget class="QPushButton" name="Arccos">
+     <widget class="QPushButton" name="Opr18">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
         <horstretch>0</horstretch>
@@ -1616,6 +1649,9 @@ QPushButton:pressed {
         <italic>false</italic>
         <bold>false</bold>
        </font>
+      </property>
+      <property name="whatsThis">
+       <string>arccos</string>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
@@ -1643,7 +1679,7 @@ QPushButton:pressed {
      </widget>
     </item>
     <item row="6" column="5" colspan="5">
-     <widget class="QPushButton" name="RightBrac">
+     <widget class="QPushButton" name="Opr6">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
         <horstretch>100</horstretch>
@@ -1663,6 +1699,9 @@ QPushButton:pressed {
         <weight>50</weight>
         <bold>false</bold>
        </font>
+      </property>
+      <property name="whatsThis">
+       <string>)</string>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
@@ -1896,7 +1935,7 @@ QPushButton:pressed {
      </widget>
     </item>
     <item row="9" column="15" colspan="5">
-     <widget class="QPushButton" name="Add">
+     <widget class="QPushButton" name="Opr1">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
         <horstretch>100</horstretch>
@@ -1916,6 +1955,9 @@ QPushButton:pressed {
         <weight>50</weight>
         <bold>false</bold>
        </font>
+      </property>
+      <property name="whatsThis">
+       <string>+</string>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
@@ -2009,7 +2051,7 @@ QPushButton:pressed {
      </widget>
     </item>
     <item row="3" column="0" colspan="4">
-     <widget class="QPushButton" name="Arcsin">
+     <widget class="QPushButton" name="Opr19">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
         <horstretch>0</horstretch>
@@ -2030,6 +2072,9 @@ QPushButton:pressed {
         <italic>false</italic>
         <bold>false</bold>
        </font>
+      </property>
+      <property name="whatsThis">
+       <string>arcsin</string>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
@@ -2080,7 +2125,7 @@ QPushButton:pressed {
      </widget>
     </item>
     <item row="5" column="0" colspan="4">
-     <widget class="QPushButton" name="Sqare">
+     <widget class="QPushButton" name="Opr11">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
         <horstretch>0</horstretch>
@@ -2101,6 +2146,9 @@ QPushButton:pressed {
         <italic>false</italic>
         <bold>false</bold>
        </font>
+      </property>
+      <property name="whatsThis">
+       <string>^2</string>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
@@ -2128,7 +2176,7 @@ QPushButton:pressed {
      </widget>
     </item>
     <item row="4" column="16" colspan="4">
-     <widget class="QPushButton" name="E">
+     <widget class="QPushButton" name="ConstE">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
         <horstretch>0</horstretch>
@@ -2254,7 +2302,7 @@ QPushButton:pressed {
      </widget>
     </item>
     <item row="8" column="15" colspan="5">
-     <widget class="QPushButton" name="Sub">
+     <widget class="QPushButton" name="Opr2">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
         <horstretch>100</horstretch>
@@ -2274,6 +2322,9 @@ QPushButton:pressed {
         <weight>50</weight>
         <bold>false</bold>
        </font>
+      </property>
+      <property name="whatsThis">
+       <string>-</string>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
@@ -2312,7 +2363,7 @@ QPushButton:pressed {
      </widget>
     </item>
     <item row="4" column="0" colspan="4">
-     <widget class="QPushButton" name="Basenlog">
+     <widget class="QPushButton" name="Opr15">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
         <horstretch>0</horstretch>
@@ -2333,6 +2384,9 @@ QPushButton:pressed {
         <italic>false</italic>
         <bold>false</bold>
        </font>
+      </property>
+      <property name="whatsThis">
+       <string>based log</string>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
@@ -2360,7 +2414,7 @@ QPushButton:pressed {
      </widget>
     </item>
     <item row="4" column="4" colspan="4">
-     <widget class="QPushButton" name="Lg">
+     <widget class="QPushButton" name="Opr14">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
         <horstretch>0</horstretch>
@@ -2381,6 +2435,9 @@ QPushButton:pressed {
         <italic>false</italic>
         <bold>false</bold>
        </font>
+      </property>
+      <property name="whatsThis">
+       <string>lg</string>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
@@ -2408,7 +2465,7 @@ QPushButton:pressed {
      </widget>
     </item>
     <item row="6" column="10" colspan="5">
-     <widget class="QPushButton" name="Pow">
+     <widget class="QPushButton" name="Opr5">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
         <horstretch>100</horstretch>
@@ -2428,6 +2485,9 @@ QPushButton:pressed {
         <weight>50</weight>
         <bold>false</bold>
        </font>
+      </property>
+      <property name="whatsThis">
+       <string>^</string>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
@@ -2466,7 +2526,7 @@ QPushButton:pressed {
      </widget>
     </item>
     <item row="6" column="0" colspan="5">
-     <widget class="QPushButton" name="LeftBrac">
+     <widget class="QPushButton" name="Opr7">
       <property name="enabled">
        <bool>true</bool>
       </property>
@@ -2489,6 +2549,9 @@ QPushButton:pressed {
         <weight>50</weight>
         <bold>false</bold>
        </font>
+      </property>
+      <property name="whatsThis">
+       <string>(</string>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
@@ -2527,7 +2590,7 @@ QPushButton:pressed {
      </widget>
     </item>
     <item row="6" column="15" colspan="5">
-     <widget class="QPushButton" name="Divide">
+     <widget class="QPushButton" name="Opr4">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
         <horstretch>100</horstretch>
@@ -2547,6 +2610,9 @@ QPushButton:pressed {
         <weight>50</weight>
         <bold>false</bold>
        </font>
+      </property>
+      <property name="whatsThis">
+       <string>/</string>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {

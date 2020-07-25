@@ -1,4 +1,5 @@
 #pragma once
+
 #include <QtWidgets>
 
 #define MAXQ 100
@@ -11,6 +12,7 @@ struct Node {
 	int type;
 };
 
+extern std::map<QString, int> priority;
 
 class ExprTree 
 {
@@ -29,9 +31,22 @@ public:
 	void enQueue(Node* N);
 
 	void buildTree();
+	Node* createInfix(int leftx, int rightx);
 
 	double evaluate();
 	double evaluate(double x);
+
+	inline int getSizeofQ()
+	{
+		return sizeofQ;
+	}
+
+	inline QString renewExpr()
+	{
+		QString Expr = "";
+		for (int i = 0; i < sizeofQ; i++) Expr += (Queue[i]->Element + " ");
+		return Expr;
+	}
 
 
 

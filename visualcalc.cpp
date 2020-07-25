@@ -16,17 +16,18 @@ VisualCalc::VisualCalc(QWidget* parent)
     ui->setupUi(this);
     ui->Val->setText(QString::number(calcVal));
 
-    QPushButton* numButtons[10];
+    QPushButton* numButtons[23];
     for (int i = 0; i < 10; ++i) {
         QString butname = "Button" + QString::number(i);
         numButtons[i] = VisualCalc::findChild<QPushButton*>(butname);
         connect(numButtons[i], SIGNAL(released()), this, SLOT(NumPressed()));
     }
     connect(ui->Dot, SIGNAL(released()), this, SLOT(NumPressed()));
-    connect(ui->Add, SIGNAL(released()), this, SLOT(MathButtonPressed()));
-    connect(ui->Sub, SIGNAL(released()), this, SLOT(MathButtonPressed()));
-    connect(ui->Mul, SIGNAL(released()), this, SLOT(MathButtonPressed()));
-    connect(ui->Divide, SIGNAL(released()), this, SLOT(MathButtonPressed()));
+    for (int i = 1; i <= 22; i++) {
+        QString butname = "Opr" + QString::number(i);
+        numButtons[i] = VisualCalc::findChild<QPushButton*>(butname);
+        connect(numButtons[i], SIGNAL(released()), this, SLOT(MathButtonPressed()));
+    }
 
     connect(ui->Equals, SIGNAL(released()), this, SLOT(EqualButtonPressed()));
     connect(ui->ChangeSign, SIGNAL(released()), this, SLOT(ChangeNumberSign()));
@@ -70,24 +71,27 @@ void VisualCalc::NumPressed()
 void VisualCalc::MathButtonPressed()
 {
     QString displayVal = ui->Val->text();
-    struct Node *N = new struct Node;
-    N->Element = displayVal;
-    N->type = Const;
-    N->LChild = N->RChild = NULL;
-    this->Tree->enQueue(N);
-    this->renewExpr(displayVal);
+    if (!displayVal.isEmpty() && !(this->Tree->getSizeofQ() == 0 && displayVal.toDouble() == 0))
+    {
+        struct Node* N = new struct Node;
+        N->Element = displayVal;
+        N->type = Const;
+        N->LChild = N->RChild = NULL;
+        this->Tree->enQueue(N);
+        ui->Expr->setText(this->Tree->renewExpr());
+    }
 
+    struct Node* N1 = new struct Node;
     QPushButton* button = (QPushButton*)sender();
-    QString butVal = button->text();
-    N->Element = butVal;
-    N->type = Const;
-    N->LChild = N->RChild = NULL;
-    this->Tree->enQueue(N);
-    this->renewExpr(butVal);
+    QString butVal = button->whatsThis();
+    N1->Element = butVal;
+    N1->type = Operator;
+    N1->LChild = N1->RChild = NULL;
+    this->Tree->enQueue(N1);
+    ui->Expr->setText(this->Tree->renewExpr());
 
-    delete N;
     
-    ui->Val->setText("0");
+    ui->Val->setText("");
 }
 
 void VisualCalc::EqualButtonPressed() {
@@ -98,9 +102,8 @@ void VisualCalc::EqualButtonPressed() {
     N->type = Const;
     N->LChild = N->RChild = NULL;
     this->Tree->enQueue(N);
-    this->renewExpr(displayVal);
+    ui->Expr->setText(this->Tree->renewExpr());
 
-    delete N;
     
     // Evaluation 
     this->Tree->buildTree();
