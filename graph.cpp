@@ -20,7 +20,7 @@ Graph::~Graph()
 
 double fx(double x)
 {
-    return x*x*x-6*x*x+9*x-1;
+    return x * x * x - 6 * x * x + 9 * x - 1;
 }
 
 void Graph::paintEvent(QPaintEvent*)
@@ -50,8 +50,8 @@ void Graph::paintEvent(QPaintEvent*)
     painter.setPen(Qt::red);
 
     
-    minX = -20; maxX = 20;
-    minY = -40; maxY = 40;
+    //minX = -20; maxX = 20;
+    //minY = -40; maxY = 40;
     for (int i = -width() / 2; i <= width() / 2; i++)
     {
         int j = i - 1;
@@ -64,18 +64,17 @@ void Graph::paintEvent(QPaintEvent*)
 void Graph::mousePressEvent(QMouseEvent *event){
 	if(event->button() == Qt::LeftButton){
 		startPos = event->pos();
-		isMoving = true;
 	}
 }
 void Graph::mouseMoveEvent(QMouseEvent *event){
-	if(true == isMoving){
+	if(event->buttons() & Qt::LeftButton){
 		QPointF point = event->pos() - startPos;
 		double deltaX = point.x() / width() * (maxX - minX);
 		double deltaY = point.y() / height() * (maxY - minY);
-		minX -= deltaX, minX -= deltaX, minY -= deltaY, maxY -= deltaY;
-		update();
+		minX -= deltaX, maxX -= deltaX, minY += deltaY, maxY += deltaY;
+        qDebug() << minX << "," << maxX <<","<<minY<<","<<maxY;
+        update();
 	}
 }
 void Graph::mouseReleaseEvent(QMouseEvent *event){
-	isMoving = false;
 }

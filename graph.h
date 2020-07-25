@@ -4,6 +4,7 @@
 #include <QDialog>
 #include <QMouseEvent>
 #include <QPointF>
+#include <QDebug>
 
 namespace Ui {
 class Graph;
@@ -20,10 +21,9 @@ public:
 private:
     Ui::Graph *ui;
 
-    double minX, minY, maxX, maxY;
+    double minX = -20, minY = -40, maxX = 20, maxY = 40;
     
     QPointF startPos;
-    bool isMoving;
 
 protected:
     void paintEvent(QPaintEvent*);
