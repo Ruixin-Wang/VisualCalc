@@ -56,7 +56,7 @@ class AddNode : public Node
 	Node *left, *right;
 public:
 	AddNode(Node *left, Node *right) : left(left), right(right) {}
-	~AddNode() {}
+	~AddNode();
 
 	virtual double eval() override;
 
@@ -70,7 +70,7 @@ class MutliplyNode : public Node
 	Node *left, *right;
 public:
 	MutliplyNode(Node* left, Node* right) : left(left), right(right) {}
-	~MutliplyNode() {}
+	~MutliplyNode();
 
 	virtual double eval() override;
 
@@ -84,7 +84,7 @@ class SinNode : public Node
 	Node *child;
 public:
 	SinNode(Node* child) : child(child) {}
-	~SinNode() {}
+	~SinNode();
 
 	virtual double eval() override;
 
@@ -99,7 +99,7 @@ class CosNode : public Node
 	Node* child;
 public:
 	CosNode(Node *child) : child(child) {}
-	~CosNode() {}
+	~CosNode();
 
 	virtual double eval() override;
 
