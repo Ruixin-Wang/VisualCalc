@@ -33,12 +33,23 @@ public:
 	void buildTree();
 	Node* createInfix(int leftx, int rightx);
 
-	double evaluate();
 	double evaluate(double x);
+	double eval(Node* N, double x);
 
 	inline int getSizeofQ()
 	{
 		return sizeofQ;
+	}
+
+	inline void clear()
+	{
+		sizeofQ = 0;
+		Queue[0]->Element = "";
+	}
+
+	inline void del()
+	{
+		sizeofQ--;
 	}
 
 	inline QString renewExpr()

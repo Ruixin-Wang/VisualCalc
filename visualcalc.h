@@ -32,6 +32,8 @@ private slots:
     void MathButtonPressed();
     void EqualButtonPressed();
     void ChangeNumberSign();
+    void DeleteButtonPressed();
+    void ClearButtonPressed();
 };
 
 

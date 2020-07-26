@@ -31,7 +31,8 @@ VisualCalc::VisualCalc(QWidget* parent)
 
     connect(ui->Equals, SIGNAL(released()), this, SLOT(EqualButtonPressed()));
     connect(ui->ChangeSign, SIGNAL(released()), this, SLOT(ChangeNumberSign()));
-
+    connect(ui->DEL, SIGNAL(released()), this, SLOT(DeleteButtonPressed()));
+    connect(ui->AC, SIGNAL(released()), this, SLOT(ClearButtonPressed()));
 
     Tree = new ExprTree;
 }
@@ -107,10 +108,11 @@ void VisualCalc::EqualButtonPressed() {
     
     // Evaluation 
     this->Tree->buildTree();
-    solution = this->Tree->evaluate();
+    solution = this->Tree->evaluate(0);
 
 
     ui->Val->setText(QString::number(solution));
+    this->Tree->clear();
 }
 
 void VisualCalc::ChangeNumberSign()
@@ -125,6 +127,28 @@ void VisualCalc::ChangeNumberSign()
     }
 }
 
+void VisualCalc::DeleteButtonPressed()
+{
+    QString displayVal = ui->Val->text();
+    if (displayVal.compare(""))
+    {
+        displayVal.chop(1);
+        ui->Val->setText(displayVal);
+    }
+    else
+    {
+        this->Tree->del();
+        ui->Expr->setText(this->Tree->renewExpr());
+    }
+
+}
+
+void VisualCalc::ClearButtonPressed()
+{
+    this->Tree->clear();
+    ui->Val->setText("0");
+    ui->Expr->setText(this->Tree->renewExpr());
+}
 
 void VisualCalc::on_Generate_clicked()
 {
