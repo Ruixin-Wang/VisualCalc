@@ -244,6 +244,9 @@ void VisualCalc::EqualButtonPressed() {
     // when x=0?
     solution = this->Tree->evaluate();
 
+    // used to test derivate toString function
+    // Node* testD = this->Tree->derivate("x");
+    // testD->toString();
 
     ui->Val->setText(QString::number(solution));
     ui->Val1->setText(QString::number(solution));
