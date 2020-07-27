@@ -3,6 +3,7 @@
 #include <QtWidgets/QMainWindow>
 #include "ui_VisualCalc.h"
 #include "visualcalc.h"
+#include "ExprTree.h"
 #include "graph.h"
 
 QT_BEGIN_NAMESPACE 
@@ -23,12 +24,16 @@ private slots:
 
 private:
     Ui::VisualCalc *ui;
+    ExprTree *Tree;
+
 
 private slots:
     void NumPressed();
     void MathButtonPressed();
     void EqualButtonPressed();
     void ChangeNumberSign();
+    void DeleteButtonPressed();
+    void ClearButtonPressed();
 };
 
 
