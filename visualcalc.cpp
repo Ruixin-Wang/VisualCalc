@@ -87,7 +87,12 @@ void VisualCalc::MathButtonPressed()
     QPushButton* button = (QPushButton*)sender();
     QString butVal = button->whatsThis();
     // TODO: complete, and what to compare
-    if (butVal == QString::fromStdString("+")) 
+    if (butVal == QString::fromStdString("x"))
+    {
+        Node* N1 = new VarNode("x"); 
+        this->Tree->enQueue(N1);
+    }
+    else if (butVal == QString::fromStdString("+")) 
     {
         Node* N1 = new AddNode(nullptr, nullptr);
         this->Tree->enQueue(N1);
@@ -105,6 +110,12 @@ void VisualCalc::MathButtonPressed()
     else if (butVal == QString::fromStdString("cos"))
     {
         Node* N1 = new CosNode(nullptr);
+        this->Tree->enQueue(N1);
+    }
+    // unknown symbol treated as new variables
+    else
+    {
+        Node* N1 = new VarNode(butVal.toStdString());
         this->Tree->enQueue(N1);
     }
     ui->Expr->setText(this->Tree->renewExpr());

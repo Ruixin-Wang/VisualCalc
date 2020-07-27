@@ -236,3 +236,28 @@ double ExprTree::evaluate()
 	// Driving Function
 	return eval(this->Tree);
 }
+
+double ExprTree::evaluate(double xValue)
+{
+	variables["x"] = xValue;
+	return eval(this->Tree);
+}
+
+double ExprTree::evaluate(std::string x, double xValue)
+{
+	variables[x] = xValue;
+	return eval(this->Tree);
+}
+double ExprTree::evaluate(double xValue, double yValue)
+{
+	variables["x"] = xValue;
+	variables["y"] = yValue;
+	return eval(this->Tree);
+}
+
+double ExprTree::evaluate(std::string x, double xValue, std::string y, double yValue)
+{
+	variables[x] = xValue;
+	variables[y] = yValue;
+	return eval(this->Tree);
+}

@@ -191,6 +191,10 @@ public:
 
 	// for variable, define its value using map 'variables'
 	double evaluate();
+	double evaluate(double xValue);
+	double evaluate(std::string x, double xValue);
+	double evaluate(double xValue, double yValue);
+	double evaluate(std::string x, double xValue, std::string y, double yValue);
 	double eval(Node* N);
 
 	inline int getSizeofQ()
