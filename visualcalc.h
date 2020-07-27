@@ -3,7 +3,7 @@
 #include <QtWidgets/QMainWindow>
 #include "ui_VisualCalc.h"
 #include "visualcalc.h"
-#include "ExprTree.h"
+#include "Node.h"
 #include "graph.h"
 
 QT_BEGIN_NAMESPACE 
