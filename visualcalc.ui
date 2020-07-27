@@ -3160,11 +3160,6 @@ QPushButton:pressed {
           </column>
           <column>
            <property name="text">
-            <string>x1</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
             <string>y</string>
            </property>
           </column>

@@ -11,9 +11,8 @@ bool addTrig = false;
 bool subTrig = false;
 
 std::vector<double> x_;
-std::vector<double> x1_;
 std::vector<double> y_;
-bool x_enable, x1_enable, y_enable;
+bool x_enable, y_enable;
 
 
 
@@ -191,7 +190,7 @@ void VisualCalc::initTable()
 {
     QTableWidgetItem* header;
     QStringList header_txt;
-    header_txt << "    x    " << "    x1    " << "    y    ";
+    header_txt << "    x    " << "    y    ";
     ui->Stat_Table_Widget->setHorizontalHeaderLabels(header_txt);
     ui->Stat_Table_Widget->setColumnCount(header_txt.count());
     for (int i = 0; i < ui->Stat_Table_Widget->columnCount(); i++)
@@ -232,7 +231,7 @@ void VisualCalc::StatDelData()
 void VisualCalc::StatAnalysis()
 {
 
-    x_enable =  x1_enable = y_enable = true;
+    x_enable = y_enable = true;
     QTableWidgetItem* cellItem;
     for (int i = 0; i < ui->Stat_Table_Widget->rowCount(); i++)
     {
@@ -240,9 +239,6 @@ void VisualCalc::StatAnalysis()
         if (cellItem) x_.push_back(cellItem->text().toDouble());
         else x_enable = false;
         cellItem = ui->Stat_Table_Widget->item(i, 1);
-        if (cellItem) x1_.push_back(cellItem->text().toDouble());
-        else x1_enable = false;
-        cellItem = ui->Stat_Table_Widget->item(i, 2);
         if (cellItem) y_.push_back(cellItem->text().toDouble());
         else y_enable = false;
     }

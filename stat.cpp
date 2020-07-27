@@ -3,25 +3,8 @@
 
 
 extern std::vector<double> x_;
-extern std::vector<double> x1_;
 extern std::vector<double> y_;
-extern bool x_enable, x1_enable, y_enable;
-
-Stat::Stat(QWidget* parent) : 
-    QDialog(parent),
-    ui(new Ui::Stat)
-{
-    ui->setupUi(this);
-
-
-}
-
-Stat::~Stat()
-{
-    delete ui;
-}
-
-
+extern bool x_enable, y_enable;
 
 
 #include "statistic.h"
@@ -393,6 +376,62 @@ double stat_SimpleLinearRegression(vector<double> const x, vector<double> const 
     return r;
 }
 
+double stat_SimpleLinearRegression_alpha(vector<double> const x, vector<double> const y)
+{
+    if (x.size() == 0 || y.size() == 0)
+    {
+        //        cout<<"Error: 0 size";
+        exit(1);
+    }
+    if (x.size() != y.size())
+    {
+        //        cout<<"Error: Unequal size";
+        exit(2);
+    }
+
+    int num = x.size();
+    double cross = 0;
+    for (int i = 0; i < num; i++)
+    {
+        cross += x[i] * y[i];
+    }
+    double sx = stat_Sum(x), sy = stat_Sum(y), x2 = stat_CentralMoment(x, 2), y2 = stat_CentralMoment(y, 2),
+        mx = stat_MeanValue(x), my = stat_MeanValue(y);
+    double beta = (num * cross - sx * sy) / (num * x2 - sx * sx);
+    double alpha = my - beta * mx;
+    double r = (cross / num - mx * my) / sqrt((x2 / num - mx * mx) * (y2 / num - my * my));
+
+    return alpha;
+}
+
+double stat_SimpleLinearRegression_beta(vector<double> const x, vector<double> const y)
+{
+    if (x.size() == 0 || y.size() == 0)
+    {
+        //        cout<<"Error: 0 size";
+        exit(1);
+    }
+    if (x.size() != y.size())
+    {
+        //        cout<<"Error: Unequal size";
+        exit(2);
+    }
+
+    int num = x.size();
+    double cross = 0;
+    for (int i = 0; i < num; i++)
+    {
+        cross += x[i] * y[i];
+    }
+    double sx = stat_Sum(x), sy = stat_Sum(y), x2 = stat_CentralMoment(x, 2), y2 = stat_CentralMoment(y, 2),
+        mx = stat_MeanValue(x), my = stat_MeanValue(y);
+    double beta = (num * cross - sx * sy) / (num * x2 - sx * sx);
+    double alpha = my - beta * mx;
+    double r = (cross / num - mx * my) / sqrt((x2 / num - mx * mx) * (y2 / num - my * my));
+
+    return beta;
+}
+
 
 // Hypothesis Test
 
@@ -421,4 +460,93 @@ double stat_ChiUniformTest(vector<double> const observed)
         chisquare += (n - expected) * (n - expected) / expected;
         });
     return chisquare;
+}
+
+
+Stat::Stat(QWidget* parent) :
+    QDialog(parent),
+    ui(new Ui::Stat)
+{
+    ui->setupUi(this);
+    if (x_enable) {
+        ui->lineEdit->setText(QString::number(stat_Sum(x_)));
+        ui->lineEdit_2->setText(QString::number(stat_MeanValue(x_)));
+        ui->lineEdit_7->setText(QString::number(stat_HarmonicMean(x_)));
+        ui->lineEdit_8->setText(QString::number(stat_GeometricMean(x_)));
+        ui->lineEdit_3->setText(QString::number(stat_Variance(x_)));
+        ui->lineEdit_4->setText(QString::number(stat_StandardDeviation(x_)));
+        ui->lineEdit_5->setText(QString::number(stat_Maxima(x_)));
+        ui->lineEdit_6->setText(QString::number(stat_Minima(x_)));
+        ui->lineEdit_9->setText(QString::number(stat_Skewness(x_)));
+        ui->lineEdit_10->setText(QString::number(stat_Kurtosis(x_)));
+        ui->lineEdit_11->setText(QString::number(stat_CoefficientOfVariance(x_)));
+    }
+    if (y_enable) {
+        ui->lineEdit_16->setText(QString::number(stat_Sum(y_)));
+        ui->lineEdit_15->setText(QString::number(stat_MeanValue(y_)));
+        ui->lineEdit_21->setText(QString::number(stat_HarmonicMean(y_)));
+        ui->lineEdit_25->setText(QString::number(stat_GeometricMean(y_)));
+        ui->lineEdit_14->setText(QString::number(stat_Variance(y_)));
+        ui->lineEdit_13->setText(QString::number(stat_StandardDeviation(y_)));
+        ui->lineEdit_17->setText(QString::number(stat_Maxima(y_)));
+        ui->lineEdit_18->setText(QString::number(stat_Minima(y_)));
+        ui->lineEdit_28->setText(QString::number(stat_Skewness(y_)));
+        ui->lineEdit_29->setText(QString::number(stat_Kurtosis(y_)));
+        ui->lineEdit_30->setText(QString::number(stat_CoefficientOfVariance(y_)));
+    }
+    connect(ui->pushButton, SIGNAL(released()), this, SLOT(ExecQuantile()));
+    connect(ui->pushButton_2, SIGNAL(released()), this, SLOT(ExecCM()));
+    connect(ui->pushButton_4, SIGNAL(released()), this, SLOT(ExecTT()));
+    connect(ui->pushButton_3, SIGNAL(released()), this, SLOT(ExecLinearA()));
+}
+
+Stat::~Stat()
+{
+    delete ui;
+}
+
+
+void Stat::ExecQuantile()
+{
+    int m = ui->lineEdit_19->text().toInt();
+    int k = ui->lineEdit_20->text().toInt();
+    if (m != 0 && k != 0)
+    {
+        if (x_enable) ui->lineEdit_22->setText(QString::number(stat_Quantile(x_, k, m)));
+        if (y_enable) ui->lineEdit_23->setText(QString::number(stat_Quantile(y_, k, m)));
+    }
+}
+
+void Stat::ExecCM()
+{
+    int k = ui->lineEdit_26->text().toInt();
+    if (k != 0)
+    {
+        if (x_enable) ui->lineEdit_27->setText(QString::number(stat_CentralMoment(x_, k)));
+        if (y_enable) ui->lineEdit_24->setText(QString::number(stat_CentralMoment(y_, k)));
+    }
+}
+
+void Stat::ExecLinearA()
+{
+    if (x_enable && y_enable)
+    {
+        ui->lineEdit_33->setText(QString::number(stat_SimpleLinearRegression_alpha(x_, y_)));
+        ui->lineEdit_31->setText(QString::number(stat_SimpleLinearRegression_beta(x_, y_)));
+        ui->lineEdit_32->setText(QString::number(stat_SimpleLinearRegression(x_, y_)));
+        ui->lineEdit_38->setText(QString::number(stat_Covariance(x_, y_)));
+    }
+}
+
+void Stat::ExecTT()
+{
+    int mux = ui->lineEdit_34->text().toInt();
+    if (mux != 0)
+    {
+        if (x_enable) ui->lineEdit_35->setText(QString::number(stat_TTest(x_, mux)));
+        if (y_enable) ui->lineEdit_36->setText(QString::number(stat_TTest(y_, mux)));
+    }
+    if (x_enable && y_enable)        
+    ui->lineEdit_37->setText(QString::number(stat_TTest(x_, y_)));
+
 }

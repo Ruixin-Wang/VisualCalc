@@ -16,6 +16,12 @@ public:
 private:
     Ui::Stat* ui;
 
+private slots:
+    void ExecQuantile();
+    void ExecCM();
+    void ExecTT();
+    void ExecLinearA();
+
 
 
 };
