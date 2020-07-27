@@ -73,7 +73,6 @@ void Graph::mouseMoveEvent(QMouseEvent *event){
 		double deltaY = point.y() / height() * (maxY - minY);
 		minX -= deltaX, maxX -= deltaX, minY += deltaY, maxY += deltaY;
         qDebug() << minX << "," << maxX <<","<<minY<<","<<maxY;
-        update();
 	}
 }
 void Graph::mouseReleaseEvent(QMouseEvent *event){

@@ -50,6 +50,9 @@
     <ClCompile Include="ExprTree.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="stat.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="dialog.ui">
@@ -61,14 +64,23 @@
     <QtUic Include="visualcalc.ui">
       <Filter>Form Files</Filter>
     </QtUic>
+    <QtUic Include="stat.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="graph.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="stat.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ExprTree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="statistic.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

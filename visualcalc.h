@@ -5,6 +5,7 @@
 #include "visualcalc.h"
 #include "ExprTree.h"
 #include "graph.h"
+#include "stat.h"
 
 QT_BEGIN_NAMESPACE 
 namespace Ui { class VisualCalc; }
@@ -17,7 +18,11 @@ class VisualCalc : public QMainWindow
 public:
     explicit VisualCalc(QWidget *parent = Q_NULLPTR);
     ~VisualCalc();
+
     Graph* new_graph;
+    Stat* new_stat;
+
+    void initTable();
 
 private slots:
     void on_Generate_clicked();
@@ -27,6 +32,7 @@ private:
     ExprTree *Tree;
 
 
+
 private slots:
     void NumPressed();
     void MathButtonPressed();
@@ -34,6 +40,11 @@ private slots:
     void ChangeNumberSign();
     void DeleteButtonPressed();
     void ClearButtonPressed();
+
+private slots:
+    void StatAddData();
+    void StatDelData();
+    void StatAnalysis();
 };
 
 
