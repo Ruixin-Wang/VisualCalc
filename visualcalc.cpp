@@ -1,5 +1,6 @@
 #include "VisualCalc.h"
 #include "ui_VisualCalc.h"
+#include <vector>
 
 #include "Node.h"
 
@@ -9,7 +10,14 @@ bool mulTrig = false;
 bool addTrig = false;
 bool subTrig = false;
 
+std::vector<double> x_;
+std::vector<double> y_;
+bool x_enable, y_enable;
+
+
+
 std::map<std::string, int> variables;
+
 
 VisualCalc::VisualCalc(QWidget* parent)
     : QMainWindow(parent),
@@ -17,6 +25,7 @@ VisualCalc::VisualCalc(QWidget* parent)
 {
     ui->setupUi(this);
     ui->Val->setText(QString::number(calcVal));
+    ui->Val1->setText(QString::number(calcVal));
 
     QPushButton* numButtons[23];
     for (int i = 0; i < 10; ++i) {
@@ -35,9 +44,14 @@ VisualCalc::VisualCalc(QWidget* parent)
     connect(ui->ChangeSign, SIGNAL(released()), this, SLOT(ChangeNumberSign()));
     connect(ui->DEL, SIGNAL(released()), this, SLOT(DeleteButtonPressed()));
     connect(ui->AC, SIGNAL(released()), this, SLOT(ClearButtonPressed()));
+    connect(ui->Stat_Add_Data, SIGNAL(released()), this, SLOT(StatAddData()));
+    connect(ui->Stat_Analysis, SIGNAL(released()), this, SLOT(StatAnalysis()));
+    connect(ui->Stat_Del_Data, SIGNAL(released()), this, SLOT(StatDelData()));
 
     // used to build Tree
     Tree = new ExprTree;
+
+    initTable();
 }
 
 VisualCalc::~VisualCalc()
@@ -55,19 +69,26 @@ void VisualCalc::NumPressed()
         if (!butVal.compare(".")) 
         {
             ui->Val->setText("0.");
+            ui->Val1->setText("0.");
         }
         else if (!ui->Val->text().compare("0."))
         {
             QString newVal = displayVal + butVal;
             double dblNewVal = newVal.toDouble();
             ui->Val->setText(newVal);
-        } else 
-        ui->Val->setText(butVal);
+            ui->Val1->setText(newVal);
+        }
+        else
+        {
+            ui->Val->setText(butVal);
+            ui->Val1->setText(butVal);
+        }
     }
     else {
         QString newVal = displayVal + butVal;
         double dblNewVal = newVal.toDouble();
         ui->Val->setText(newVal);
+        ui->Val1->setText(newVal);
     }
 }
 
@@ -81,6 +102,7 @@ void VisualCalc::MathButtonPressed()
         Node* N = new ConstNode(displayVal.toDouble());
         this->Tree->enQueue(N);
         ui->Expr->setText(this->Tree->renewExpr());
+        ui->Expr1->setText(this->Tree->renewExpr());
     }
 
     
@@ -199,9 +221,12 @@ void VisualCalc::MathButtonPressed()
         this->Tree->enQueue(N1);
     }
     ui->Expr->setText(this->Tree->renewExpr());
+    ui->Expr1->setText(this->Tree->renewExpr());
 
     
     ui->Val->setText("");
+    ui->Val1->setText("");
+
 }
 
 void VisualCalc::EqualButtonPressed() {
@@ -210,6 +235,7 @@ void VisualCalc::EqualButtonPressed() {
     Node* N = new ConstNode(displayVal.toDouble());
     this->Tree->enQueue(N);
     ui->Expr->setText(this->Tree->renewExpr());
+    ui->Expr1->setText(this->Tree->renewExpr());
 
     
     // Evaluation 
@@ -218,8 +244,12 @@ void VisualCalc::EqualButtonPressed() {
     // when x=0?
     solution = this->Tree->evaluate();
 
+    // used to test derivate toString function
+    // Node* testD = this->Tree->derivate("x");
+    // testD->toString();
 
     ui->Val->setText(QString::number(solution));
+    ui->Val1->setText(QString::number(solution));
     this->Tree->clear();
 }
 
@@ -232,6 +262,7 @@ void VisualCalc::ChangeNumberSign()
         double dblDisplayVal = displayVal.toDouble();
         double dblDisplayValSign = -1 * dblDisplayVal;
         ui->Val->setText(QString::number(dblDisplayValSign));
+        ui->Val1->setText(QString::number(dblDisplayValSign));
     }
 }
 
@@ -242,11 +273,13 @@ void VisualCalc::DeleteButtonPressed()
     {
         displayVal.chop(1);
         ui->Val->setText(displayVal);
+        ui->Val1->setText(displayVal);
     }
     else
     {
         this->Tree->del();
         ui->Expr->setText(this->Tree->renewExpr());
+        ui->Expr1->setText(this->Tree->renewExpr());
     }
 
 }
@@ -255,11 +288,73 @@ void VisualCalc::ClearButtonPressed()
 {
     this->Tree->clear();
     ui->Val->setText("0");
+    ui->Val1->setText("0");
     ui->Expr->setText(this->Tree->renewExpr());
+    ui->Expr1->setText(this->Tree->renewExpr());
 }
 
 void VisualCalc::on_Generate_clicked()
 {
     new_graph = new Graph;
     new_graph->show();
+}
+
+void VisualCalc::initTable()
+{
+    QTableWidgetItem* header;
+    QStringList header_txt;
+    header_txt << "    x    " << "    y    ";
+    ui->Stat_Table_Widget->setHorizontalHeaderLabels(header_txt);
+    ui->Stat_Table_Widget->setColumnCount(header_txt.count());
+    for (int i = 0; i < ui->Stat_Table_Widget->columnCount(); i++)
+    {
+        header = new QTableWidgetItem(header_txt.at(i));
+        QFont font = header->font();
+        font.setBold(true);
+        font.setPointSize(9);
+        header->setFont(font);
+        header->setBackground(QBrush(QColor(169, 204, 227)));
+        ui->Stat_Table_Widget->setHorizontalHeaderItem(i, header);
+    }
+    ui->Stat_Table_Widget->setAlternatingRowColors(true);
+    ui->Stat_Table_Widget->resizeColumnsToContents();
+    ui->Stat_Table_Widget->resizeRowsToContents();
+    ui->Stat_Table_Widget->verticalHeader()->setVisible(false);
+}
+
+void VisualCalc::StatAddData()
+{
+    int curRow = ui->Stat_Table_Widget->rowCount();
+    ui->Stat_Table_Widget->insertRow(curRow);
+    QTableWidgetItem* item = nullptr;
+    for (int i = 0; i < 3; i++)
+    {
+        item = new QTableWidgetItem();
+        ui->Stat_Table_Widget->setItem(curRow + 1, i, item);
+    }
+}
+
+void VisualCalc::StatDelData()
+{
+    int curRow = ui->Stat_Table_Widget->currentRow();
+    ui->Stat_Table_Widget->removeRow(curRow);
+    
+}
+
+void VisualCalc::StatAnalysis()
+{
+
+    x_enable = y_enable = true;
+    QTableWidgetItem* cellItem;
+    for (int i = 0; i < ui->Stat_Table_Widget->rowCount(); i++)
+    {
+        cellItem = ui->Stat_Table_Widget->item(i, 0);
+        if (cellItem) x_.push_back(cellItem->text().toDouble());
+        else x_enable = false;
+        cellItem = ui->Stat_Table_Widget->item(i, 1);
+        if (cellItem) y_.push_back(cellItem->text().toDouble());
+        else y_enable = false;
+    }
+    new_stat = new Stat;
+    new_stat->show();
 }

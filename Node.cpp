@@ -4,6 +4,7 @@
 const double EPS = 0.001;
 const double PI = 3.1415926;
 const double EulerMascheroni = 0.57721566490153286060651209;
+QString toStringExpression = "";
 
 typedef enum {
 	_add, _sub, _mul, _div, _lg, _log, _ln, _abs, _atan, _acos, _asin, _tan, _cos,
@@ -718,4 +719,32 @@ double ExprTree::evaluate(std::string x, double xValue, std::string y, double yV
 	variables[x] = xValue;
 	variables[y] = yValue;
 	return eval(this->Tree);
+}
+
+
+
+double Node::eval(double xValue)
+{
+	variables["x"] = xValue;
+	return eval();
+}
+
+double Node::eval(std::string x, double xValue)
+{
+	variables[x] = xValue;
+	return eval();
+}
+
+double Node::eval(double xValue, double yValue)
+{
+	variables["x"] = xValue;
+	variables["y"] = yValue;
+	return eval();
+}
+
+double Node::eval(std::string x, double xValue, std::string y, double yValue)
+{
+	variables[x] = xValue;
+	variables[y] = yValue;
+	return eval();
 }
