@@ -1,5 +1,6 @@
 #include "Node.h"
 
+//test
 const double EPS = 0.001;
 const double PI = 3.1415926;
 const double EulerMascheroni = 0.57721566490153286060651209;
