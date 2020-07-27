@@ -107,7 +107,7 @@ double stat_Minima(vector<double> const x)
         exit(1);
     }
 
-    double min;
+    double min = INFINITY;
     for_each(x.begin(), x.end(), [&](int n) {
         min = (min < n) ? min : n;
         });

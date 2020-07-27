@@ -10,6 +10,9 @@ Graph::Graph(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    Graph::setMouseTracking(true);
+    connect(this, SIGNAL(mouseMove(QMouseEvent*)), this, SLOT(draw(QMouseEvent*)));
+
     
 }
 
@@ -67,6 +70,7 @@ void Graph::mousePressEvent(QMouseEvent *event){
 	}
 }
 void Graph::mouseMoveEvent(QMouseEvent *event){
+    emit mouseMove(event);
 	if(event->buttons() & Qt::LeftButton){
 		QPointF point = event->pos() - startPos;
 		double deltaX = point.x() / width() * (maxX - minX);
@@ -76,4 +80,8 @@ void Graph::mouseMoveEvent(QMouseEvent *event){
 	}
 }
 void Graph::mouseReleaseEvent(QMouseEvent *event){
+}
+void Graph::draw(QMouseEvent* event) {
+    repaint(0, 0, width(), height());
+    qDebug() << "update";
 }

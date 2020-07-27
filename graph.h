@@ -25,6 +25,13 @@ private:
     
     QPointF startPos;
 
+
+private slots:
+    void draw(QMouseEvent* event);
+
+signals:
+    void mouseMove(QMouseEvent* event);
+
 protected:
     void paintEvent(QPaintEvent*);
     void mousePressEvent(QMouseEvent *event);

@@ -25,6 +25,7 @@ VisualCalc::VisualCalc(QWidget* parent)
 {
     ui->setupUi(this);
     ui->Val->setText(QString::number(calcVal));
+    ui->Val1->setText(QString::number(calcVal));
 
     QPushButton* numButtons[23];
     for (int i = 0; i < 10; ++i) {
@@ -68,19 +69,26 @@ void VisualCalc::NumPressed()
         if (!butVal.compare(".")) 
         {
             ui->Val->setText("0.");
+            ui->Val1->setText("0.");
         }
         else if (!ui->Val->text().compare("0."))
         {
             QString newVal = displayVal + butVal;
             double dblNewVal = newVal.toDouble();
             ui->Val->setText(newVal);
-        } else 
-        ui->Val->setText(butVal);
+            ui->Val1->setText(newVal);
+        }
+        else
+        {
+            ui->Val->setText(butVal);
+            ui->Val1->setText(butVal);
+        }
     }
     else {
         QString newVal = displayVal + butVal;
         double dblNewVal = newVal.toDouble();
         ui->Val->setText(newVal);
+        ui->Val1->setText(newVal);
     }
 }
 
@@ -94,6 +102,7 @@ void VisualCalc::MathButtonPressed()
         Node* N = new ConstNode(displayVal.toDouble());
         this->Tree->enQueue(N);
         ui->Expr->setText(this->Tree->renewExpr());
+        ui->Expr1->setText(this->Tree->renewExpr());
     }
 
     
@@ -212,9 +221,12 @@ void VisualCalc::MathButtonPressed()
         this->Tree->enQueue(N1);
     }
     ui->Expr->setText(this->Tree->renewExpr());
+    ui->Expr1->setText(this->Tree->renewExpr());
 
     
     ui->Val->setText("");
+    ui->Val1->setText("");
+
 }
 
 void VisualCalc::EqualButtonPressed() {
@@ -223,6 +235,7 @@ void VisualCalc::EqualButtonPressed() {
     Node* N = new ConstNode(displayVal.toDouble());
     this->Tree->enQueue(N);
     ui->Expr->setText(this->Tree->renewExpr());
+    ui->Expr1->setText(this->Tree->renewExpr());
 
     
     // Evaluation 
@@ -233,6 +246,7 @@ void VisualCalc::EqualButtonPressed() {
 
 
     ui->Val->setText(QString::number(solution));
+    ui->Val1->setText(QString::number(solution));
     this->Tree->clear();
 }
 
@@ -245,6 +259,7 @@ void VisualCalc::ChangeNumberSign()
         double dblDisplayVal = displayVal.toDouble();
         double dblDisplayValSign = -1 * dblDisplayVal;
         ui->Val->setText(QString::number(dblDisplayValSign));
+        ui->Val1->setText(QString::number(dblDisplayValSign));
     }
 }
 
@@ -255,11 +270,13 @@ void VisualCalc::DeleteButtonPressed()
     {
         displayVal.chop(1);
         ui->Val->setText(displayVal);
+        ui->Val1->setText(displayVal);
     }
     else
     {
         this->Tree->del();
         ui->Expr->setText(this->Tree->renewExpr());
+        ui->Expr1->setText(this->Tree->renewExpr());
     }
 
 }
@@ -268,7 +285,9 @@ void VisualCalc::ClearButtonPressed()
 {
     this->Tree->clear();
     ui->Val->setText("0");
+    ui->Val1->setText("0");
     ui->Expr->setText(this->Tree->renewExpr());
+    ui->Expr1->setText(this->Tree->renewExpr());
 }
 
 void VisualCalc::on_Generate_clicked()

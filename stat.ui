@@ -1091,43 +1091,6 @@ background-color: #fbfcfc;</string>
      </property>
     </widget>
    </item>
-   <item row="13" column="0">
-    <widget class="QPushButton" name="pushButton">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="font">
-      <font>
-       <family>Arial</family>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton{
-	background-color:#EAF2F8;   
-	border: 1px groove #A9CCE3 ; 
-	border-style: outset;
-}
-QPushButton:hover {
-	background-color:#D4E6F1; 
-	color: black;
-}
-QPushButton:pressed{
-	background-color:#A9CCE3; 
-	border-style: inset;
-}
-
-</string>
-     </property>
-     <property name="text">
-      <string>OK</string>
-     </property>
-    </widget>
-   </item>
    <item row="13" column="3" colspan="3">
     <widget class="QLineEdit" name="lineEdit_22">
      <property name="enabled">
@@ -1245,43 +1208,6 @@ QPushButton:pressed{
      </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-     </property>
-    </widget>
-   </item>
-   <item row="15" column="0">
-    <widget class="QPushButton" name="pushButton_2">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="font">
-      <font>
-       <family>Arial</family>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton{
-	background-color:#EAF2F8;   
-	border: 1px groove #A9CCE3 ; 
-	border-style: outset;
-}
-QPushButton:hover {
-	background-color:#D4E6F1; 
-	color: black;
-}
-QPushButton:pressed{
-	background-color:#A9CCE3; 
-	border-style: inset;
-}
-
-</string>
-     </property>
-     <property name="text">
-      <string>OK</string>
      </property>
     </widget>
    </item>
@@ -1655,43 +1581,6 @@ QPushButton:pressed{
      </property>
     </widget>
    </item>
-   <item row="20" column="0">
-    <widget class="QPushButton" name="pushButton_4">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="font">
-      <font>
-       <family>Arial</family>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton{
-	background-color:#EAF2F8;   
-	border: 1px groove #A9CCE3 ; 
-	border-style: outset;
-}
-QPushButton:hover {
-	background-color:#D4E6F1; 
-	color: black;
-}
-QPushButton:pressed{
-	background-color:#A9CCE3; 
-	border-style: inset;
-}
-
-</string>
-     </property>
-     <property name="text">
-      <string>OK</string>
-     </property>
-    </widget>
-   </item>
    <item row="20" column="3" colspan="3">
     <widget class="QLineEdit" name="lineEdit_35">
      <property name="enabled">
@@ -1838,6 +1727,117 @@ QPushButton:pressed{
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item row="13" column="0" colspan="2">
+    <widget class="QPushButton" name="pushButton">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+	background-color:#EAF2F8;   
+	border: 1px groove #A9CCE3 ; 
+	border-style: outset;
+}
+QPushButton:hover {
+	background-color:#D4E6F1; 
+	color: black;
+}
+QPushButton:pressed{
+	background-color:#A9CCE3; 
+	border-style: inset;
+}
+
+</string>
+     </property>
+     <property name="text">
+      <string>OK</string>
+     </property>
+    </widget>
+   </item>
+   <item row="15" column="0" colspan="2">
+    <widget class="QPushButton" name="pushButton_2">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+	background-color:#EAF2F8;   
+	border: 1px groove #A9CCE3 ; 
+	border-style: outset;
+}
+QPushButton:hover {
+	background-color:#D4E6F1; 
+	color: black;
+}
+QPushButton:pressed{
+	background-color:#A9CCE3; 
+	border-style: inset;
+}
+
+</string>
+     </property>
+     <property name="text">
+      <string>OK</string>
+     </property>
+    </widget>
+   </item>
+   <item row="20" column="0" colspan="2">
+    <widget class="QPushButton" name="pushButton_4">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+	background-color:#EAF2F8;   
+	border: 1px groove #A9CCE3 ; 
+	border-style: outset;
+}
+QPushButton:hover {
+	background-color:#D4E6F1; 
+	color: black;
+}
+QPushButton:pressed{
+	background-color:#A9CCE3; 
+	border-style: inset;
+}
+
+</string>
+     </property>
+     <property name="text">
+      <string>OK</string>
      </property>
     </widget>
    </item>
