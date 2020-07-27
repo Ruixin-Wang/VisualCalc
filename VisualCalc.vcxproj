@@ -105,12 +105,12 @@
     <QtUic Include="dialog.ui" />
     <QtUic Include="graph.ui" />
     <QtMoc Include="visualcalc.h" />
-    <ClCompile Include="ExprTree.cpp" />
     <ClCompile Include="graph.cpp" />
+    <ClCompile Include="Node.cpp" />
     <ClCompile Include="visualcalc.cpp" />
     <ClCompile Include="main.cpp" />
     <QtMoc Include="graph.h" />
-    <ClInclude Include="ExprTree.h" />
+    <ClInclude Include="Node.h" />
     <ClInclude Include="stdafx.h" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">Create</PrecompiledHeader>

@@ -1,13 +1,15 @@
 #include "VisualCalc.h"
 #include "ui_VisualCalc.h"
 
-#include "ExprTree.h"
+#include "Node.h"
 
 double calcVal = 0.0;
 bool divTrig = false;
 bool mulTrig = false;
 bool addTrig = false;
 bool subTrig = false;
+
+std::map<std::string, int> variables;
 
 VisualCalc::VisualCalc(QWidget* parent)
     : QMainWindow(parent),
@@ -34,6 +36,7 @@ VisualCalc::VisualCalc(QWidget* parent)
     connect(ui->DEL, SIGNAL(released()), this, SLOT(DeleteButtonPressed()));
     connect(ui->AC, SIGNAL(released()), this, SLOT(ClearButtonPressed()));
 
+    // used to build Tree
     Tree = new ExprTree;
 }
 
@@ -72,23 +75,38 @@ void VisualCalc::NumPressed()
 void VisualCalc::MathButtonPressed()
 {
     QString displayVal = ui->Val->text();
+    // construct Const node
     if (!displayVal.isEmpty() && !(this->Tree->getSizeofQ() == 0 && displayVal.toDouble() == 0))
     {
-        struct Node* N = new struct Node;
-        N->Element = displayVal;
-        N->type = Const;
-        N->LChild = N->RChild = NULL;
+        Node* N = new ConstNode(displayVal.toDouble());
         this->Tree->enQueue(N);
         ui->Expr->setText(this->Tree->renewExpr());
     }
 
-    struct Node* N1 = new struct Node;
+    
     QPushButton* button = (QPushButton*)sender();
     QString butVal = button->whatsThis();
-    N1->Element = butVal;
-    N1->type = Operator;
-    N1->LChild = N1->RChild = NULL;
-    this->Tree->enQueue(N1);
+    // TODO: complete, and what to compare
+    if (butVal == QString::fromStdString("+")) 
+    {
+        Node* N1 = new AddNode(nullptr, nullptr);
+        this->Tree->enQueue(N1);
+    }
+    else if (butVal == QString::fromStdString("*"))
+    {
+        Node* N1 = new MutliplyNode(nullptr, nullptr);
+        this->Tree->enQueue(N1);
+    }
+    else if (butVal == QString::fromStdString("sin"))
+    {
+        Node* N1 = new SinNode(nullptr);
+        this->Tree->enQueue(N1);
+    }
+    else if (butVal == QString::fromStdString("cos"))
+    {
+        Node* N1 = new CosNode(nullptr);
+        this->Tree->enQueue(N1);
+    }
     ui->Expr->setText(this->Tree->renewExpr());
 
     
@@ -98,17 +116,16 @@ void VisualCalc::MathButtonPressed()
 void VisualCalc::EqualButtonPressed() {
     double solution = 0.0;
     QString displayVal = ui->Val->text();
-    struct Node* N = new struct Node;
-    N->Element = displayVal;
-    N->type = Const;
-    N->LChild = N->RChild = NULL;
+    Node* N = new ConstNode(displayVal.toDouble());
     this->Tree->enQueue(N);
     ui->Expr->setText(this->Tree->renewExpr());
 
     
     // Evaluation 
     this->Tree->buildTree();
-    solution = this->Tree->evaluate(0);
+    // TODO: evaluate equation with variables
+    // when x=0?
+    solution = this->Tree->evaluate();
 
 
     ui->Val->setText(QString::number(solution));
