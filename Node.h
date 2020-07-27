@@ -5,6 +5,7 @@
 #include <string>
 #include <cmath>
 #include <map>
+#include <complex>
 
 #define MAXQ 100
 
@@ -97,6 +98,29 @@ public:
 	}
 };
 
+class SubNode : public Node
+{
+	Node* left, * right;
+	QString Element;
+public:
+	SubNode(Node* left, Node* right) : left(left), right(right),
+		Element(QString::fromStdString("-")) {}
+	~SubNode();
+
+	virtual double eval() override;
+
+	virtual Node* derivate(std::string x) override;
+
+	QString retElement()
+	{
+		return Element;
+	}
+	void setElement(QString newElement)
+	{
+		Element = newElement;
+	}
+};
+
 class MutliplyNode : public Node
 {
 	Node *left, *right;
@@ -105,6 +129,29 @@ public:
 	MutliplyNode(Node* left, Node* right) : left(left), right(right),
 		Element(QString::fromStdString("*")) {}
 	~MutliplyNode();
+
+	virtual double eval() override;
+
+	virtual Node* derivate(std::string x) override;
+
+	QString retElement()
+	{
+		return Element;
+	}
+	void setElement(QString newElement)
+	{
+		Element = newElement;
+	}
+};
+
+class DivNode : public Node
+{
+	Node* left, * right;
+	QString Element;
+public:
+	DivNode(Node* left, Node* right) : left(left), right(right),
+		Element(QString::fromStdString("/")) {}
+	~DivNode();
 
 	virtual double eval() override;
 
@@ -166,6 +213,338 @@ public:
 		Element = newElement;
 	}
 };
+
+
+class TanNode : public Node
+{
+	Node* child;
+	QString Element;
+public:
+	TanNode(Node* child) : child(child),
+		Element(QString::fromStdString("tan")) {}
+	~TanNode();
+
+	virtual double eval() override;
+
+	virtual Node* derivate(std::string x) override;
+
+	QString retElement()
+	{
+		return Element;
+	}
+	void setElement(QString newElement)
+	{
+		Element = newElement;
+	}
+};
+
+
+class ArcSinNode : public Node
+{
+	Node* child;
+	QString Element;
+public:
+	ArcSinNode(Node* child) : child(child),
+		Element(QString::fromStdString("arcsin")) {}
+	~ArcSinNode();
+
+	virtual double eval() override;
+
+	virtual Node* derivate(std::string x) override;
+
+	QString retElement()
+	{
+		return Element;
+	}
+	void setElement(QString newElement)
+	{
+		Element = newElement;
+	}
+};
+
+
+class ArcCosNode : public Node
+{
+	Node* child;
+	QString Element;
+public:
+	ArcCosNode(Node* child) : child(child),
+		Element(QString::fromStdString("arccos")) {}
+	~ArcCosNode();
+
+	virtual double eval() override;
+
+	virtual Node* derivate(std::string x) override;
+
+	QString retElement()
+	{
+		return Element;
+	}
+	void setElement(QString newElement)
+	{
+		Element = newElement;
+	}
+};
+
+
+
+class ArcTanNode : public Node
+{
+	Node* child;
+	QString Element;
+public:
+	ArcTanNode(Node* child) : child(child),
+		Element(QString::fromStdString("arctan")) {}
+	~ArcTanNode();
+
+	virtual double eval() override;
+
+	virtual Node* derivate(std::string x) override;
+
+	QString retElement()
+	{
+		return Element;
+	}
+	void setElement(QString newElement)
+	{
+		Element = newElement;
+	}
+};
+
+
+class LgNode : public Node
+{
+	Node* child;
+	QString Element;
+public:
+	LgNode(Node* child) : child(child),
+		Element(QString::fromStdString("lg")) {}
+	~LgNode();
+
+	virtual double eval() override;
+
+	virtual Node* derivate(std::string x) override;
+
+	QString retElement()
+	{
+		return Element;
+	}
+	void setElement(QString newElement)
+	{
+		Element = newElement;
+	}
+};
+
+class LnNode : public Node
+{
+	Node* child;
+	QString Element;
+public:
+	LnNode(Node* child) : child(child),
+		Element(QString::fromStdString("ln")) {}
+	~LnNode();
+
+	virtual double eval() override;
+
+	virtual Node* derivate(std::string x) override;
+
+	QString retElement()
+	{
+		return Element;
+	}
+	void setElement(QString newElement)
+	{
+		Element = newElement;
+	}
+};
+
+class LogNode : public Node
+{
+	Node* left, *right;
+	QString Element;
+public:
+	LogNode(Node* left, Node* right) : left(left), right(right),
+		Element(QString::fromStdString("based log")) {}
+	~LogNode();
+
+	virtual double eval() override;
+
+	virtual Node* derivate(std::string x) override;
+
+	QString retElement()
+	{
+		return Element;
+	}
+	void setElement(QString newElement)
+	{
+		Element = newElement;
+	}
+};
+
+
+class PowerNode : public Node
+{
+	Node* left, * right;
+	QString Element;
+public:
+	PowerNode(Node* left, Node* right) : left(left), right(right),
+		Element(QString::fromStdString("^")) {}
+	~PowerNode();
+
+	virtual double eval() override;
+
+	virtual Node* derivate(std::string x) override;
+
+	QString retElement()
+	{
+		return Element;
+	}
+	void setElement(QString newElement)
+	{
+		Element = newElement;
+	}
+};
+
+class TimesRootNode : public Node
+{
+	Node* left, * right;
+	QString Element;
+public:
+	TimesRootNode(Node* left, Node* right) : left(left), right(right),
+		Element(QString::fromStdString("times root")) {}
+	~TimesRootNode();
+
+	virtual double eval() override;
+
+	virtual Node* derivate(std::string x) override;
+
+	QString retElement()
+	{
+		return Element;
+	}
+	void setElement(QString newElement)
+	{
+		Element = newElement;
+	}
+};
+
+class SqrtNode : public Node
+{
+	Node* child;
+	QString Element;
+public:
+	SqrtNode(Node* child) : child(child),
+		Element(QString::fromStdString("sqrt")) {}
+	~SqrtNode();
+
+	virtual double eval() override;
+
+	virtual Node* derivate(std::string x) override;
+
+	QString retElement()
+	{
+		return Element;
+	}
+	void setElement(QString newElement)
+	{
+		Element = newElement;
+	}
+};
+
+class SquareNode : public Node
+{
+	Node* child;
+	QString Element;
+public:
+	SquareNode(Node* child) : child(child),
+		Element(QString::fromStdString("^2")) {}
+	~SquareNode();
+
+	virtual double eval() override;
+
+	virtual Node* derivate(std::string x) override;
+
+	QString retElement()
+	{
+		return Element;
+	}
+	void setElement(QString newElement)
+	{
+		Element = newElement;
+	}
+};
+
+class CubeNode : public Node
+{
+	Node* child;
+	QString Element;
+public:
+	CubeNode(Node* child) : child(child),
+		Element(QString::fromStdString("^3")) {}
+	~CubeNode();
+
+	virtual double eval() override;
+
+	virtual Node* derivate(std::string x) override;
+
+	QString retElement()
+	{
+		return Element;
+	}
+	void setElement(QString newElement)
+	{
+		Element = newElement;
+	}
+};
+
+class FactNode : public Node
+{
+	Node* child;
+	QString Element;
+public:
+	FactNode(Node* child) : child(child),
+		Element(QString::fromStdString("!")) {}
+	~FactNode();
+
+	virtual double eval() override;
+
+	virtual Node* derivate(std::string x) override;
+
+	QString retElement()
+	{
+		return Element;
+	}
+	void setElement(QString newElement)
+	{
+		Element = newElement;
+	}
+};
+
+class AbsNode : public Node
+{
+	Node* child;
+	QString Element;
+public:
+	AbsNode(Node* child) : child(child),
+		Element(QString::fromStdString("abs")) {}
+	~AbsNode();
+
+	virtual double eval() override;
+
+	virtual Node* derivate(std::string x) override;
+
+	QString retElement()
+	{
+		return Element;
+	}
+	void setElement(QString newElement)
+	{
+		Element = newElement;
+	}
+};
+
+
+
 
 
 

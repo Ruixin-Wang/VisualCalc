@@ -86,7 +86,7 @@ void VisualCalc::MathButtonPressed()
     
     QPushButton* button = (QPushButton*)sender();
     QString butVal = button->whatsThis();
-    // TODO: complete, and what to compare
+    // Done.TODO: complete, and what to compare
     if (butVal == QString::fromStdString("x"))
     {
         Node* N1 = new VarNode("x"); 
@@ -97,9 +97,19 @@ void VisualCalc::MathButtonPressed()
         Node* N1 = new AddNode(nullptr, nullptr);
         this->Tree->enQueue(N1);
     }
+    else if (butVal == QString::fromStdString("-"))
+    {
+        Node* N1 = new SubNode(nullptr, nullptr);
+        this->Tree->enQueue(N1);
+    }
     else if (butVal == QString::fromStdString("*"))
     {
         Node* N1 = new MutliplyNode(nullptr, nullptr);
+        this->Tree->enQueue(N1);
+    }
+    else if (butVal == QString::fromStdString("/"))
+    {
+        Node* N1 = new DivNode(nullptr, nullptr);
         this->Tree->enQueue(N1);
     }
     else if (butVal == QString::fromStdString("sin"))
@@ -110,6 +120,76 @@ void VisualCalc::MathButtonPressed()
     else if (butVal == QString::fromStdString("cos"))
     {
         Node* N1 = new CosNode(nullptr);
+        this->Tree->enQueue(N1);
+    }
+    else if (butVal == QString::fromStdString("tan"))
+    {
+        Node* N1 = new TanNode(nullptr);
+        this->Tree->enQueue(N1);
+    }
+    else if (butVal == QString::fromStdString("arcsin"))
+    {
+        Node* N1 = new ArcSinNode(nullptr);
+        this->Tree->enQueue(N1);
+    }
+    else if (butVal == QString::fromStdString("arccos"))
+    {
+        Node* N1 = new ArcCosNode(nullptr);
+        this->Tree->enQueue(N1);
+    }
+    else if (butVal == QString::fromStdString("arctan"))
+    {
+        Node* N1 = new ArcTanNode(nullptr);
+        this->Tree->enQueue(N1);
+    }
+    else if (butVal == QString::fromStdString("lg"))
+    {
+        Node* N1 = new LgNode(nullptr);
+        this->Tree->enQueue(N1);
+    }
+    else if (butVal == QString::fromStdString("ln"))
+    {
+        Node* N1 = new LnNode(nullptr);
+        this->Tree->enQueue(N1);
+    }
+    else if (butVal == QString::fromStdString("log"))
+    {
+        Node* N1 = new LogNode(nullptr, nullptr);
+        this->Tree->enQueue(N1);
+    }
+    else if (butVal == QString::fromStdString("abs"))
+    {
+        Node* N1 = new AbsNode(nullptr);
+        this->Tree->enQueue(N1);
+    }
+    else if (butVal == QString::fromStdString("!"))
+    {
+        Node* N1 = new FactNode(nullptr);
+        this->Tree->enQueue(N1);
+    }
+    else if (butVal == QString::fromStdString("^"))
+    {
+        Node* N1 = new PowerNode(nullptr, nullptr);
+        this->Tree->enQueue(N1);
+    }
+    else if (butVal == QString::fromStdString("times root"))
+    {
+        Node* N1 = new TimesRootNode(nullptr, nullptr);
+        this->Tree->enQueue(N1);
+    }
+    else if (butVal == QString::fromStdString("sqrt"))
+    {
+        Node* N1 = new SqrtNode(nullptr);
+        this->Tree->enQueue(N1);
+    }
+    else if (butVal == QString::fromStdString("^3"))
+    {
+        Node* N1 = new CubeNode(nullptr);
+        this->Tree->enQueue(N1);
+    }
+    else if (butVal == QString::fromStdString("^2"))
+    {
+        Node* N1 = new SquareNode(nullptr);
         this->Tree->enQueue(N1);
     }
     // unknown symbol treated as new variables
