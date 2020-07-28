@@ -9,8 +9,6 @@ Graph::Graph(QWidget *parent) :
     ui(new Ui::Graph)
 {
     ui->setupUi(this);
-
-    
 }
 
 Graph::~Graph()
@@ -18,7 +16,7 @@ Graph::~Graph()
     delete ui;
 }
 
-void Graph::paintEvent(QPaintEvent*, double posX, double posY)
+void Graph::paintEvent(QPaintEvent*)
 {
     QPainter painter(this);
     painter.setPen(Qt::blue);

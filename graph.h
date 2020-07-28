@@ -2,6 +2,10 @@
 #define GRAPH_H
 
 #include <QDialog>
+#include <QtCharts/QChartView>
+
+
+using namespace QtCharts;
 
 namespace Ui {
 class Graph;
@@ -17,9 +21,11 @@ public:
 
 private:
     Ui::Graph *ui;
+    double minX, maxX, minY, maxY;
+
 
 protected:
-    void paintEvent(QPaintEvent*, double posX, double posY);
+    void paintEvent(QPaintEvent*);
 
 
 
