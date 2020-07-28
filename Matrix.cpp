@@ -43,32 +43,42 @@ MATRIX& MATRIX::operator=(MATRIX& b){
 MATRIX MATRIX::add(MATRIX b){
 	if(b.row != row || b.column != column)
 		throw "Matrix dimension mismatch error";
-	double c[row * column];
+	//double c[row * column];
+	double *c = new double[row * column];
 	for(int i = 0; i < row; ++i)
 		for(int j = 0; j < column; ++j)
 			c[i * column + j] = data[i * column + j] + b.data[i * column + j];
-	return MATRIX(row, column, c);
+	MATRIX C(row, column, c);
+	delete[] c;
+	return C;
 }
 
 MATRIX MATRIX::subtract(MATRIX b){
 	if(b.row != row || b.column != column)
 		throw "Matrix dimension mismatch error";
-	double c[row * column];
+	//double c[row * column];
+	double *c = new double[row * column];
 	for(int i = 0; i < row; ++i)
 		for(int j = 0; j < column; ++j)
 			c[i * column + j] = data[i * column + j] - b.data[i * column + j];
-	return MATRIX(row, column, c);
+	MATRIX C(row, column, c);
+	delete[] c;
+	return C;
 }
 
 MATRIX MATRIX::multiply(MATRIX b){
 	if(column != b.row)
 		throw "Matrix dimension mismatch error";
-	double c[row * b.column] = {};
+	//double c[row * b.column] = {};
+	double *c = new double[row * b.column];
+	memset(c, 0, sizeof(c) * row * b.column);
 	for(int i = 0; i < row; ++i)
 		for(int j = 0; j < b.column; ++j)
 			for(int k = 0; k < column; ++k)
 				c[i * b.column + j] += data[i * column + k] * b.data[k * b.column + j];
-	return MATRIX(row, b.column, c);
+	MATRIX C(row, b.column, c);
+	delete[] c;
+	return C;
 }
 
 MATRIX MATRIX::rightDivide(MATRIX b){
@@ -85,7 +95,10 @@ MATRIX MATRIX::leftDivide(MATRIX b){
 		throw "Matrix dimension mismatch error";
 	if(*(this->determinant().data) == 0)
 		throw "Singular matrix";
-	double a[row * column], bb[b.row], c[column * b.column];
+	//double a[row * column], bb[b.row], c[column * b.column];
+	double *a = new double[row * column];
+	double *bb = new double[b.row];
+	double *c = new double[column * b.column];
 	for(int i = 0; i < b.column; ++i){//work out the ith column of X
 		//copy A.data to a
 		for(int j = 0; j < row; ++j)
@@ -124,25 +137,35 @@ MATRIX MATRIX::leftDivide(MATRIX b){
 			c[j * b.column + i] = dividend / a[j * column + j];
 		}
 	}
-	return MATRIX(column, b.column, c);
+	MATRIX C(column, b.column, c);
+	delete[] a;
+	delete[] bb;
+	delete[] c;
+	return C;
 }
 
 MATRIX MATRIX::transpose(){
-	double c[column * row] = {};
+	//double c[column * row] = {};
+	double *c = new double[column * row];
 	for(int i = 0; i < row; ++i)
 		for(int j = 0; j < column; ++j)
 			c[j * row + i] = data[i * column + j];
-	return MATRIX(column, row, c);
+	MATRIX C(column, row, c);
+	delete[] c;
+	return C;
 }
 
 MATRIX MATRIX::inverse(){
 	if(*(this->determinant().data) == 0)
 		throw "Singular matrix";
 	//create an identity matrix
-	double c[row * column] = {};
+	//double c[row * column] = {};
+	double *c = new double[row * column];
+	memset(c, 0, sizeof(c) * row * column);
 	for(int i = 0; i < row; ++i)
 		c[i * column + i] = 1;
 	MATRIX b(row, column, c);
+	delete[] c;
 	return this->leftDivide(b);
 }
 
@@ -152,15 +175,20 @@ MATRIX MATRIX::adjoint(){
 	double det = *(this->determinant().data);
 	//when A is nonsingular, A* = |A| * inv(A)
 	if(det != 0){
-		double c[row * column] = {};
+		//double c[row * column] = {};
+		double *c = new double[row * column];
+		memset(c, 0, sizeof(c) * row * column);
 		for(int i = 0; i < row; ++i)
 			c[i * column + i] = det;
 		MATRIX b(row, column, c);
+		delete[] c;
 		return this->leftDivide(b);
 	}
 	else{
-		double c[row * column] = {};
-		double cofactor[(row - 1) * (column - 1)] = {};
+		//double c[row * column] = {};
+		//double cofactor[(row - 1) * (column - 1)] = {};
+		double *c = new double[row * column];
+		double *cofactor = new double[(row - 1) * (column - 1)];
 		double sign;
 		for(int i = 0; i < row; ++i)
 			for(int j = 0; j < column; ++j){
@@ -176,7 +204,10 @@ MATRIX MATRIX::adjoint(){
 				sign = ((i + j) % 2 == 0 ? 1 : -1);
 				c[j * column + i] = sign * (*(cof.determinant().data));//work out the current algebraic cofactor
 			}
-		return MATRIX(row, column, c);
+		MATRIX C(row, column, c);
+		delete[] c;
+		delete[] cofactor;
+		return C;
 	}
 }
 
@@ -187,7 +218,8 @@ MATRIX MATRIX::determinant(){
 	}
 	if(row == 1) return MATRIX(1, 1, data);//recursive termination condition
 	double ans = 0, sign = 1;
-	double c[(row - 1) * (column - 1)] = {};
+	//double c[(row - 1) * (column - 1)] = {};
+	double *c = new double[(row - 1) * (column - 1)];
 	//Expand along the first row
 	for(int i = 0; i < column; ++i){
 		//work out the current cofactor
@@ -200,6 +232,7 @@ MATRIX MATRIX::determinant(){
 		ans += sign * data[i] * (*(b.determinant().data));
 		sign = -sign;
 	}
+	delete[] c;
 	return MATRIX(1, 1, &ans);
 }
 
@@ -219,7 +252,7 @@ int main()
 	A.print();
 	B.print();
 	try
-		{A.adjoint().print();}
+		{B.leftDivide(A).print();}
 	catch(const char* error)
 		{cout << error;}
 	return 0;
