@@ -18,7 +18,7 @@ bool x_enable, y_enable;
 
 
 
-std::map<std::string, int> variables;
+std::map<std::string, double> variables;
 
 
 VisualCalc::VisualCalc(QWidget* parent)
@@ -335,13 +335,20 @@ void VisualCalc::VarButtonPressed()
     this->Tree->enQueue(N);
     ui->Expr->setText(this->Tree->renewExpr());
     ui->Expr1->setText(this->Tree->renewExpr());
+    ui->Val->setText("");
+    ui->Val1->setText("");
 
 }
 
 void VisualCalc::on_Generate_clicked()
 {
-    new_graph = new Graph;
-    new_graph->show();
+    QString displayVal = ui->Expr1->text();
+    if (!displayVal.isEmpty())
+    {
+        new_graph = new Graph(nullptr, *this->Tree);
+        new_graph->show();
+    }
+
 }
 
 void VisualCalc::initTable()

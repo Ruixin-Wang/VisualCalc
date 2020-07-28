@@ -12,7 +12,7 @@
 class Node;
 
 extern std::map<QString, int> priority;
-extern std::map<std::string, int> variables;
+extern std::map<std::string, double> variables;
 extern QString toStringExpression;
 
 class Node

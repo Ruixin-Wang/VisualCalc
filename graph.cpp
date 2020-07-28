@@ -4,8 +4,8 @@
 
 
 
-Graph::Graph(QWidget *parent) :
-    QDialog(parent),
+Graph::Graph(QWidget *parent, ExprTree& tree) :
+    QDialog(parent), Tree(tree), 
     ui(new Ui::Graph)
 {
     ui->setupUi(this);
@@ -21,9 +21,9 @@ Graph::~Graph()
     delete ui;
 }
 
-double fx(double x)
+double Graph::fx(double x)
 {
-    return x * x * x - 6 * x * x + 9 * x - 1;
+        return (this->Tree.evaluate((double)x + x));
 }
 
 void Graph::paintEvent(QPaintEvent*)
