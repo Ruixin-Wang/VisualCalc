@@ -46,10 +46,10 @@ class MATRIX{
 		//Output: the value of |A|
 		//        when A is singular, return 0
 		//        when A.row != A.column, return 0
-		double determinant();
+		MATRIX determinant();
 		//Output: tr(A)
 		//Require: A.row = A.column
-		double trace();
+		MATRIX trace();
 };
 
 inline void swap(double& a, double& b){

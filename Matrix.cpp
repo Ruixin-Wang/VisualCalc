@@ -74,7 +74,7 @@ MATRIX MATRIX::multiply(MATRIX b){
 MATRIX MATRIX::rightDivide(MATRIX b){
 	if(column != b.column)
 		throw "Matrix dimension mismatch error";
-	if(b.determinant() == 0)
+	if(*(b.determinant().data) == 0)
 		throw "Singular matrix";
 	//X = A/b <==> X = A*inv(b)
 	return this->multiply(b.inverse());
@@ -83,7 +83,7 @@ MATRIX MATRIX::rightDivide(MATRIX b){
 MATRIX MATRIX::leftDivide(MATRIX b){
 	if(row != b.row)
 		throw "Matrix dimension mismatch error";
-	if(this->determinant() == 0)
+	if(*(this->determinant().data) == 0)
 		throw "Singular matrix";
 	double a[row * column], bb[b.row], c[column * b.column];
 	for(int i = 0; i < b.column; ++i){//work out the ith column of X
@@ -136,7 +136,7 @@ MATRIX MATRIX::transpose(){
 }
 
 MATRIX MATRIX::inverse(){
-	if(this->determinant() == 0)
+	if(*(this->determinant().data) == 0)
 		throw "Singular matrix";
 	//create an identity matrix
 	double c[row * column] = {};
@@ -149,7 +149,7 @@ MATRIX MATRIX::inverse(){
 MATRIX MATRIX::adjoint(){
 	if(row != column)
 		throw "Matrix dimension mismatch error";
-	double det = this->determinant();
+	double det = *(this->determinant().data);
 	//when A is nonsingular, A* = |A| * inv(A)
 	if(det != 0){
 		double c[row * column] = {};
@@ -174,15 +174,18 @@ MATRIX MATRIX::adjoint(){
 					}
 				MATRIX cof(row - 1, column - 1, cofactor);
 				sign = ((i + j) % 2 == 0 ? 1 : -1);
-				c[j * column + i] = sign * cof.determinant();//work out the current algebraic cofactor
+				c[j * column + i] = sign * (*(cof.determinant().data));//work out the current algebraic cofactor
 			}
 		return MATRIX(row, column, c);
 	}
 }
 
-double MATRIX::determinant(){
-	if(row != column) return 0;
-	if(row == 1) return data[0];//recursive termination condition
+MATRIX MATRIX::determinant(){
+	if(row != column){
+		double ans = 0;
+		return MATRIX(1, 1, &ans);
+	}
+	if(row == 1) return MATRIX(1, 1, data);//recursive termination condition
 	double ans = 0, sign = 1;
 	double c[(row - 1) * (column - 1)] = {};
 	//Expand along the first row
@@ -194,19 +197,19 @@ double MATRIX::determinant(){
 				else c[j * (column - 1) + k] = data[(j + 1) * column + k + 1];
 			}
 		MATRIX b(row - 1, column - 1, c);
-		ans += sign * data[i] * b.determinant();
+		ans += sign * data[i] * (*(b.determinant().data));
 		sign = -sign;
 	}
-	return ans;
+	return MATRIX(1, 1, &ans);
 }
 
-double MATRIX::trace(){
+MATRIX MATRIX::trace(){
 	if(row != column)
 		throw "Matrix dimension mismatch error";
 	double ans = 0;
 	for(int i = 0; i < row; ++i)
 		ans += data[i * column + i];
-	return ans;
+	return MATRIX(1, 1, &ans);
 }
 
 int main()
@@ -216,7 +219,7 @@ int main()
 	A.print();
 	B.print();
 	try
-		{B.adjoint().print();}
+		{A.adjoint().print();}
 	catch(const char* error)
 		{cout << error;}
 	return 0;
