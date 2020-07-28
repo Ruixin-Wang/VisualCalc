@@ -242,7 +242,26 @@ void VisualCalc::EqualButtonPressed() {
     this->Tree->buildTree();
     // TODO: evaluate equation with variables
     // when x=0?
-    solution = this->Tree->evaluate();
+    try
+    {
+        solution = this->Tree->evaluate();
+    }
+    catch (ARITHMETIC_EXCEPTION)
+    {
+        // ArithmeticE
+    }
+    catch (NUMBER_FORMAT_EXCEPTION)
+    {
+        // unknown var
+    }
+    catch (NULL_POINTER_EXCEPTION)
+    {
+        // illgel expression
+    }
+    catch (...)
+    {
+        // others
+    }
 
     // used to test derivate toString function
     // Node* testD = this->Tree->derivate("x");
