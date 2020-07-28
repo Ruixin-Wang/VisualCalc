@@ -2,10 +2,9 @@
 #define GRAPH_H
 
 #include <QDialog>
-#include <QtCharts/QChartView>
-
-
-using namespace QtCharts;
+#include <QMouseEvent>
+#include <QPointF>
+#include <QDebug>
 
 namespace Ui {
 class Graph;
@@ -21,11 +20,23 @@ public:
 
 private:
     Ui::Graph *ui;
-    double minX, maxX, minY, maxY;
 
+    double minX = -20, minY = -40, maxX = 20, maxY = 40;
+    
+    QPointF startPos;
+
+
+private slots:
+    void draw(QMouseEvent* event);
+
+signals:
+    void mouseMove(QMouseEvent* event);
 
 protected:
     void paintEvent(QPaintEvent*);
+    void mousePressEvent(QMouseEvent *event);
+    void mouseMoveEvent(QMouseEvent *event);
+    void mouseReleaseEvent(QMouseEvent *event);
 
 
 

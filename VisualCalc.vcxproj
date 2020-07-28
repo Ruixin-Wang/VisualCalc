@@ -105,17 +105,16 @@
     <QtUic Include="dialog.ui" />
     <QtUic Include="graph.ui" />
     <QtMoc Include="visualcalc.h" />
-    <ClCompile Include="decodebutton.cpp" />
     <ClCompile Include="graph.cpp" />
+    <ClCompile Include="Node.cpp" />
+    <ClCompile Include="stat.cpp" />
     <ClCompile Include="visualcalc.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClInclude Include="decodebutton.h" />
     <QtMoc Include="graph.h" />
-    <ClInclude Include="stdafx.h" />
-    <ClCompile Include="stdafx.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">Create</PrecompiledHeader>
-    </ClCompile>
+    <QtMoc Include="stat.h" />
+    <ClInclude Include="Node.h" />
+    <ClInclude Include="statistic.h" />
+    <QtUic Include="stat.ui" />
     <QtUic Include="visualcalc.ui" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
