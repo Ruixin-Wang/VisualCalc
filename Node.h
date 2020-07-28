@@ -12,7 +12,7 @@
 class Node;
 
 extern std::map<QString, int> priority;
-extern std::map<std::string, int> variables;
+extern std::map<std::string, double> variables;
 extern QString toStringExpression;
 
 struct ARITHMETIC_EXCEPTION : public std::exception
@@ -637,6 +637,11 @@ public:
 		return ~hasVar;
 	}
 
+	void setVar() {
+		hasVar = true;
+	}
+
+
 	void enQueue(Node* N);
 
 	void buildTree();
@@ -664,6 +669,7 @@ public:
 	{
 		sizeofQ = 0;
 		Queue[0]->setElement("");
+		hasVar = false;
 	}
 
 	inline void del()

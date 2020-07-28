@@ -3,6 +3,8 @@
 #include <vector>
 
 #include "Node.h"
+#define constPi 3.1415926
+#define constE  2.7182818
 
 double calcVal = 0.0;
 bool divTrig = false;
@@ -16,7 +18,7 @@ bool x_enable, y_enable;
 
 
 
-std::map<std::string, int> variables;
+std::map<std::string, double> variables;
 
 
 VisualCalc::VisualCalc(QWidget* parent)
@@ -44,6 +46,13 @@ VisualCalc::VisualCalc(QWidget* parent)
     connect(ui->ChangeSign, SIGNAL(released()), this, SLOT(ChangeNumberSign()));
     connect(ui->DEL, SIGNAL(released()), this, SLOT(DeleteButtonPressed()));
     connect(ui->AC, SIGNAL(released()), this, SLOT(ClearButtonPressed()));
+    connect(ui->ConstPi, SIGNAL(released()), this, SLOT(ConstButtonPressed()));
+    connect(ui->ConstE, SIGNAL(released()), this, SLOT(ConstButtonPressed()));
+    connect(ui->Var, SIGNAL(released()), this, SLOT(VarButtonPressed()));
+
+
+
+
     connect(ui->Stat_Add_Data, SIGNAL(released()), this, SLOT(StatAddData()));
     connect(ui->Stat_Analysis, SIGNAL(released()), this, SLOT(StatAnalysis()));
     connect(ui->Stat_Del_Data, SIGNAL(released()), this, SLOT(StatDelData()));
@@ -99,7 +108,10 @@ void VisualCalc::MathButtonPressed()
     // construct Const node
     if (!displayVal.isEmpty() && !(this->Tree->getSizeofQ() == 0 && displayVal.toDouble() == 0))
     {
-        Node* N = new ConstNode(displayVal.toDouble());
+        Node* N;
+        if (!displayVal.compare("Pi")) N = new ConstNode(constPi);
+        else if (!displayVal.compare("e")) N = new ConstNode(constE);
+        else N = new ConstNode(displayVal.toDouble());
         this->Tree->enQueue(N);
         ui->Expr->setText(this->Tree->renewExpr());
         ui->Expr1->setText(this->Tree->renewExpr());
@@ -231,12 +243,18 @@ void VisualCalc::MathButtonPressed()
 
 void VisualCalc::EqualButtonPressed() {
     double solution = 0.0;
-    QString displayVal = ui->Val->text();
-    Node* N = new ConstNode(displayVal.toDouble());
-    this->Tree->enQueue(N);
-    ui->Expr->setText(this->Tree->renewExpr());
-    ui->Expr1->setText(this->Tree->renewExpr());
 
+    QString displayVal = ui->Val->text();
+    if (!displayVal.isEmpty()) 
+    {
+        Node* N;
+        if (!displayVal.compare("Pi")) N = new ConstNode(constPi);
+        else if (!displayVal.compare("e")) N = new ConstNode(constE);
+        else N = new ConstNode(displayVal.toDouble());
+        this->Tree->enQueue(N);
+        ui->Expr->setText(this->Tree->renewExpr());
+        ui->Expr1->setText(this->Tree->renewExpr());
+    }
     
     // Evaluation 
     this->Tree->buildTree();
@@ -268,7 +286,7 @@ void VisualCalc::EqualButtonPressed() {
     // testD->toString();
 
     ui->Val->setText(QString::number(solution));
-    ui->Val1->setText(QString::number(solution));
+    ui->Val1->setText(QString("READY"));
     this->Tree->clear();
 }
 
@@ -312,10 +330,44 @@ void VisualCalc::ClearButtonPressed()
     ui->Expr1->setText(this->Tree->renewExpr());
 }
 
+void VisualCalc::ConstButtonPressed()
+{
+    QPushButton* button = (QPushButton*)sender();
+    QString butVal = button->objectName();
+    if (!butVal.compare("ConstPi"))
+    {
+        ui->Val->setText("Pi");
+        ui->Val1->setText("Pi");
+    }
+    if (!butVal.compare("ConstE"))
+    {
+        ui->Val->setText("e");
+        ui->Val1->setText("e");
+    }
+}
+
+void VisualCalc::VarButtonPressed()
+{
+    this->Tree->setVar();
+    QPushButton* button = (QPushButton*)sender();
+    Node* N = new VarNode("x");
+    this->Tree->enQueue(N);
+    ui->Expr->setText(this->Tree->renewExpr());
+    ui->Expr1->setText(this->Tree->renewExpr());
+    ui->Val->setText("");
+    ui->Val1->setText("");
+
+}
+
 void VisualCalc::on_Generate_clicked()
 {
-    new_graph = new Graph;
-    new_graph->show();
+    QString displayVal = ui->Expr1->text();
+    if (!displayVal.isEmpty())
+    {
+        new_graph = new Graph(nullptr, *this->Tree);
+        new_graph->show();
+    }
+
 }
 
 void VisualCalc::initTable()

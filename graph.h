@@ -6,16 +6,20 @@
 #include <QPointF>
 #include <QDebug>
 
+#include "Node.h"
+
 namespace Ui {
 class Graph;
 }
 
 class Graph : public QDialog
 {
+    ExprTree& Tree;
+
     Q_OBJECT
 
 public:
-    explicit Graph(QWidget *parent = nullptr);
+    explicit Graph(QWidget *parent , ExprTree& tree);
     ~Graph();
 
 private:
@@ -25,6 +29,7 @@ private:
     
     QPointF startPos;
 
+    double fx(double x);
 
 private slots:
     void draw(QMouseEvent* event);
