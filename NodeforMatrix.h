@@ -1,6 +1,6 @@
 #pragma once
 
-//#include <QtWidgets>
+#include <QtWidgets>
 #include <string>
 #include <map>
 #include <complex>
