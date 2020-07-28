@@ -614,6 +614,11 @@ public:
 		return ~hasVar;
 	}
 
+	void setVar() {
+		hasVar = true;
+	}
+
+
 	void enQueue(Node* N);
 
 	void buildTree();
@@ -641,6 +646,7 @@ public:
 	{
 		sizeofQ = 0;
 		Queue[0]->setElement("");
+		hasVar = false;
 	}
 
 	inline void del()

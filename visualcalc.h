@@ -37,6 +37,10 @@ private slots:
     void NumPressed();
     void MathButtonPressed();
     void EqualButtonPressed();
+    void ConstButtonPressed();
+    void VarButtonPressed();
+
+
     void ChangeNumberSign();
     void DeleteButtonPressed();
     void ClearButtonPressed();
