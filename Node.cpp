@@ -225,6 +225,7 @@ Node* CosNode::derivate(std::string x)
 	return dfgMdg;
 }
 
+
 TanNode::~TanNode()
 {
 	delete child;
@@ -327,13 +328,15 @@ double LgNode::eval()
 	return log10(c);
 }
 
+
 Node* LgNode::derivate(std::string x)
 {
-	Node* o = new ConstNode(1);
+	Node* o = new ConstNode(1 / log(10));
 	Node* dfg = new DivNode(o, child);
 	Node* dfgMdg = new MutliplyNode(dfg, child->derivate(x));
 	return dfgMdg;
 }
+
 
 
 LnNode::~LnNode()
@@ -353,7 +356,7 @@ double LnNode::eval()
 
 Node* LnNode::derivate(std::string x)
 {
-	Node* o = new ConstNode(1/log(10));
+	Node* o = new ConstNode(1 / log(2.718281828));
 	Node* dfg = new DivNode(o, child);
 	Node* dfgMdg = new MutliplyNode(dfg, child->derivate(x));
 	return dfgMdg;

@@ -55,7 +55,19 @@ double NumDiff(ExprTree* T, double point) {
 	return result;
 }
 
-double ExprDiff(ExprTree* T,double point) {
-	return 0;
-	
+double ExprDiff(ExprTree* T, double point) {
+	if ((!T))return 0;
+	Node* Tt = T->derivate("x");
+	variables["x"] = point;
+//	std::cout << Tt->retElement().toStdString();
+	return (Tt)->eval();
+
+}
+
+
+void DiffString(ExprTree* T) {
+	if (T) {
+		Node* Ttt = T->derivate("x");
+		Ttt->toString();
+	}
 }
