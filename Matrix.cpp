@@ -42,7 +42,7 @@ MATRIX& MATRIX::operator=(MATRIX& b){
 
 MATRIX MATRIX::add(MATRIX b){
 	if(b.row != row || b.column != column)
-		throw "Matrix dimension mismatch error";
+		throw DimensionMismatchException();
 	//double c[row * column];
 	double *c = new double[row * column];
 	for(int i = 0; i < row; ++i)
@@ -55,7 +55,7 @@ MATRIX MATRIX::add(MATRIX b){
 
 MATRIX MATRIX::subtract(MATRIX b){
 	if(b.row != row || b.column != column)
-		throw "Matrix dimension mismatch error";
+		throw DimensionMismatchException();
 	//double c[row * column];
 	double *c = new double[row * column];
 	for(int i = 0; i < row; ++i)
@@ -68,7 +68,7 @@ MATRIX MATRIX::subtract(MATRIX b){
 
 MATRIX MATRIX::multiply(MATRIX b){
 	if(column != b.row)
-		throw "Matrix dimension mismatch error";
+		throw DimensionMismatchException();
 	//double c[row * b.column] = {};
 	double *c = new double[row * b.column];
 	memset(c, 0, sizeof(c) * row * b.column);
@@ -83,18 +83,18 @@ MATRIX MATRIX::multiply(MATRIX b){
 
 MATRIX MATRIX::rightDivide(MATRIX b){
 	if(column != b.column)
-		throw "Matrix dimension mismatch error";
+		throw DimensionMismatchException();
 	if(*(b.determinant().data) == 0)
-		throw "Singular matrix";
+		throw SingularMatrixException();
 	//X = A/b <==> X = A*inv(b)
 	return this->multiply(b.inverse());
 }
 
 MATRIX MATRIX::leftDivide(MATRIX b){
 	if(row != b.row)
-		throw "Matrix dimension mismatch error";
+		throw DimensionMismatchException();
 	if(*(this->determinant().data) == 0)
-		throw "Singular matrix";
+		throw SingularMatrixException();
 	//double a[row * column], bb[b.row], c[column * b.column];
 	double *a = new double[row * column];
 	double *bb = new double[b.row];
@@ -157,7 +157,7 @@ MATRIX MATRIX::transpose(){
 
 MATRIX MATRIX::inverse(){
 	if(*(this->determinant().data) == 0)
-		throw "Singular matrix";
+		throw SingularMatrixException();
 	//create an identity matrix
 	//double c[row * column] = {};
 	double *c = new double[row * column];
@@ -171,7 +171,7 @@ MATRIX MATRIX::inverse(){
 
 MATRIX MATRIX::adjoint(){
 	if(row != column)
-		throw "Matrix dimension mismatch error";
+		throw InvalidMatrixException();
 	double det = *(this->determinant().data);
 	//when A is nonsingular, A* = |A| * inv(A)
 	if(det != 0){
@@ -238,7 +238,7 @@ MATRIX MATRIX::determinant(){
 
 MATRIX MATRIX::trace(){
 	if(row != column)
-		throw "Matrix dimension mismatch error";
+		throw InvalidMatrixException();
 	double ans = 0;
 	for(int i = 0; i < row; ++i)
 		ans += data[i * column + i];
@@ -253,7 +253,7 @@ MATRIX MATRIX::trace(){
 	B.print();
 	try
 		{B.leftDivide(A).print();}
-	catch(const char* error)
-		{cout << error;}
+	catch(std::logic_error error)
+		{cout << error.what();}
 	return 0;
 }*/
