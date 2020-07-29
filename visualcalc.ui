@@ -2789,7 +2789,7 @@ QTabBar::tab:left:only-one, QTabBar::tab:right:only-one {
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <property name="elideMode">
        <enum>Qt::ElideNone</enum>
@@ -2959,165 +2959,6 @@ p, li { white-space: pre-wrap; }
        <attribute name="title">
         <string> EQUATION </string>
        </attribute>
-       <layout class="QGridLayout" name="gridLayout_2" columnstretch="2,3,2">
-        <property name="leftMargin">
-         <number>5</number>
-        </property>
-        <property name="topMargin">
-         <number>20</number>
-        </property>
-        <property name="rightMargin">
-         <number>5</number>
-        </property>
-        <property name="bottomMargin">
-         <number>20</number>
-        </property>
-        <item row="0" column="0" rowspan="4">
-         <widget class="QPushButton" name="dummy0">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>60</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>1000</width>
-            <height>16777215</height>
-           </size>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QPushButton{
-	Background-color:#fbfcfc;
-	border: 0px;
-}	</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="2" rowspan="4">
-         <widget class="QPushButton" name="dummy1">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>60</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>1000</width>
-            <height>16777215</height>
-           </size>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QPushButton{
-	Background-color:#fbfcfc;
-	border: 0px;
-}	</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="1">
-         <widget class="QPushButton" name="NonPolyEQN">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>30</height>
-           </size>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QPushButton {
-	border:1px solid rgb(212, 230, 241);
-	border-style: outset;
-	background-color: rgba(169, 204, 227, 155);
-	
-	font: 10pt &quot;Cambria Math&quot;;
-}
-QPushButton:hover {
-	
-	border:1px solid rgb(212, 230, 241);
-	border-style: outset;
-	background-color: qlineargradient(spread:reflect, x1:0, y1:0.097, x2:1, y2:0.881, stop:0.124378 rgba(84, 153, 199, 105), stop:0.656716 rgba(36, 113, 163, 104));
-}
-QPushButton:pressed {
-	
-	border:1px solid rgb(212, 230, 241);
-	border-style: outset;
-	background-color: qlineargradient(spread:reflect, x1:0, y1:0.097, x2:1, y2:0.881, stop:0.124378 rgba(84, 153, 199, 165), stop:0.656716 rgba(36, 113, 163, 164));
-}</string>
-          </property>
-          <property name="text">
-           <string>non-Polynomial</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="1">
-         <widget class="QPushButton" name="PolyEQN">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>30</height>
-           </size>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QPushButton {
-	border:1px solid rgb(212, 230, 241);
-	border-style: outset;
-	background-color: rgba(169, 204, 227, 155);
-	
-	font: 10pt &quot;Cambria Math&quot;;
-}
-QPushButton:hover {
-	
-	border:1px solid rgb(212, 230, 241);
-	border-style: outset;
-	background-color: qlineargradient(spread:reflect, x1:0, y1:0.097, x2:1, y2:0.881, stop:0.124378 rgba(84, 153, 199, 105), stop:0.656716 rgba(36, 113, 163, 104));
-}
-QPushButton:pressed {
-	
-	border:1px solid rgb(212, 230, 241);
-	border-style: outset;
-	background-color: qlineargradient(spread:reflect, x1:0, y1:0.097, x2:1, y2:0.881, stop:0.124378 rgba(84, 153, 199, 165), stop:0.656716 rgba(36, 113, 163, 164));
-}</string>
-          </property>
-          <property name="text">
-           <string>Polynomial</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
       </widget>
       <widget class="QWidget" name="tab_MATRIX">
        <attribute name="title">
@@ -3296,7 +3137,14 @@ QPushButton:pressed {
            <number>1</number>
           </property>
           <item>
-           <widget class="QSpinBox" name="Mat_spinBox"/>
+           <widget class="QComboBox" name="comboBox">
+            <property name="maximumSize">
+             <size>
+              <width>60</width>
+              <height>16777215</height>
+             </size>
+            </property>
+           </widget>
           </item>
           <item>
            <widget class="QPushButton" name="Mat_Add">
