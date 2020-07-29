@@ -63,4 +63,3 @@ double ExprDiff(ExprTree* T,double point) {
 	return (Tt)->eval();
 	
 }
-
