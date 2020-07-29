@@ -26,7 +26,7 @@ bool x_enable, y_enable;
 
 
 std::map<std::string, double> variables;
-
+std::map<std::string, MATRIX*> variablesforMatrix;
 
 VisualCalc::VisualCalc(QWidget* parent)
     : QMainWindow(parent),
@@ -344,6 +344,7 @@ void VisualCalc::IntegrationEqualButtonPressed() {
     ui->Diff_Val->setText(QString(""));
     ui->Val->setText(QString(""));
     this->Tree->clear();
+    varTrig = false;
 }
 
 void VisualCalc::DerivateEqualButtonPressed() {
@@ -401,6 +402,7 @@ void VisualCalc::DerivateEqualButtonPressed() {
     ui->Diff_Val->setText(QString::number(solution));
     ui->Val->setText(QString("READY"));
     this->Tree->clear();
+    varTrig = false;
 }
 
 void VisualCalc::EqualButtonPressed() {

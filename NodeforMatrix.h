@@ -12,7 +12,7 @@
 class NodeForMatrix;
 
 extern std::map<QString, int> priorityforMatrix;
-std::map<std::string, MATRIX*> variablesforMatrix;
+extern std::map<std::string, MATRIX*> variablesforMatrix;
 
 
 class NodeForMatrix
