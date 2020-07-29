@@ -1,12 +1,13 @@
 #include <iostream>
 #include<cmath>
+#define MAXN 8
 using namespace std;
 
 /*数组的大小,即变量的大小*/
-const int n = 5;
+int n;
 
 /*通过遍历求出向量的最大值，即无穷范数*/
-double MAX(double a[n])
+double MAX(double a[MAXN])
 {
     double max = 0;
     int i;
@@ -22,7 +23,7 @@ double MAX(double a[n])
 
 
  /*高斯-塞德尔迭代法*/
-void Gauss_Seidel(double a[n][n], double b[n])
+double* Gauss_Seidel(double a[MAXN][MAXN], double b[MAXN])
 {
     int num = 0; /*迭代次数*/
     double accuracy = 0.0000001; /*精度*/
@@ -33,8 +34,8 @@ void Gauss_Seidel(double a[n][n], double b[n])
     
     double diff; /*差*/
     int flag; /*循环结束标志*/
-    double x0[n];
-    double x1[n] = { 0 };
+    double x0[MAXN];
+    double x1[MAXN] = { 0 };
     
     /*判断系数矩阵是否严格对角占优*/
     for(i = 0;i < n;i++)
@@ -89,22 +90,17 @@ void Gauss_Seidel(double a[n][n], double b[n])
             flag = 1;
     } while (flag);                                 
 
-    /*输出结果*/
-   cout<<"线性方程组的近似解如下："<<endl;  
- 	for(i = 0; i < n; i++)
-	 {
-	 	cout<< "x" << i + 1 << " = " << x1[i] << endl;
-	  } 
+	return x1;
 }
 
 
 
 /*高斯消元法*/
-void Gauss_Eliminate(double a[n][n],double b[n])
+double* Gauss_Eliminate(double a[MAXN][MAXN],double b[MAXN])
 {
 	int i,j,k;
-	double x0[n];/*存储初等行变换的系数，进行行相减*/
-	double x[n];/*存储解*/ 
+	double x0[MAXN];/*存储初等行变换的系数，进行行相减*/
+	double x[MAXN];/*存储解*/
 	/*判断是否可以使用高斯消元法*/
 	for(i = 0;i < n;i++)
 	{
@@ -146,17 +142,13 @@ void Gauss_Eliminate(double a[n][n],double b[n])
 		x[i] = (b[i] - sum) / a[i][i];
 	}
 	
-	cout<<"线性方程组的近似解如下："<<endl;
-	for(i = 0;i < n;i++)
-	{
-		cout<<"x"<<i + 1<<" = "<<x[i]<<endl;
-	}
+	return x;
  } 
  
  
  
  /*最终计算函数*/
-void linesolve(double a[n][n],double b[n])
+double* linesolve(double a[MAXN][MAXN],double b[MAXN])
 {
 	int i,j;
 	double flag;
@@ -177,10 +169,9 @@ void linesolve(double a[n][n],double b[n])
 	 } 
 	 
 	if(count==0)
-    	Gauss_Seidel(a, b);
+    	return Gauss_Seidel(a, b);
     else if(count!=0)
-    	Gauss_Eliminate(a,b);
-    cout<<endl;
+    	return Gauss_Eliminate(a,b);
  } 
  
  
