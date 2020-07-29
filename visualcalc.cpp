@@ -52,7 +52,10 @@ VisualCalc::VisualCalc(QWidget* parent)
     connect(ui->ConstPi, SIGNAL(released()), this, SLOT(ConstButtonPressed()));
     connect(ui->ConstE, SIGNAL(released()), this, SLOT(ConstButtonPressed()));
     connect(ui->Var, SIGNAL(released()), this, SLOT(VarButtonPressed()));
+    
 
+    connect(ui->OK, SIGNAL(released()), this, SLOT(IntegrationEqualButtonPressed()));
+    connect(ui->Diff_btn, SIGNAL(released()), this, SLOT(DerivateEqualButtonPressed()));
 
 
 
@@ -257,6 +260,125 @@ void VisualCalc::MathButtonPressed()
     ui->Diff_Val->setText("");
     ui->CalcRes->setText("");
 }
+/************************************************************
+*此处代码重复比较严重，但是思路一致，一切由按下去的不同的计算键决定
+*主要添加了两个按键的处理，分别是求导的，和求积分的按键
+*************************************************************/
+void VisualCalc::IntegrationEqualButtonPressed() {
+    double solution = 0.0;
+    QString str_low, str_up;
+    double low, up;
+    QString displayVal = ui->Val->text();
+    if (!displayVal.isEmpty())
+    {
+        Node* N;
+        if (!displayVal.compare("Pi")) N = new ConstNode(constPi);
+        else if (!displayVal.compare("e")) N = new ConstNode(constE);
+        else N = new ConstNode(displayVal.toDouble());
+        this->Tree->enQueue(N);
+        ui->Expr->setText(this->Tree->renewExpr());
+        ui->Expr1->setText(this->Tree->renewExpr());
+        ui->DiffExpr->setText(this->Tree->renewExpr());
+        ui->CalcExpr->setText(this->Tree->renewExpr());
+        str_low =ui->Lower->text();
+        str_up = ui->Upper->text();
+        low = str_low.toDouble();
+        up=str_up.toDouble();
+        
+    }
+
+    // Evaluation 
+    this->Tree->buildTree();
+    // TODO: evaluate equation with variables
+    // when x=0?
+    try
+    {
+        solution = NumIntegrationRomberg(this->Tree,low,up);
+    }
+    catch (ARITHMETIC_EXCEPTION)
+    {
+        // ArithmeticE
+    }
+    catch (NUMBER_FORMAT_EXCEPTION)
+    {
+        // unknown var
+    }
+    catch (NULL_POINTER_EXCEPTION)
+    {
+        // illgel expression
+    }
+    catch (...)
+    {
+        // others
+    }
+
+    // used to test derivate toString function
+    // Node* testD = this->Tree->derivate("x");
+    // testD->toString();
+
+    ui->CalcRes->setText(QString::number(solution));
+    ui->Val1->setText(QString("READY"));
+    ui->Diff_Val->setText(QString("READY"));
+    ui->Val->setText(QString("READY"));
+    this->Tree->clear();
+}
+
+void VisualCalc::DerivateEqualButtonPressed() {
+    double solution = 0.0;
+    QString str_point;
+    double point;
+    QString displayVal = ui->Val->text();
+    if (!displayVal.isEmpty())
+    {
+        Node* N;
+        if (!displayVal.compare("Pi")) N = new ConstNode(constPi);
+        else if (!displayVal.compare("e")) N = new ConstNode(constE);
+        else N = new ConstNode(displayVal.toDouble());
+        this->Tree->enQueue(N);
+        ui->Expr->setText(this->Tree->renewExpr());
+        ui->Expr1->setText(this->Tree->renewExpr());
+        ui->DiffExpr->setText(this->Tree->renewExpr());
+        ui->CalcExpr->setText(this->Tree->renewExpr());
+        str_point = ui->Diff_x0->text();
+        point = str_point.toDouble();
+
+    }
+
+    // Evaluation 
+    this->Tree->buildTree();
+    // TODO: evaluate equation with variables
+    // when x=0?
+    try
+    {
+        solution = NumDiff(this->Tree, point);
+    }
+    catch (ARITHMETIC_EXCEPTION)
+    {
+        // ArithmeticE
+    }
+    catch (NUMBER_FORMAT_EXCEPTION)
+    {
+        // unknown var
+    }
+    catch (NULL_POINTER_EXCEPTION)
+    {
+        // illgel expression
+    }
+    catch (...)
+    {
+        // others
+    }
+
+    // used to test derivate toString function
+    // Node* testD = this->Tree->derivate("x");
+    // testD->toString();
+
+    ui->CalcRes->setText(QString("READY"));
+    ui->Val1->setText(QString("READY"));
+    ui->Diff_Val->setText(QString::number(solution));
+    ui->Val->setText(QString("READY"));
+    this->Tree->clear();
+}
 
 void VisualCalc::EqualButtonPressed() {
     double solution = 0.0;
@@ -355,6 +477,9 @@ void VisualCalc::ClearButtonPressed()
     ui->Val1->setText("0");
     ui->Diff_Val->setText("0");
     ui->CalcRes->setText("0");
+    ui->Upper->setText("");
+    ui->Lower->setText("");
+    ui->Diff_x0->setText("");
 
     ui->Expr->setText(this->Tree->renewExpr());
     ui->Expr1->setText(this->Tree->renewExpr());
@@ -469,3 +594,4 @@ void VisualCalc::StatAnalysis()
     new_stat = new Stat;
     new_stat->show();
 }
+

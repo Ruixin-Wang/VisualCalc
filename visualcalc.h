@@ -6,6 +6,7 @@
 #include "Node.h"
 #include "graph.h"
 #include "stat.h"
+#include "calculus.h"
 
 QT_BEGIN_NAMESPACE 
 namespace Ui { class VisualCalc; }
@@ -49,6 +50,9 @@ private slots:
     void StatAddData();
     void StatDelData();
     void StatAnalysis();
+private slots:
+    void IntegrationEqualButtonPressed();
+    void DerivateEqualButtonPressed();
 };
 
 
