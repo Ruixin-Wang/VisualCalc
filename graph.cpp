@@ -111,7 +111,7 @@ void Graph::vSliderSlided(int tp)
 void Graph::hSliderSlided(int tp)
 {
     static int or = tp;
-    double step = 0.2 * (maxY - minY) * (tp - or ) * 0.5;
+    double step = 0.2 * (maxX - minX) * (tp - or ) * 0.5;
     updateArea(minX - step, minY, maxX + step, maxY);
     update(0, 0, width(), height());
 

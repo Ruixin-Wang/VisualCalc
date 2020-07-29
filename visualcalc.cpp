@@ -4,7 +4,7 @@
 #include <QDebug>
 
 #include "Node.h"
-// #include "NodeforMatrix.h"
+#include "NodeforMatrix.h"
 
 #define constPi 3.1415926
 #define constE  2.7182818
@@ -151,8 +151,8 @@ void VisualCalc::MathButtonPressed()
         ui->Expr1->setText(this->Tree->renewExpr());
         ui->CalcExpr->setText(this->Tree->renewExpr());
         ui->DiffExpr->setText(this->Tree->renewExpr());
-        varTrig = false;
     }
+    else varTrig = false;
 
     
     QPushButton* button = (QPushButton*)sender();
@@ -344,7 +344,6 @@ void VisualCalc::IntegrationEqualButtonPressed() {
     ui->Diff_Val->setText(QString(""));
     ui->Val->setText(QString(""));
     this->Tree->clear();
-    varTrig = false;
 }
 
 void VisualCalc::DerivateEqualButtonPressed() {
@@ -402,7 +401,6 @@ void VisualCalc::DerivateEqualButtonPressed() {
     ui->Diff_Val->setText(QString::number(solution));
     ui->Val->setText(QString("READY"));
     this->Tree->clear();
-    varTrig = false;
 }
 
 void VisualCalc::EqualButtonPressed() {
@@ -510,6 +508,7 @@ void VisualCalc::ClearButtonPressed()
     ui->Expr1->setText(this->Tree->renewExpr());
     ui->DiffExpr->setText(this->Tree->renewExpr());
     ui->CalcExpr->setText(this->Tree->renewExpr());
+    varTrig = false;
 
 }
 
