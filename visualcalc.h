@@ -46,6 +46,8 @@ private slots:
     void DeleteButtonPressed();
     void ClearButtonPressed();
 
+    void MatrixButtonPressed();
+
 private slots:
     void StatAddData();
     void StatDelData();

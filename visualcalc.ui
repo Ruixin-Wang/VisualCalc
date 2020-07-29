@@ -2789,7 +2789,7 @@ QTabBar::tab:left:only-one, QTabBar::tab:right:only-one {
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>5</number>
+       <number>0</number>
       </property>
       <property name="elideMode">
        <enum>Qt::ElideNone</enum>
@@ -3175,7 +3175,7 @@ p, li { white-space: pre-wrap; }
          </widget>
         </item>
         <item row="1" column="0">
-         <widget class="QLineEdit" name="Expr_2">
+         <widget class="QLineEdit" name="Expr_Mat">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
             <horstretch>0</horstretch>
@@ -3227,7 +3227,7 @@ p, li { white-space: pre-wrap; }
          </widget>
         </item>
         <item row="1" column="1">
-         <widget class="QPushButton" name="Equals_2">
+         <widget class="QPushButton" name="Equals_Mat">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
             <horstretch>100</horstretch>
@@ -4593,11 +4593,22 @@ QPushButton:pressed {
         </item>
         <item row="5" column="0" colspan="4">
          <widget class="QLineEdit" name="CalcRes">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>64</height>
+           </size>
+          </property>
           <property name="styleSheet">
            <string notr="true">QLineEdit {
-	font: 14pt &quot;Times New Roman&quot;;
-	font-weight: normal;
-	Border: 0px;
+    background-color: #F0F3F4; 
+	border: 0px solid gray;
+	color: #000000;
+	
+	
+	
+	font: 75 34pt &quot;Segoe UI&quot;;
+	font-weight: Bold;
 }</string>
           </property>
           <property name="text">

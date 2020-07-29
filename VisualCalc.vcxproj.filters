@@ -50,6 +50,9 @@
     <ClCompile Include="calculus.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="linesolve.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="dialog.ui">

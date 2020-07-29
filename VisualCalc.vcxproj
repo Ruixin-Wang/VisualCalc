@@ -107,6 +107,7 @@
     <QtMoc Include="visualcalc.h" />
     <ClCompile Include="calculus.cpp" />
     <ClCompile Include="graph.cpp" />
+    <ClCompile Include="linesolve.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="stat.cpp" />
     <ClCompile Include="visualcalc.cpp" />

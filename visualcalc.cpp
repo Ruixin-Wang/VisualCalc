@@ -11,6 +11,7 @@ bool divTrig = false;
 bool mulTrig = false;
 bool addTrig = false;
 bool subTrig = false;
+bool varTrig = false;
 
 std::vector<double> x_;
 std::vector<double> y_;
@@ -62,6 +63,12 @@ VisualCalc::VisualCalc(QWidget* parent)
     connect(ui->Stat_Add_Data, SIGNAL(released()), this, SLOT(StatAddData()));
     connect(ui->Stat_Analysis, SIGNAL(released()), this, SLOT(StatAnalysis()));
     connect(ui->Stat_Del_Data, SIGNAL(released()), this, SLOT(StatDelData()));
+
+    for (int i = 1; i <= 12; i++) {
+        QString butname = "Opr00" + QString::number(i);
+        numButtons[i] = VisualCalc::findChild<QPushButton*>(butname);
+        connect(numButtons[i], SIGNAL(released()), this, SLOT(MatrixButtonPressed()));
+    }
 
     // used to build Tree
     Tree = new ExprTree;
@@ -121,7 +128,7 @@ void VisualCalc::MathButtonPressed()
 {
     QString displayVal = ui->Val->text();
     // construct Const node
-    if (!displayVal.isEmpty() && !(this->Tree->getSizeofQ() == 0 && displayVal.toDouble() == 0))
+    if (!displayVal.isEmpty() && !(this->Tree->getSizeofQ() == 0 && displayVal.toDouble() == 0) && (!varTrig))
     {
         Node* N;
         if (!displayVal.compare("Pi")) N = new ConstNode(constPi);
@@ -132,6 +139,7 @@ void VisualCalc::MathButtonPressed()
         ui->Expr1->setText(this->Tree->renewExpr());
         ui->CalcExpr->setText(this->Tree->renewExpr());
         ui->DiffExpr->setText(this->Tree->renewExpr());
+        varTrig = false;
     }
 
     
@@ -269,6 +277,7 @@ void VisualCalc::IntegrationEqualButtonPressed() {
     QString str_low, str_up;
     double low, up;
     QString displayVal = ui->Val->text();
+    QString finExpr;
     if (!displayVal.isEmpty())
     {
         Node* N;
@@ -280,6 +289,7 @@ void VisualCalc::IntegrationEqualButtonPressed() {
         ui->Expr1->setText(this->Tree->renewExpr());
         ui->DiffExpr->setText(this->Tree->renewExpr());
         ui->CalcExpr->setText(this->Tree->renewExpr());
+        finExpr = ui->CalcExpr->text();
         str_low =ui->Lower->text();
         str_up = ui->Upper->text();
         low = str_low.toDouble();
@@ -317,9 +327,10 @@ void VisualCalc::IntegrationEqualButtonPressed() {
     // testD->toString();
 
     ui->CalcRes->setText(QString::number(solution));
-    ui->Val1->setText(QString("READY"));
-    ui->Diff_Val->setText(QString("READY"));
-    ui->Val->setText(QString("READY"));
+    ui->CalcExpr->setText(finExpr);
+    ui->Val1->setText(QString(""));
+    ui->Diff_Val->setText(QString(""));
+    ui->Val->setText(QString(""));
     this->Tree->clear();
 }
 
@@ -521,7 +532,7 @@ void VisualCalc::VarButtonPressed()
     ui->CalcExpr->setText(this->Tree->renewExpr());
     ui->Diff_Val->setText("");
     ui->CalcRes->setText("");
-
+    varTrig = true;
 }
 
 void VisualCalc::on_Generate_clicked()
@@ -595,3 +606,43 @@ void VisualCalc::StatAnalysis()
     new_stat->show();
 }
 
+
+
+// Matrix ui setup
+void VisualCalc::MatrixButtonPressed()
+{
+    QPushButton* button = (QPushButton*)sender();
+    QString butVal = button->whatsThis();
+    if (butVal == QString::fromStdString("+"))
+    {
+        Node* N1 = new AddNode(nullptr, nullptr);
+        this->Tree->enQueue(N1);
+    }
+    else if (butVal == QString::fromStdString("-"))
+    {
+        Node* N1 = new SubNode(nullptr, nullptr);
+        this->Tree->enQueue(N1);
+    }
+    else if (butVal == QString::fromStdString("*"))
+    {
+        Node* N1 = new MutliplyNode(nullptr, nullptr);
+        this->Tree->enQueue(N1);
+    }
+    else if (butVal == QString::fromStdString("/"))
+    {
+        Node* N1 = new DivNode(nullptr, nullptr);
+        this->Tree->enQueue(N1);
+    }
+
+    
+    ui->Expr->setText(this->Tree->renewExpr());
+    ui->Expr1->setText(this->Tree->renewExpr());
+    ui->DiffExpr->setText(this->Tree->renewExpr());
+    ui->CalcExpr->setText(this->Tree->renewExpr());
+
+
+    ui->Val->setText("");
+    ui->Val1->setText("");
+    ui->Diff_Val->setText("");
+    ui->CalcRes->setText("");
+}
