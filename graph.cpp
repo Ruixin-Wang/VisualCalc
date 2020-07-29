@@ -75,13 +75,14 @@ void Graph::mouseMoveEvent(QMouseEvent *event){
 		QPointF point = event->pos() - startPos;
 		double deltaX = point.x() / width() * (maxX - minX);
 		double deltaY = point.y() / height() * (maxY - minY);
-		minX -= deltaX, maxX -= deltaX, minY += deltaY, maxY += deltaY;
+		// minX -= deltaX, maxX -= deltaX, minY += deltaY, maxY += deltaY;
+        updateArea(minX + 0.5*deltaX, minY + 0.5 * deltaY, maxX - 0.5 * deltaX, maxY - 0.5 * deltaY);
         qDebug() << minX << "," << maxX <<","<<minY<<","<<maxY;
 	}
 }
 void Graph::mouseReleaseEvent(QMouseEvent *event){
 }
 void Graph::draw(QMouseEvent* event) {
-    repaint(0, 0, width(), height());
-    qDebug() << "update";
+    update(0, 0, width(), height());
+    // qDebug() << "update"<< width()<<height();
 }

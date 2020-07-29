@@ -22,6 +22,14 @@ public:
     explicit Graph(QWidget *parent , ExprTree& tree);
     ~Graph();
 
+    void updateArea(double minXn, double minYn, double maxXn, double maxYn)
+    {
+        minX = minXn;
+        minY = minYn;
+        maxX = maxXn;
+        maxY = maxYn;
+    }
+
 private:
     Ui::Graph *ui;
 
