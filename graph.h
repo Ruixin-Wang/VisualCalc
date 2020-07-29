@@ -4,7 +4,11 @@
 #include <QDialog>
 #include <QMouseEvent>
 #include <QPointF>
+#include <QSlider>
 #include <QDebug>
+
+
+#include "Node.h"
 
 namespace Ui {
 class Graph;
@@ -12,11 +16,21 @@ class Graph;
 
 class Graph : public QDialog
 {
+    ExprTree& Tree;
+
     Q_OBJECT
 
 public:
-    explicit Graph(QWidget *parent = nullptr);
+    explicit Graph(QWidget *parent , ExprTree& tree);
     ~Graph();
+
+    void updateArea(double minXn, double minYn, double maxXn, double maxYn)
+    {
+        minX = minXn;
+        minY = minYn;
+        maxX = maxXn;
+        maxY = maxYn;
+    }
 
 private:
     Ui::Graph *ui;
@@ -24,10 +38,14 @@ private:
     double minX = -20, minY = -40, maxX = 20, maxY = 40;
     
     QPointF startPos;
+    QSlider *vSlider, *hSlider;
 
+    double fx(double x);
 
 private slots:
     void draw(QMouseEvent* event);
+    void hSliderSlided(int);
+    void vSliderSlided(int);
 
 signals:
     void mouseMove(QMouseEvent* event);
