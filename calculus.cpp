@@ -64,3 +64,13 @@ double ExprDiff(ExprTree* T,double point) {
 	
 }
 
+
+
+/***********************************************/
+void DiffString(ExprTree * T) {
+	if (T) {
+		Node* Ttt = T->derivate("x");
+		Ttt->toString();
+	}
+}
+

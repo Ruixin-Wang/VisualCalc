@@ -368,6 +368,9 @@ void VisualCalc::DerivateEqualButtonPressed() {
     {
         solution_analysis = ExprDiff(this->Tree, point);
         solution_num = NumDiff(this->Tree, point);
+        DiffString(this->Tree);
+        /**************************************************************/
+        ui->Diff_diffexpr->setText(toStringExpression);
     }
     catch (ARITHMETIC_EXCEPTION)
     {
@@ -504,7 +507,9 @@ void VisualCalc::ClearButtonPressed()
     ui->Expr1->setText(this->Tree->renewExpr());
     ui->DiffExpr->setText(this->Tree->renewExpr());
     ui->CalcExpr->setText(this->Tree->renewExpr());
-
+    /*****************************************************************/
+    ui->Diff_diffexpr->setText("");
+    toStringExpression = "";
 
 }
 

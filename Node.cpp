@@ -218,7 +218,9 @@ double CosNode::eval()
 
 Node* CosNode::derivate(std::string x)
 {
-	Node* dfg = new SinNode(child);
+	Node* mo = new ConstNode(-1);
+	Node* mdfg = new SinNode(child);
+	Node* dfg = new MutliplyNode(mo, mdfg);
 	Node* dfgMdg = new MutliplyNode(dfg, child->derivate(x));
 	return dfgMdg;
 }
@@ -327,7 +329,7 @@ double LgNode::eval()
 
 Node* LgNode::derivate(std::string x)
 {
-	Node* o = new ConstNode(1);
+	Node* o = new ConstNode(log(10));
 	Node* dfg = new DivNode(o, child);
 	Node* dfgMdg = new MutliplyNode(dfg, child->derivate(x));
 	return dfgMdg;
@@ -351,7 +353,7 @@ double LnNode::eval()
 
 Node* LnNode::derivate(std::string x)
 {
-	Node* o = new ConstNode(1/log(10));
+	Node* o = new ConstNode(1/log(2.718281828));
 	Node* dfg = new DivNode(o, child);
 	Node* dfgMdg = new MutliplyNode(dfg, child->derivate(x));
 	return dfgMdg;
