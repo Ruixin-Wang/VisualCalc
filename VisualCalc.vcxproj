@@ -105,6 +105,7 @@
     <QtUic Include="dialog.ui" />
     <QtUic Include="graph.ui" />
     <QtMoc Include="visualcalc.h" />
+    <ClCompile Include="calculus.cpp" />
     <ClCompile Include="graph.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="stat.cpp" />
@@ -112,6 +113,7 @@
     <ClCompile Include="main.cpp" />
     <QtMoc Include="graph.h" />
     <QtMoc Include="stat.h" />
+    <ClInclude Include="calculus.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="statistic.h" />
     <QtUic Include="stat.ui" />

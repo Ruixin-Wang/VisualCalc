@@ -1,6 +1,7 @@
 #pragma once
 #include <QDialog>
 
+
 namespace Ui {
     class Stat;
 }

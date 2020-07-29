@@ -9,28 +9,29 @@ extern bool x_enable, y_enable;
 
 #include "statistic.h"
 
+
+
 // 数据个数number
-double stat_Number(vector<double> const x)
+double stat_Number(std::vector<double> const x)
 {
     return x.size();
 }
 
 
 // 数据总和sum
-double stat_Sum(vector<double> const x)
+double stat_Sum(std::vector<double> const x)
 {
     return accumulate(x.begin(), x.end(), 0.0);
 }
 
 
 // 平均数Mean Value
-double stat_MeanValue(vector<double> const x)
+double stat_MeanValue(std::vector<double> const x)
 {
 
     if (x.size() == 0)
     {
-    //          cout << "Error: Empty vector";
-        exit(1);
+        throw EMPTY_INPUT_EXCEPTION();
     }
 
     return accumulate(x.begin(), x.end(), 0.0) / x.size();
@@ -38,17 +39,16 @@ double stat_MeanValue(vector<double> const x)
 
 
 // 方差Variance
-double stat_Variance(vector<double> const x)
+double stat_Variance(std::vector<double> const x)
 {
 
     if (x.size() == 0)
     {
-        //        cout<<"Error: Empty vector";
-        exit(1);
+        throw EMPTY_INPUT_EXCEPTION();
     }
 
     double mean = stat_MeanValue(x);
-    vector<double> diff(x.size());
+    std::vector<double> diff(x.size());
 
     // transform (x.begin(), x.end(), diff.begin(), std::bind2nd(std::minus<double>(), mean));
     // lambda
@@ -61,17 +61,16 @@ double stat_Variance(vector<double> const x)
 
 
 // 标准偏差Standard Deviation
-double stat_StandardDeviation(vector<double> const x)
+double stat_StandardDeviation(std::vector<double> const x)
 {
 
     if (x.size() == 0)
     {
-        //        cout<<"Error: Empty vector";
-        exit(1);
+        throw EMPTY_INPUT_EXCEPTION();
     }
 
     double mean = stat_MeanValue(x);
-    vector<double> diff(x.size());
+    std::vector<double> diff(x.size());
 
     // transform (x.begin(), x.end(), diff.begin(), std::bind2nd(std::minus<double>(), mean));
     // lambda
@@ -83,31 +82,29 @@ double stat_StandardDeviation(vector<double> const x)
 }
 
 // 极值Maxima and Minima
-double stat_Maxima(vector<double> const x)
+double stat_Maxima(std::vector<double> const x)
 {
 
     if (x.size() == 0)
     {
-        //        cout<<"Error: Empty vector";
-        exit(1);
+        throw EMPTY_INPUT_EXCEPTION();
     }
 
-    double max;
+    double max=x[0];
     for_each(x.begin(), x.end(), [&](int n) {
         max = (max > n) ? max : n;
         });
     return max;
 }
-double stat_Minima(vector<double> const x)
+double stat_Minima(std::vector<double> const x)
 {
 
     if (x.size() == 0)
     {
-        //        cout<<"Error: Empty vector";
-        exit(1);
+        throw EMPTY_INPUT_EXCEPTION();
     }
 
-    double min = INFINITY;
+    double min = x[0];
     for_each(x.begin(), x.end(), [&](int n) {
         min = (min < n) ? min : n;
         });
@@ -116,29 +113,31 @@ double stat_Minima(vector<double> const x)
 
 
 // 上m/k分位数Quantile
-double stat_Quantile(vector<double> const x, int const k, int const m)
+double stat_Quantile(std::vector<double> const x, int const k, int const m)
 {
 
     if (x.size() == 0)
     {
-        //       cout<<"Error: Empty vector";
-        exit(1);
+        throw EMPTY_INPUT_EXCEPTION();
+    }
+    if (m > k || m*k < 0)
+    {
+        throw INDEX_OUT_OF_BOUNDS_EXCEPTION();
     }
 
-    vector<double> y = x;
+    std::vector<double> y = x;
     nth_element(y.begin(), y.begin() + y.size() * m / k, y.end(), std::greater<int>());
     return y[y.size() * m / k];
 }
 
 
 // k 阶中心矩kth-Central Moment
-double stat_CentralMoment(vector<double> const x, int const k)
+double stat_CentralMoment(std::vector<double> const x, int const k)
 {
 
     if (x.size() == 0)
     {
-        //        cout<<"Error: Empty vector";
-        exit(1);
+        throw EMPTY_INPUT_EXCEPTION();
     }
 
     if (k == 1)
@@ -220,17 +219,20 @@ double stat_CentralMoment(vector<double> const x, int const k)
 
 
 // 调和平均Harmonic Mean
-double stat_HarmonicMean(vector<double> const x)
+double stat_HarmonicMean(std::vector<double> const x)
 {
 
     if (x.size() == 0)
     {
-        //        cout<<"Error: Empty vector";
-        exit(1);
+        throw EMPTY_INPUT_EXCEPTION();
     }
 
     double H1;
     for_each(x.begin(), x.end(), [&](int n) {
+        if (n == 0)
+        {
+            throw HARMONIC_ZERO_EXCEPTION();
+        }
         H1 += 1 / n;
         });
     return 1 / H1;
@@ -238,13 +240,12 @@ double stat_HarmonicMean(vector<double> const x)
 
 
 //几何平均Geometric Mean
-double stat_GeometricMean(vector<double> const x)
+double stat_GeometricMean(std::vector<double> const x)
 {
 
     if (x.size() == 0)
     {
-        //        cout<<"Error: Empty vector";
-        exit(1);
+        throw EMPTY_INPUT_EXCEPTION();
     }
 
     return pow(stat_Sum(x), 1 / (stat_Number(x)));
@@ -252,13 +253,12 @@ double stat_GeometricMean(vector<double> const x)
 
 
 // 偏度Skewness
-double stat_Skewness(vector<double> const x)
+double stat_Skewness(std::vector<double> const x)
 {
 
     if (x.size() == 0)
     {
-        //        cout<<"Error: Empty vector";
-        exit(1);
+        throw EMPTY_INPUT_EXCEPTION();
     }
 
     double num = 0, num_old = 0, m = 0, m2 = 0, m3 = 0, m4 = 0;
@@ -279,12 +279,11 @@ double stat_Skewness(vector<double> const x)
 
 
 // 峰度Kurtosis
-double stat_Kurtosis(vector<double> const x)
+double stat_Kurtosis(std::vector<double> const x)
 {
     if (x.size() == 0)
     {
-        //        cout<<"Error: Empty vector";
-        exit(1);
+        throw EMPTY_INPUT_EXCEPTION();
     }
 
     double num = 0, num_old = 0, m = 0, m2 = 0, m3 = 0, m4 = 0;
@@ -306,29 +305,26 @@ double stat_Kurtosis(vector<double> const x)
 
 
 // 变异系数Coefficient of Variation
-double stat_CoefficientOfVariance(vector<double> const x)
+double stat_CoefficientOfVariance(std::vector<double> const x)
 {
     if (x.size() == 0)
     {
-        //        cout<<"Error: Empty vector";
-        exit(1);
+        throw EMPTY_INPUT_EXCEPTION();
     }
 
     return stat_StandardDeviation(x) / stat_MeanValue(x);
 }
 
 // 相关系数Covariance
-double stat_Covariance(vector<double> x, vector<double> y)
+double stat_Covariance(std::vector<double> x, std::vector<double> y)
 {
     if (x.size() == 0 || y.size() == 0)
     {
-        //        cout<<"Error: 0 size";
-        exit(1);
+        throw EMPTY_INPUT_EXCEPTION();
     }
     if (x.size() != y.size())
     {
-        //        cout<<"Error: Unequal size";
-        exit(2);
+        throw UNBANLANCE_INPUT_EXCEPTION();
     }
 
     int num = x.size();
@@ -348,17 +344,15 @@ double stat_Covariance(vector<double> x, vector<double> y)
 // Regression
 
 // 单变量线性回归Simple Linear Regression
-double stat_SimpleLinearRegression(vector<double> const x, vector<double> const y)
+double stat_SimpleLinearRegression(std::vector<double> const x, std::vector<double> const y)
 {
     if (x.size() == 0 || y.size() == 0)
     {
-        //        cout<<"Error: 0 size";
-        exit(1);
+        throw EMPTY_INPUT_EXCEPTION();
     }
     if (x.size() != y.size())
     {
-        //        cout<<"Error: Unequal size";
-        exit(2);
+        throw UNBANLANCE_INPUT_EXCEPTION();
     }
 
     int num = x.size();
@@ -376,17 +370,15 @@ double stat_SimpleLinearRegression(vector<double> const x, vector<double> const 
     return r;
 }
 
-double stat_SimpleLinearRegression_alpha(vector<double> const x, vector<double> const y)
+double stat_SimpleLinearRegression_alpha(std::vector<double> const x, std::vector<double> const y)
 {
     if (x.size() == 0 || y.size() == 0)
     {
-        //        cout<<"Error: 0 size";
-        exit(1);
+        throw EMPTY_INPUT_EXCEPTION();
     }
     if (x.size() != y.size())
     {
-        //        cout<<"Error: Unequal size";
-        exit(2);
+        throw UNBANLANCE_INPUT_EXCEPTION();
     }
 
     int num = x.size();
@@ -404,17 +396,15 @@ double stat_SimpleLinearRegression_alpha(vector<double> const x, vector<double> 
     return alpha;
 }
 
-double stat_SimpleLinearRegression_beta(vector<double> const x, vector<double> const y)
+double stat_SimpleLinearRegression_beta(std::vector<double> const x, std::vector<double> const y)
 {
     if (x.size() == 0 || y.size() == 0)
     {
-        //        cout<<"Error: 0 size";
-        exit(1);
+        throw EMPTY_INPUT_EXCEPTION();
     }
     if (x.size() != y.size())
     {
-        //        cout<<"Error: Unequal size";
-        exit(2);
+        throw UNBANLANCE_INPUT_EXCEPTION();
     }
 
     int num = x.size();
@@ -437,19 +427,19 @@ double stat_SimpleLinearRegression_beta(vector<double> const x, vector<double> c
 
 // t 检验Student’s t-test
 // 单样本
-double stat_TTest(vector<double> const x, int const mux)
+double stat_TTest(std::vector<double> const x, int const mux)
 {
     return (stat_MeanValue(x) - mux) / sqrt(stat_StandardDeviation(x) / x.size());
 }
 // 双样本
-double stat_TTest(vector<double> const x, vector<double> const y)
+double stat_TTest(std::vector<double> const x, std::vector<double> const y)
 {
     return (stat_MeanValue(x) - stat_MeanValue(y)) / sqrt(stat_StandardDeviation(x) / x.size() + stat_StandardDeviation(y) / y.size());
 }
 
 
 // 皮尔森卡方检验Pearson’s Chi-squared Test
-double stat_ChiUniformTest(vector<double> const observed)
+double stat_ChiUniformTest(std::vector<double> const observed)
 {
     int num = observed.size();
     double sum = 0, chisquare = 0;
@@ -469,19 +459,45 @@ Stat::Stat(QWidget* parent) :
 {
     ui->setupUi(this);
     if (x_enable) {
-        ui->lineEdit->setText(QString::number(stat_Sum(x_)));
-        ui->lineEdit_2->setText(QString::number(stat_MeanValue(x_)));
-        ui->lineEdit_7->setText(QString::number(stat_HarmonicMean(x_)));
-        ui->lineEdit_8->setText(QString::number(stat_GeometricMean(x_)));
-        ui->lineEdit_3->setText(QString::number(stat_Variance(x_)));
-        ui->lineEdit_4->setText(QString::number(stat_StandardDeviation(x_)));
-        ui->lineEdit_5->setText(QString::number(stat_Maxima(x_)));
-        ui->lineEdit_6->setText(QString::number(stat_Minima(x_)));
-        ui->lineEdit_9->setText(QString::number(stat_Skewness(x_)));
-        ui->lineEdit_10->setText(QString::number(stat_Kurtosis(x_)));
-        ui->lineEdit_11->setText(QString::number(stat_CoefficientOfVariance(x_)));
+        try
+        {
+
+            ui->lineEdit->setText(QString::number(stat_Sum(x_)));
+            ui->lineEdit_2->setText(QString::number(stat_MeanValue(x_)));
+            ui->lineEdit_7->setText(QString::number(stat_HarmonicMean(x_)));
+            ui->lineEdit_8->setText(QString::number(stat_GeometricMean(x_)));
+            ui->lineEdit_3->setText(QString::number(stat_Variance(x_)));
+            ui->lineEdit_4->setText(QString::number(stat_StandardDeviation(x_)));
+            ui->lineEdit_5->setText(QString::number(stat_Maxima(x_)));
+            ui->lineEdit_6->setText(QString::number(stat_Minima(x_)));
+            ui->lineEdit_9->setText(QString::number(stat_Skewness(x_)));
+            ui->lineEdit_10->setText(QString::number(stat_Kurtosis(x_)));
+            ui->lineEdit_11->setText(QString::number(stat_CoefficientOfVariance(x_)));
+        }
+        catch (ARITHMETIC_EXCEPTION)
+        {
+            // divide by zero
+        }
+        catch (EMPTY_INPUT_EXCEPTION)
+        {
+            // no input
+        }
+        catch (INDEX_OUT_OF_BOUNDS_EXCEPTION)
+        {
+            // illgel quantile m/k
+        }
+        catch (HARMONIC_ZERO_EXCEPTION)
+        {
+            // har with 0 data
+        }
+        catch (UNBANLANCE_INPUT_EXCEPTION)
+        {
+            // stat with unequal x, y length
+        }
     }
     if (y_enable) {
+        try
+        {
         ui->lineEdit_16->setText(QString::number(stat_Sum(y_)));
         ui->lineEdit_15->setText(QString::number(stat_MeanValue(y_)));
         ui->lineEdit_21->setText(QString::number(stat_HarmonicMean(y_)));
@@ -493,6 +509,27 @@ Stat::Stat(QWidget* parent) :
         ui->lineEdit_28->setText(QString::number(stat_Skewness(y_)));
         ui->lineEdit_29->setText(QString::number(stat_Kurtosis(y_)));
         ui->lineEdit_30->setText(QString::number(stat_CoefficientOfVariance(y_)));
+        }
+        catch (ARITHMETIC_EXCEPTION)
+        {
+            // divide by zero
+        }
+        catch (EMPTY_INPUT_EXCEPTION)
+        {
+            // no input
+        }
+        catch (INDEX_OUT_OF_BOUNDS_EXCEPTION)
+        {
+            // illgel quantile m/k
+        }
+        catch (HARMONIC_ZERO_EXCEPTION)
+        {
+            // har with 0 data
+        }
+        catch (UNBANLANCE_INPUT_EXCEPTION)
+        {
+            // stat with unequal x, y length
+        }
     }
     connect(ui->pushButton, SIGNAL(released()), this, SLOT(ExecQuantile()));
     connect(ui->pushButton_2, SIGNAL(released()), this, SLOT(ExecCM()));
@@ -512,8 +549,32 @@ void Stat::ExecQuantile()
     int k = ui->lineEdit_20->text().toInt();
     if (m != 0 && k != 0)
     {
-        if (x_enable) ui->lineEdit_22->setText(QString::number(stat_Quantile(x_, k, m)));
-        if (y_enable) ui->lineEdit_23->setText(QString::number(stat_Quantile(y_, k, m)));
+        try
+        {
+            if (x_enable) ui->lineEdit_22->setText(QString::number(stat_Quantile(x_, k, m)));
+            if (y_enable) ui->lineEdit_23->setText(QString::number(stat_Quantile(y_, k, m)));
+
+        }
+        catch (ARITHMETIC_EXCEPTION)
+        {
+            // divide by zero
+        }
+        catch (EMPTY_INPUT_EXCEPTION)
+        {
+            // no input
+        }
+        catch (INDEX_OUT_OF_BOUNDS_EXCEPTION)
+        {
+            // illgel quantile m/k
+        }
+        catch (HARMONIC_ZERO_EXCEPTION)
+        {
+            // har with 0 data
+        }
+        catch (UNBANLANCE_INPUT_EXCEPTION)
+        {
+            // stat with unequal x, y length
+        }
     }
 }
 
@@ -522,8 +583,33 @@ void Stat::ExecCM()
     int k = ui->lineEdit_26->text().toInt();
     if (k != 0)
     {
-        if (x_enable) ui->lineEdit_27->setText(QString::number(stat_CentralMoment(x_, k)));
-        if (y_enable) ui->lineEdit_24->setText(QString::number(stat_CentralMoment(y_, k)));
+        try
+        {
+            if (x_enable) ui->lineEdit_27->setText(QString::number(stat_CentralMoment(x_, k)));
+            if (y_enable) ui->lineEdit_24->setText(QString::number(stat_CentralMoment(y_, k)));
+        }
+        catch (ARITHMETIC_EXCEPTION)
+        {
+            // divide by zero
+        }
+        catch (EMPTY_INPUT_EXCEPTION)
+        {
+            // no input
+        }
+        catch (INDEX_OUT_OF_BOUNDS_EXCEPTION)
+        {
+            // illgel quantile m/k
+        }
+        catch (HARMONIC_ZERO_EXCEPTION)
+        {
+            // har with 0 data
+        }
+        catch (UNBANLANCE_INPUT_EXCEPTION)
+        {
+            // stat with unequal x, y length
+        }
+
+        
     }
 }
 
@@ -531,10 +617,33 @@ void Stat::ExecLinearA()
 {
     if (x_enable && y_enable)
     {
-        ui->lineEdit_33->setText(QString::number(stat_SimpleLinearRegression_alpha(x_, y_)));
-        ui->lineEdit_31->setText(QString::number(stat_SimpleLinearRegression_beta(x_, y_)));
-        ui->lineEdit_32->setText(QString::number(stat_SimpleLinearRegression(x_, y_)));
-        ui->lineEdit_38->setText(QString::number(stat_Covariance(x_, y_)));
+        try
+        {
+            ui->lineEdit_33->setText(QString::number(stat_SimpleLinearRegression_alpha(x_, y_)));
+            ui->lineEdit_31->setText(QString::number(stat_SimpleLinearRegression_beta(x_, y_)));
+            ui->lineEdit_32->setText(QString::number(stat_SimpleLinearRegression(x_, y_)));
+            ui->lineEdit_38->setText(QString::number(stat_Covariance(x_, y_)));
+        }
+        catch (ARITHMETIC_EXCEPTION)
+        {
+            // divide by zero
+        }
+        catch (EMPTY_INPUT_EXCEPTION)
+        {
+            // no input
+        }
+        catch (INDEX_OUT_OF_BOUNDS_EXCEPTION)
+        {
+            // illgel quantile m/k
+        }
+        catch (HARMONIC_ZERO_EXCEPTION)
+        {
+            // har with 0 data
+        }
+        catch (UNBANLANCE_INPUT_EXCEPTION)
+        {
+            // stat with unequal x, y length
+        }
     }
 }
 
@@ -543,10 +652,57 @@ void Stat::ExecTT()
     int mux = ui->lineEdit_34->text().toInt();
     if (mux != 0)
     {
-        if (x_enable) ui->lineEdit_35->setText(QString::number(stat_TTest(x_, mux)));
-        if (y_enable) ui->lineEdit_36->setText(QString::number(stat_TTest(y_, mux)));
+        try
+        {
+            if (x_enable) ui->lineEdit_35->setText(QString::number(stat_TTest(x_, mux)));
+            if (y_enable) ui->lineEdit_36->setText(QString::number(stat_TTest(y_, mux)));
+        }
+        catch (ARITHMETIC_EXCEPTION)
+        {
+            // divide by zero
+        }
+        catch (EMPTY_INPUT_EXCEPTION)
+        {
+            // no input
+        }
+        catch (INDEX_OUT_OF_BOUNDS_EXCEPTION)
+        {
+            // illgel quantile m/k
+        }
+        catch (HARMONIC_ZERO_EXCEPTION)
+        {
+            // har with 0 data
+        }
+        catch (UNBANLANCE_INPUT_EXCEPTION)
+        {
+            // stat with unequal x, y length
+        }
     }
-    if (x_enable && y_enable)        
-    ui->lineEdit_37->setText(QString::number(stat_TTest(x_, y_)));
+    if (x_enable && y_enable) 
+    try
+    {
+        ui->lineEdit_37->setText(QString::number(stat_TTest(x_, y_)));
+    }
+    catch (ARITHMETIC_EXCEPTION)
+    {
+        // divide by zero
+    }
+    catch (EMPTY_INPUT_EXCEPTION)
+    {
+        // no input
+    }
+    catch (INDEX_OUT_OF_BOUNDS_EXCEPTION)
+    {
+        // illgel quantile m/k
+    }
+    catch (HARMONIC_ZERO_EXCEPTION)
+    {
+        // har with 0 data
+    }
+    catch (UNBANLANCE_INPUT_EXCEPTION)
+    {
+        // stat with unequal x, y length
+    }
+    
 
 }
