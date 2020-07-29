@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <math.h>
+#include <string.h>
 
 class MATRIX{
 	private:
