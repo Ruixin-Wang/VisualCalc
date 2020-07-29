@@ -31,8 +31,8 @@ VisualCalc::VisualCalc(QWidget* parent)
     ui->setupUi(this);
     ui->Val->setText(QString::number(calcVal));
     ui->Val1->setText(QString::number(calcVal));
-   // ui->Diff_Val->setText(QString::number(calcVal));
-    //ui->CalcRes->setText(QString::number(calcVal));
+    ui->Diff_Val->setText(QString::number(calcVal));
+    ui->CalcRes->setText(QString::number(calcVal));
 
 
     QPushButton* numButtons[23];
@@ -94,8 +94,8 @@ void VisualCalc::NumPressed()
         {
             ui->Val->setText("0.");
             ui->Val1->setText("0.");
-            //ui->CalcRes->setText("0.");
-            //ui->Diff_Val->setText("0.");
+            ui->CalcRes->setText("0.");
+            ui->Diff_Val->setText("0.");
         }
         else if (!ui->Val->text().compare("0."))
         {
@@ -103,15 +103,15 @@ void VisualCalc::NumPressed()
             double dblNewVal = newVal.toDouble();
             ui->Val->setText(newVal);
             ui->Val1->setText(newVal);
-            //ui->Diff_Val->setText(newVal);
-            //ui->CalcRes->setText(newVal);
+            ui->Diff_Val->setText(newVal);
+            ui->CalcRes->setText(newVal);
         }
         else
         {
             ui->Val->setText(butVal);
             ui->Val1->setText(butVal);
-            //ui->CalcRes->setText(butVal);
-            //ui->Diff_Val->setText(butVal);
+            ui->CalcRes->setText(butVal);
+            ui->Diff_Val->setText(butVal);
 
         }
     }
@@ -120,8 +120,8 @@ void VisualCalc::NumPressed()
         double dblNewVal = newVal.toDouble();
         ui->Val->setText(newVal);
         ui->Val1->setText(newVal);
-        //ui->Diff_Val->setText(newVal);
-        //ui->CalcRes->setText(newVal);
+        ui->Diff_Val->setText(newVal);
+        ui->CalcRes->setText(newVal);
     }
 }
 
@@ -139,8 +139,8 @@ void VisualCalc::MathButtonPressed()
         this->Tree->enQueue(N);
         ui->Expr->setText(this->Tree->renewExpr());
         ui->Expr1->setText(this->Tree->renewExpr());
-        //ui->CalcExpr->setText(this->Tree->renewExpr());
-        //ui->DiffExpr->setText(this->Tree->renewExpr());
+        ui->CalcExpr->setText(this->Tree->renewExpr());
+        ui->DiffExpr->setText(this->Tree->renewExpr());
         varTrig = false;
     }
 
@@ -261,14 +261,14 @@ void VisualCalc::MathButtonPressed()
     }
     ui->Expr->setText(this->Tree->renewExpr());
     ui->Expr1->setText(this->Tree->renewExpr());
-    //ui->DiffExpr->setText(this->Tree->renewExpr());
-    //ui->CalcExpr->setText(this->Tree->renewExpr());
+    ui->DiffExpr->setText(this->Tree->renewExpr());
+    ui->CalcExpr->setText(this->Tree->renewExpr());
 
     
     ui->Val->setText("");
     ui->Val1->setText("");
-    //ui->Diff_Val->setText("");
-    //ui->CalcRes->setText("");
+    ui->Diff_Val->setText("");
+    ui->CalcRes->setText("");
 }
 /************************************************************
 *此处代码重复比较严重，但是思路一致，一切由按下去的不同的计算键决定
@@ -289,8 +289,8 @@ void VisualCalc::IntegrationEqualButtonPressed() {
         this->Tree->enQueue(N);
         ui->Expr->setText(this->Tree->renewExpr());
         ui->Expr1->setText(this->Tree->renewExpr());
-        //ui->DiffExpr->setText(this->Tree->renewExpr());
-       // ui->CalcExpr->setText(this->Tree->renewExpr());
+        ui->DiffExpr->setText(this->Tree->renewExpr());
+        ui->CalcExpr->setText(this->Tree->renewExpr());
         finExpr = ui->CalcExpr->text();
         str_low =ui->Lower->text();
         str_up = ui->Upper->text();
@@ -330,9 +330,9 @@ void VisualCalc::IntegrationEqualButtonPressed() {
 
     ui->CalcRes->setText(QString::number(solution));
     ui->CalcExpr->setText(finExpr);
-    //ui->Val1->setText(QString(""));
-    //ui->Diff_Val->setText(QString(""));
-    //ui->Val->setText(QString(""));
+    ui->Val1->setText(QString(""));
+    ui->Diff_Val->setText(QString(""));
+    ui->Val->setText(QString(""));
     this->Tree->clear();
 }
 
@@ -350,8 +350,8 @@ void VisualCalc::DerivateEqualButtonPressed() {
         this->Tree->enQueue(N);
         ui->Expr->setText(this->Tree->renewExpr());
         ui->Expr1->setText(this->Tree->renewExpr());
-        //ui->DiffExpr->setText(this->Tree->renewExpr());
-        //ui->CalcExpr->setText(this->Tree->renewExpr());
+        ui->DiffExpr->setText(this->Tree->renewExpr());
+        ui->CalcExpr->setText(this->Tree->renewExpr());
         str_point = ui->Diff_x0->text();
         point = str_point.toDouble();
 
@@ -406,8 +406,8 @@ void VisualCalc::EqualButtonPressed() {
         this->Tree->enQueue(N);
         ui->Expr->setText(this->Tree->renewExpr());
         ui->Expr1->setText(this->Tree->renewExpr());
-        //ui->DiffExpr->setText(this->Tree->renewExpr());
-        //ui->CalcExpr->setText(this->Tree->renewExpr());
+        ui->DiffExpr->setText(this->Tree->renewExpr());
+        ui->CalcExpr->setText(this->Tree->renewExpr());
     }
     
     // Evaluation 
@@ -441,8 +441,8 @@ void VisualCalc::EqualButtonPressed() {
 
     ui->Val->setText(QString::number(solution));
     ui->Val1->setText(QString("READY"));
-    //ui->Diff_Val->setText(QString("READY"));
-   // ui->CalcRes->setText(QString("READY"));
+    ui->Diff_Val->setText(QString("READY"));
+    ui->CalcRes->setText(QString("READY"));
     this->Tree->clear();
 }
 
@@ -496,8 +496,8 @@ void VisualCalc::ClearButtonPressed()
 
     ui->Expr->setText(this->Tree->renewExpr());
     ui->Expr1->setText(this->Tree->renewExpr());
-    //ui->DiffExpr->setText(this->Tree->renewExpr());
-    //ui->CalcExpr->setText(this->Tree->renewExpr());
+    ui->DiffExpr->setText(this->Tree->renewExpr());
+    ui->CalcExpr->setText(this->Tree->renewExpr());
 
 }
 
