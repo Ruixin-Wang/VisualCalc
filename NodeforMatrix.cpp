@@ -134,12 +134,12 @@ MATRIX TrNodeForMatrix::eval()
 }
 
 
-void ExprTreeForMatrix::enQueue(NodeForMatrixForMatrix* N)
+void ExprTreeForMatrix::enQueue(NodeForMatrix* N)
 {
 	Queue[sizeofQ++] = N;
 }
 
-NodeForMatrixForMatrix* ExprTreeForMatrix::createInfix(int leftx, int rightx)
+NodeForMatrix* ExprTreeForMatrix::createInfix(int leftx, int rightx)
 {
 	int left = leftx;
 	int right = rightx;
@@ -186,7 +186,7 @@ NodeForMatrixForMatrix* ExprTreeForMatrix::createInfix(int leftx, int rightx)
 				// Done.TODO: complete, and what to compare?
 				if (Queue[i]->retElement() == QString::fromStdString("+"))
 				{
-					NodeForMatrixForMatrix* root = new AddNodeForMatrix(createInfix(left, i - 1), createInfix(i + 1, right));
+					NodeForMatrix* root = new AddNodeForMatrix(createInfix(left, i - 1), createInfix(i + 1, right));
 					return root;
 				}
 				else if (Queue[i]->retElement() == QString::fromStdString("-"))
