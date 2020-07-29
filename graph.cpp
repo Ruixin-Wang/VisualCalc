@@ -85,9 +85,9 @@ void Graph::mouseMoveEvent(QMouseEvent *event){
     emit mouseMove(event);
 	if(event->buttons() & Qt::LeftButton){
 		QPointF point = event->pos() - startPos;
-		double deltaX = point.x() / width() * (maxX - minX) / 10.0;
-		double deltaY = point.y() / height() * (maxY - minY) / 10.0;
-        updateArea(minX - 0.5*deltaX, minY + 0.5 * deltaY, maxX - 0.5 * deltaX, maxY + 0.5 * deltaY);
+		double deltaX = point.x() / width() * (maxX - minX);
+		double deltaY = point.y() / height() * (maxY - minY);
+        updateArea(minX + 0.5*deltaX, minY + 0.5 * deltaY, maxX - 0.5 * deltaX, maxY - 0.5 * deltaY);
         qDebug() << minX << "," << maxX <<","<<minY<<","<<maxY;
 	}
 }
@@ -102,7 +102,7 @@ void Graph::vSliderSlided(int tp)
 {
     static int or = tp;
     double step = 0.2 * (maxY - minY) * ( tp - or ) * 0.05;
-    updateArea(minX, minY - step, maxX, maxY + step);
+    updateArea(minX, minY + step, maxX, maxY + step);
     update(0, 0, width(), height());
 
     or = tp;
@@ -112,7 +112,7 @@ void Graph::hSliderSlided(int tp)
 {
     static int or = tp;
     double step = 0.2 * (maxY - minY) * (tp - or ) * 0.5;
-    updateArea(minX - step, minY, maxX + step, maxY);
+    updateArea(minX + step, minY, maxX + step, maxY);
     update(0, 0, width(), height());
 
     or = tp;
