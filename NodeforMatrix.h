@@ -1,4 +1,5 @@
-#pragma once
+#ifndef NODE_FOR_MATRIX_H
+#define NODE_FOR_MATRIX_H
 
 #include <QtWidgets>
 #include <string>
@@ -10,14 +11,14 @@
 
 class NodeForMatrix;
 
-extern std::map<QString, int> priority;
-extern std::map<std::string, MATRIX> variables;
+extern std::map<QString, int> priorityforMatrix;
+std::map<std::string, MATRIX*> variablesforMatrix;
 
 
 class NodeForMatrix
 {
 public:
-	virtual ~NodeForMatrix() = 0;
+	virtual ~NodeForMatrix() {}
 	// evaluate the node, especially the whole expression tree
 	virtual MATRIX eval() = 0;
 	// return Element
@@ -314,3 +315,5 @@ private:
 	NodeForMatrix* Queue[MAXQ];		// infix expression Queue
 	int sizeofQ;
 };
+
+#endif

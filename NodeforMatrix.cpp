@@ -4,7 +4,7 @@ typedef enum {
 	_add, _sub, _mul, _rdiv, _ldiv, _trans, _inv, _adj, _det, _tr, _Default
 } opr;
 
-std::map<QString, int> priority = {
+std::map<QString, int> priorityforMatrix = {
 	{"+", 1}, {"-", 1},
 	{"*", 2}, {"/", 2}, {"\\", 2},
 
@@ -13,7 +13,7 @@ std::map<QString, int> priority = {
 	{"tr", 3}
 };
 
-std::map<QString, opr> oprtype = {
+std::map<QString, opr> oprtypeforMatrix = {
 	{"+", _add}, {"-", _sub},
 	{"*", _mul}, {"/", _rdiv}, {"\\", _ldiv},
 
@@ -25,7 +25,7 @@ std::map<QString, opr> oprtype = {
 
 MATRIX VarNodeForMatrix::eval()
 {
-	return variables[name];//using dictionary
+	return *(variablesforMatrix[name]);//using dictionary
 }
 
 AddNodeForMatrix::~AddNodeForMatrix()
@@ -174,8 +174,8 @@ NodeForMatrix* ExprTreeForMatrix::createInfix(int leftx, int rightx)
 				}
 			}
 			int pri;
-			std::map<QString, int>::iterator iter = priority.find(Queue[i]->retElement());
-			if (iter != priority.end()) {
+			std::map<QString, int>::iterator iter = priorityforMatrix.find(Queue[i]->retElement());
+			if (iter != priorityforMatrix.end()) {
 				pri = iter->second;
 			}
 			else {

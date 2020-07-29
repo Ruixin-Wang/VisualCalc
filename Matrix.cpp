@@ -245,7 +245,7 @@ MATRIX MATRIX::trace(){
 	return MATRIX(1, 1, &ans);
 }
 
-int main()
+/*int main()
 {
 	double a[9]={1,2,3,4,5,6,8,9,10},b[9]={1.1,3.2,5.3,2.4,10.5,8.6,6.7,7.8,9.9};
 	MATRIX A(3,3,a),B(3,3,b);
@@ -256,4 +256,4 @@ int main()
 	catch(const char* error)
 		{cout << error;}
 	return 0;
-}
+}*/
