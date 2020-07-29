@@ -4,7 +4,9 @@
 #include <QDialog>
 #include <QMouseEvent>
 #include <QPointF>
+#include <QSlider>
 #include <QDebug>
+
 
 #include "Node.h"
 
@@ -36,11 +38,14 @@ private:
     double minX = -20, minY = -40, maxX = 20, maxY = 40;
     
     QPointF startPos;
+    QSlider *vSlider, *hSlider;
 
     double fx(double x);
 
 private slots:
     void draw(QMouseEvent* event);
+    void hSliderSlided(int);
+    void vSliderSlided(int);
 
 signals:
     void mouseMove(QMouseEvent* event);

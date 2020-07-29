@@ -50,9 +50,6 @@
     <ClCompile Include="calculus.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Tencent Files\295884863\FileRecv\linesolve.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="dialog.ui">
