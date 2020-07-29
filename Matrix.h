@@ -4,7 +4,6 @@
 #include <iostream>
 #include <math.h>
 #include <string.h>
-#include <stdexcept> 
 
 class MATRIX{
 	private:
@@ -52,21 +51,6 @@ class MATRIX{
 		//Output: tr(A)
 		//Require: A.row = A.column
 		MATRIX trace();
-};
-
-class DimensionMismatchException : public std::logic_error{
-	public:
-		DimensionMismatchException() : std::logic_error("The dimensions of the matrixs do not match.") {}
-};
-
-class SingularMatrixException : public std::logic_error{
-	public:
-		SingularMatrixException() : std::logic_error("The matrix is singular.") {}
-};
-
-class InvalidMatrixException : public std::logic_error{
-	public:
-		InvalidMatrixException() : std::logic_error("The matrix is invalid.") {}
 };
 
 inline void swap(double& a, double& b){
