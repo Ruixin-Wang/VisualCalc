@@ -24,6 +24,7 @@ public:
     Stat* new_stat;
 
     void initTable();
+    void initEQN();
 
 private slots:
     void on_Generate_clicked();
@@ -47,6 +48,10 @@ private slots:
     void ClearButtonPressed();
 
     void MatrixButtonPressed();
+
+    void EQNAddVar();
+    void EQNDecVar();
+    void EQNSolve();
 
 private slots:
     void StatAddData();
