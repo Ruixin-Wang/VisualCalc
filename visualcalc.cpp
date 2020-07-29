@@ -715,7 +715,6 @@ double* Gauss_Eliminate(double a[MAXN][MAXN], double b[MAXN])
         if (a[i][i] == 0)
         {
             // cout << "该方程组不能使用高斯消元法" << endl;
-            return;
         }
     }
 
@@ -781,6 +780,11 @@ double* linesolve(double a[MAXN][MAXN], double b[MAXN])
     else if (count != 0)
         return Gauss_Eliminate(a, b);
 }
+
+
+
+
+
 
 
 
