@@ -2789,7 +2789,7 @@ QTabBar::tab:left:only-one, QTabBar::tab:right:only-one {
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <property name="elideMode">
        <enum>Qt::ElideNone</enum>
@@ -3413,7 +3413,14 @@ QPushButton:pressed {
            <number>1</number>
           </property>
           <item>
-           <widget class="QSpinBox" name="Mat_spinBox"/>
+           <widget class="QComboBox" name="comboBox">
+            <property name="maximumSize">
+             <size>
+              <width>65</width>
+              <height>16777215</height>
+             </size>
+            </property>
+           </widget>
           </item>
           <item>
            <widget class="QPushButton" name="Mat_Add">

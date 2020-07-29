@@ -23,7 +23,7 @@ std::map<QString, opr> oprtypeforMatrix = {
 };
 
 
-MATRIX VarNodeForMatrix::eval()
+MATRIX VarNodeForMatrix::eval() 
 {
 	return *(variablesforMatrix[name]);//using dictionary
 }

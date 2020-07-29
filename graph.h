@@ -9,7 +9,7 @@
 
 
 #include "Node.h"
-
+ 
 namespace Ui {
 class Graph;
 }

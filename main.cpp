@@ -8,4 +8,4 @@ int main(int argc, char *argv[])
     VisualCalc w;
     w.show();
     return a.exec();
-}
+} 

@@ -9,12 +9,18 @@
 class MATRIX{
 	private:
 		int row, column;
-		double *data;
 	public:
+		double* data;
 		MATRIX();
 		MATRIX(int row, int column, double *data);
 		MATRIX(const MATRIX& b);
 		~MATRIX();
+		int getRow() {  
+			return row;
+		}
+		int getCol() {
+			return column;
+		}
 		void print() const;
 		MATRIX& operator=(MATRIX& b);
 		//Input: Matrix b

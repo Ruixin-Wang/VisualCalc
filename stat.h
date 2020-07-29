@@ -13,7 +13,7 @@ class Stat : public QDialog
 public:
     explicit Stat(QWidget* parent = nullptr);
     ~Stat();
-
+     
 private:
     Ui::Stat* ui;
 

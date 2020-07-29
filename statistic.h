@@ -8,7 +8,7 @@
 #include <vector>
 #include <numeric>
 #include <algorithm>
-#include <cmath>
+#include <cmath> 
 #include <exception>
 
 struct ARITHMETIC_EXCEPTION : public std::exception

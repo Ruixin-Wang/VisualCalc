@@ -13,7 +13,7 @@ Graph::Graph(QWidget *parent, ExprTree& tree) :
     Graph::setMouseTracking(true);
     connect(this, SIGNAL(mouseMove(QMouseEvent*)), this, SLOT(draw(QMouseEvent*)));
 
-    hSlider = ui->HorizontalSlider;
+    hSlider = ui->HorizontalSlider; 
     vSlider = ui->VerticalSlider;
     hSlider->setValue(50);
     vSlider->setValue(50);

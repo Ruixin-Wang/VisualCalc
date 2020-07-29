@@ -4,7 +4,7 @@
 const double EPS = 0.001;
 const double PI = 3.1415926;
 const double EulerMascheroni = 0.57721566490153286060651209;
-QString toStringExpression = "";
+QString toStringExpression = ""; 
 
 typedef enum {
 	_add, _sub, _mul, _div, _lg, _log, _ln, _abs, _atan, _acos, _asin, _tan, _cos,

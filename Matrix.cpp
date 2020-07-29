@@ -8,7 +8,7 @@ MATRIX::MATRIX(int row, int column, double *data) : row(row), column(column){
 	for(int i = 0; i < row; ++i)
 		for(int j = 0; j < column; ++j)
 			this->data[i * column + j] = data[i * column + j];
-}
+} 
 
 MATRIX::MATRIX(const MATRIX& b) : row(b.row), column(b.column){
 	this->data = new double[row * column];

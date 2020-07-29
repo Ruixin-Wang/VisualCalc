@@ -1,10 +1,10 @@
-#include "VisualCalc.h"
+#include "visualcalc.h"
 #include "ui_VisualCalc.h"
 #include <vector>
 #include <QDebug>
 
-#include "Node.h"
-#include "NodeforMatrix.h"
+
+
 
 #define constPi 3.1415926
 #define constE  2.7182818
@@ -18,6 +18,8 @@ bool addTrig = false;
 bool subTrig = false;
 bool varTrig = false;
 int EQN_Var_cnt = 2;
+int MAT_Cnt = 0;
+
 
 std::vector<double> x_;
 std::vector<double> y_;
@@ -27,6 +29,7 @@ bool x_enable, y_enable;
 
 std::map<std::string, double> variables;
 std::map<std::string, MATRIX*> variablesforMatrix;
+std::string CurrentMat;
 
 VisualCalc::VisualCalc(QWidget* parent)
     : QMainWindow(parent),
@@ -81,8 +84,15 @@ VisualCalc::VisualCalc(QWidget* parent)
         connect(numButtons[i], SIGNAL(released()), this, SLOT(MatrixButtonPressed()));
     }
 
+    connect(ui->Mat_Add, SIGNAL(released()), this, SLOT(AddMatrix()));
+    connect(ui->Mat_Edit, SIGNAL(released()), this, SLOT(EditMatrix()));
+    connect(ui->Mat_Del, SIGNAL(released()), this, SLOT(DeleteMatrix()));
+    connect(ui->Mat_Ins, SIGNAL(released()), this, SLOT(InsertMatrix()));
+    connect(ui->Equals_Mat, SIGNAL(released()), this, SLOT(MatEval()));
+
     // used to build Tree
     Tree = new ExprTree;
+    MTree = new ExprTreeForMatrix;
 
     initTable();
     initEQN();
@@ -464,11 +474,20 @@ void VisualCalc::DeleteButtonPressed()
         ui->CalcExpr->setText(this->Tree->renewExpr());
     }
 
+    if (this->MTree->getSizeofQ() != 0)
+    {
+        this->MTree->del();
+        ui->Expr_Mat->setText(this->MTree->renewExpr());
+    }
+
 }
 
 void VisualCalc::ClearButtonPressed()
 {
-    this->Tree->clear();
+    if (this->Tree->getSizeofQ() != 0)
+        this->Tree->clear();
+    if (this->MTree->getSizeofQ() != 0)
+        this->MTree->clear();
     ui->Val->setText("0");
     ui->Val1->setText("0");
     ui->Diff_Val->setText("0");
@@ -482,6 +501,7 @@ void VisualCalc::ClearButtonPressed()
     ui->Expr1->setText(this->Tree->renewExpr());
     ui->DiffExpr->setText(this->Tree->renewExpr());
     ui->CalcExpr->setText(this->Tree->renewExpr());
+    ui->Expr_Mat->setText(this->MTree->renewExpr());
     ui->Diff_diffexpr->setText("");
     toStringExpression = "";
 
@@ -834,10 +854,6 @@ void VisualCalc::EQNSolve() {
 }
 
 
-
-
-
-
 // Matrix ui setup
 void VisualCalc::MatrixButtonPressed()
 {
@@ -845,34 +861,105 @@ void VisualCalc::MatrixButtonPressed()
     QString butVal = button->whatsThis();
     if (butVal == QString::fromStdString("+"))
     {
-        Node* N1 = new AddNode(nullptr, nullptr);
-        this->Tree->enQueue(N1);
+        NodeForMatrix* N1 = new AddNodeForMatrix(nullptr, nullptr);
+        MTree->enQueue(N1);
     }
     else if (butVal == QString::fromStdString("-"))
     {
-        Node* N1 = new SubNode(nullptr, nullptr);
-        this->Tree->enQueue(N1);
+        NodeForMatrix* N1 = new SubNodeForMatrix(nullptr, nullptr);
+        MTree->enQueue(N1);
     }
     else if (butVal == QString::fromStdString("*"))
     {
-        Node* N1 = new MutliplyNode(nullptr, nullptr);
-        this->Tree->enQueue(N1);
+        NodeForMatrix* N1 = new MutliplyNodeForMatrix(nullptr, nullptr);
+        MTree->enQueue(N1);
     }
     else if (butVal == QString::fromStdString("/"))
     {
-        Node* N1 = new DivNode(nullptr, nullptr);
-        this->Tree->enQueue(N1);
+        NodeForMatrix* N1 = new RightDivNodeForMatrix(nullptr, nullptr);
+        MTree->enQueue(N1);
+    }
+    else if (butVal == QString::fromStdString("\\"))
+    {
+        NodeForMatrix* N1 = new LeftDivNodeForMatrix(nullptr, nullptr);
+        MTree->enQueue(N1);
+    }
+    else if (butVal == QString::fromStdString("trans"))
+    {
+        NodeForMatrix* N1 = new TransNodeForMatrix(nullptr);
+        MTree->enQueue(N1);
+    }
+    else if (butVal == QString::fromStdString("inv"))
+    {
+        NodeForMatrix* N1 = new InvNodeForMatrix(nullptr);
+        MTree->enQueue(N1);
+    }
+    else if (butVal == QString::fromStdString("adj"))
+    {
+        NodeForMatrix* N1 = new AdjNodeForMatrix(nullptr);
+        MTree->enQueue(N1);
+    }
+    else if (butVal == QString::fromStdString("det"))
+    {
+        NodeForMatrix* N1 = new DetNodeForMatrix(nullptr);
+        MTree->enQueue(N1);
+    }
+    else if (butVal == QString::fromStdString("tr"))
+    {
+        NodeForMatrix* N1 = new TrNodeForMatrix(nullptr);
+        MTree->enQueue(N1);
+    }
+    else
+    {
+        NodeForMatrix* N1 = new VarNodeForMatrix(butVal.toStdString());
+        this->MTree->enQueue(N1);
     }
 
+
     
-    ui->Expr->setText(this->Tree->renewExpr());
-    ui->Expr1->setText(this->Tree->renewExpr());
-    ui->DiffExpr->setText(this->Tree->renewExpr());
-    ui->CalcExpr->setText(this->Tree->renewExpr());
+    ui->Expr_Mat->setText(this->MTree->renewExpr());
+
+}
+
+void VisualCalc::AddMatrix()
+{
+    MAT_Cnt++;
+    QString MatName = "Mat" + QString::number(MAT_Cnt);
+    ui->comboBox->addItem(MatName);
+    CurrentMat = MatName.toStdString();
+    MATRIX *MAT = NULL;
+    variablesforMatrix[CurrentMat] = MAT;
+    new_Mat = new MatrixView;
+    new_Mat->show();
+}
+
+void VisualCalc::EditMatrix()
+{
+
+    CurrentMat = ui->comboBox->currentText().toStdString();
+    new_Mat = new MatrixView;
+    new_Mat->show();
+}
+
+void VisualCalc::DeleteMatrix()
+{
+    int Current = ui->comboBox->currentIndex();
+    ui->comboBox->removeItem(Current);
+    
+}
+
+void VisualCalc::InsertMatrix()
+{
+    CurrentMat = ui->comboBox->currentText().toStdString();
+    MATRIX* MAT = variablesforMatrix[CurrentMat];
+    NodeForMatrix* N = new VarNodeForMatrix(CurrentMat);
+    MTree->enQueue(N);
+    ui->Expr_Mat->setText(this->MTree->renewExpr());
+}
+
+void VisualCalc::MatEval()
+{
 
 
-    ui->Val->setText("");
-    ui->Val1->setText("");
-    ui->Diff_Val->setText("");
-    ui->CalcRes->setText("");
+
 }

@@ -10,7 +10,7 @@ double NumIntegrationSimpson(ExprTree* T, double low_bound, double up_bound) {
 	double XI2 = 0;
 	double X;
 	double XI;
-	for (int i = 1; i < n; i++) {
+	for (int i = 1; i < n; i++) { 
 		X = low_bound + i * h;
 		if (i % 2 == 0) {
 			XI2 = XI2 + T->evaluate(X);

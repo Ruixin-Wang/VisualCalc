@@ -274,7 +274,7 @@ public:
 		return ~hasVar;
 	}
 
-	void enQueue(NodeForMatrix* N);
+	void enQueue(NodeForMatrix* N); 
 
 	void buildTree();
 	NodeForMatrix* createInfix(int leftx, int rightx);

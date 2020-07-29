@@ -55,7 +55,7 @@ public:
 	// return Element
 	QString retElement()
 	{
-		return Element;
+		return Element; 
 	}
 	// set Element
 	void setElement(QString newElement)

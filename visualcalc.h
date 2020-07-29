@@ -4,9 +4,11 @@
 #include "ui_VisualCalc.h"
 #include "visualcalc.h"
 #include "Node.h"
+#include "NodeforMatrix.h"
 #include "graph.h"
 #include "stat.h"
 #include "calculus.h"
+#include "MatrixView.h"
 
 QT_BEGIN_NAMESPACE 
 namespace Ui { class VisualCalc; }
@@ -22,8 +24,9 @@ public:
 
     Graph* new_graph;
     Stat* new_stat;
+    MatrixView* new_Mat;
 
-    void initTable();
+    void initTable(); 
     void initEQN();
 
 private slots:
@@ -32,6 +35,7 @@ private slots:
 private:
     Ui::VisualCalc *ui;
     ExprTree *Tree;
+    ExprTreeForMatrix* MTree;
 
 
 
@@ -60,6 +64,12 @@ private slots:
 private slots:
     void IntegrationEqualButtonPressed();
     void DerivateEqualButtonPressed();
+
+    void AddMatrix();
+    void EditMatrix();
+    void DeleteMatrix();
+    void InsertMatrix();
+    void MatEval();
 };
 
 

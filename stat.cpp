@@ -15,7 +15,7 @@ extern bool x_enable, y_enable;
 double stat_Number(std::vector<double> const x)
 {
     return x.size();
-}
+} 
 
 
 // 数据总和sum
