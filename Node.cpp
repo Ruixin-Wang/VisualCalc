@@ -218,9 +218,7 @@ double CosNode::eval()
 
 Node* CosNode::derivate(std::string x)
 {
-	Node* mo = new ConstNode(-1);
-	Node* mdfg = new SinNode(child);
-	Node* dfg = new MutliplyNode(mo, mdfg);
+	Node* dfg = new SinNode(child);
 	Node* dfgMdg = new MutliplyNode(dfg, child->derivate(x));
 	return dfgMdg;
 }
