@@ -123,6 +123,7 @@ void VisualCalc::NumPressed()
         ui->Diff_Val->setText(newVal);
         ui->CalcRes->setText(newVal);
     }
+    varTrig = false;
 }
 
 
@@ -290,7 +291,7 @@ void VisualCalc::IntegrationEqualButtonPressed() {
         ui->Expr->setText(this->Tree->renewExpr());
         ui->Expr1->setText(this->Tree->renewExpr());
         ui->DiffExpr->setText(this->Tree->renewExpr());
-        ui->CalcExpr->setText(this->Tree->renewExpr());
+       ui->CalcExpr->setText(this->Tree->renewExpr());
         finExpr = ui->CalcExpr->text();
         str_low =ui->Lower->text();
         str_up = ui->Upper->text();
@@ -337,7 +338,8 @@ void VisualCalc::IntegrationEqualButtonPressed() {
 }
 
 void VisualCalc::DerivateEqualButtonPressed() {
-    double solution = 0.0;
+    double solution_num = 0.0;
+    double solution_analysis = 0.0;
     QString str_point;
     double point;
     QString displayVal = ui->Val->text();
@@ -352,6 +354,7 @@ void VisualCalc::DerivateEqualButtonPressed() {
         ui->Expr1->setText(this->Tree->renewExpr());
         ui->DiffExpr->setText(this->Tree->renewExpr());
         ui->CalcExpr->setText(this->Tree->renewExpr());
+        
         str_point = ui->Diff_x0->text();
         point = str_point.toDouble();
 
@@ -363,7 +366,8 @@ void VisualCalc::DerivateEqualButtonPressed() {
     // when x=0?
     try
     {
-        solution = NumDiff(this->Tree, point);
+        solution_analysis = ExprDiff(this->Tree, point);
+        solution_num = NumDiff(this->Tree, point);
     }
     catch (ARITHMETIC_EXCEPTION)
     {
@@ -388,7 +392,8 @@ void VisualCalc::DerivateEqualButtonPressed() {
 
     ui->CalcRes->setText(QString("READY"));
     ui->Val1->setText(QString("READY"));
-    ui->Diff_Val->setText(QString::number(solution));
+    ui->Diff_Val->setText(QString::number(solution_num));
+    ui->Diff_analysis->setText(QString::number(solution_analysis));
     ui->Val->setText(QString("READY"));
     this->Tree->clear();
 }
@@ -490,6 +495,7 @@ void VisualCalc::ClearButtonPressed()
     ui->Val1->setText("0");
     ui->Diff_Val->setText("0");
     ui->CalcRes->setText("0");
+    ui->Diff_analysis->setText("");
     ui->Upper->setText("");
     ui->Lower->setText("");
     ui->Diff_x0->setText("");
@@ -498,6 +504,7 @@ void VisualCalc::ClearButtonPressed()
     ui->Expr1->setText(this->Tree->renewExpr());
     ui->DiffExpr->setText(this->Tree->renewExpr());
     ui->CalcExpr->setText(this->Tree->renewExpr());
+
 
 }
 
@@ -532,8 +539,11 @@ void VisualCalc::VarButtonPressed()
     ui->Expr1->setText(this->Tree->renewExpr());
     ui->DiffExpr->setText(this->Tree->renewExpr());
     ui->CalcExpr->setText(this->Tree->renewExpr());
+    ui->Val->setText("");
+    ui->Val1->setText("");
     ui->Diff_Val->setText("");
     ui->CalcRes->setText("");
+    
     varTrig = true;
 }
 

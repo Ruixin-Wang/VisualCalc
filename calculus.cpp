@@ -1,6 +1,6 @@
 #include"calculus.h"
 //Simpson method--1000 cuts
-
+#include<iostream>
 double NumIntegrationSimpson(ExprTree* T, double low_bound, double up_bound) {
 	if (!T) return 0;
 	int n = 100;
@@ -56,6 +56,10 @@ double NumDiff(ExprTree* T, double point) {
 }
 
 double ExprDiff(ExprTree* T,double point) {
-	return 0;
+	if ((!T))return 0;
+	Node* Tt = T->derivate("x");
+	variables["x"] = point;
+	std::cout << Tt->retElement().toStdString();
+	return (Tt)->eval();
 	
 }
