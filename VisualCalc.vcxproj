@@ -102,12 +102,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <QtRcc Include="visualcalc.qrc" />
-    <QtUic Include="dialog.ui" />
+    <QtUic Include="MatrixView.ui" />
     <QtUic Include="graph.ui" />
     <QtMoc Include="visualcalc.h" />
     <ClCompile Include="calculus.cpp" />
     <ClCompile Include="graph.cpp" />
     <ClCompile Include="Matrix.cpp" />
+    <ClCompile Include="MatrixView.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="NodeforMatrix.cpp" />
     <ClCompile Include="stat.cpp" />
@@ -117,6 +118,7 @@
     <QtMoc Include="stat.h" />
     <ClInclude Include="calculus.h" />
     <ClInclude Include="Matrix.h" />
+    <QtMoc Include="MatrixView.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="NodeforMatrix.h" />
     <ClInclude Include="statistic.h" />

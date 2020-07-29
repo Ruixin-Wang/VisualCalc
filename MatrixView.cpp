@@ -6,7 +6,7 @@
 extern std::map<std::string, MATRIX*> variablesforMatrix;
 extern std::string CurrentMat;
 
-MatrixView::MatrixView(QWidget* parent) :
+MatrixView::MatrixView(QWidget* parent) : 
     QDialog(parent),
     ui(new Ui::MatrixView)
 {

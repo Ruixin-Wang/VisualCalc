@@ -5,7 +5,7 @@ namespace Ui {
     class MatrixView;
 }
 
-class MatrixView : public QDialog
+class MatrixView : public QDialog 
 {
     Q_OBJECT
 

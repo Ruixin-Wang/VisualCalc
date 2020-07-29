@@ -56,11 +56,11 @@
     <ClCompile Include="NodeforMatrix.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MatrixView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <QtUic Include="dialog.ui">
-      <Filter>Form Files</Filter>
-    </QtUic>
     <QtUic Include="graph.ui">
       <Filter>Form Files</Filter>
     </QtUic>
@@ -70,12 +70,18 @@
     <QtUic Include="stat.ui">
       <Filter>Form Files</Filter>
     </QtUic>
+    <QtUic Include="MatrixView.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="graph.h">
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="stat.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="MatrixView.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

@@ -1,4 +1,4 @@
-#include "visualcalc.h"
+#include "VisualCalc.h"
 #include "ui_VisualCalc.h"
 #include <vector>
 #include <QDebug>
@@ -929,7 +929,7 @@ void VisualCalc::AddMatrix()
     CurrentMat = MatName.toStdString();
     MATRIX *MAT = NULL;
     variablesforMatrix[CurrentMat] = MAT;
-    new_Mat = new MatrixView;
+    new_Mat = new MatrixView();
     new_Mat->show();
 }
 
@@ -937,7 +937,7 @@ void VisualCalc::EditMatrix()
 {
 
     CurrentMat = ui->comboBox->currentText().toStdString();
-    new_Mat = new MatrixView;
+    new_Mat = new MatrixView();
     new_Mat->show();
 }
 
