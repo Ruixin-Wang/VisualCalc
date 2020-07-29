@@ -4859,24 +4859,59 @@ QPushButton:pressed {
        </attribute>
        <layout class="QGridLayout" name="gridLayout_7">
         <property name="leftMargin">
-         <number>4</number>
-        </property>
-        <property name="topMargin">
-         <number>4</number>
-        </property>
-        <property name="rightMargin">
-         <number>4</number>
-        </property>
-        <property name="bottomMargin">
-         <number>4</number>
-        </property>
-        <property name="horizontalSpacing">
-         <number>5</number>
-        </property>
-        <property name="verticalSpacing">
          <number>0</number>
         </property>
-        <item row="0" column="0">
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <property name="horizontalSpacing">
+         <number>0</number>
+        </property>
+        <property name="verticalSpacing">
+         <number>5</number>
+        </property>
+        <item row="0" column="0" colspan="2">
+         <widget class="QTextEdit" name="Title_4">
+          <property name="styleSheet">
+           <string notr="true">QTextEdit {
+    background-color: #fbfcfc; 
+	border: 0px solid gray;
+	color: #000000;
+	font: 75 11pt &quot;Arial&quot;;
+	font-weight: Bold;
+}</string>
+          </property>
+          <property name="verticalScrollBarPolicy">
+           <enum>Qt::ScrollBarAlwaysOff</enum>
+          </property>
+          <property name="horizontalScrollBarPolicy">
+           <enum>Qt::ScrollBarAlwaysOff</enum>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+          <property name="html">
+           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Arial'; font-size:11pt; font-weight:600; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Arial Black,sans-serif'; font-size:14pt;&quot;&gt;DERIVATIVE&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="textInteractionFlags">
+           <set>Qt::NoTextInteraction</set>
+          </property>
+          <property name="placeholderText">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
          <widget class="QLabel" name="label_6">
           <property name="font">
            <font>
@@ -4892,7 +4927,7 @@ QPushButton:pressed {
           </property>
          </widget>
         </item>
-        <item row="0" column="1">
+        <item row="1" column="1">
          <widget class="QLineEdit" name="DiffExpr">
           <property name="minimumSize">
            <size>
@@ -4910,7 +4945,7 @@ QPushButton:pressed {
           </property>
          </widget>
         </item>
-        <item row="1" column="0">
+        <item row="2" column="0">
          <widget class="QLabel" name="label_5">
           <property name="font">
            <font>
@@ -4926,7 +4961,7 @@ QPushButton:pressed {
           </property>
          </widget>
         </item>
-        <item row="1" column="1">
+        <item row="2" column="1">
          <widget class="QLineEdit" name="Diff_x0">
           <property name="minimumSize">
            <size>
@@ -4944,7 +4979,7 @@ QPushButton:pressed {
           </property>
          </widget>
         </item>
-        <item row="2" column="0">
+        <item row="3" column="0">
          <widget class="QLabel" name="label_4">
           <property name="font">
            <font>
@@ -4960,7 +4995,7 @@ QPushButton:pressed {
           </property>
          </widget>
         </item>
-        <item row="2" column="1">
+        <item row="3" column="1">
          <widget class="QLineEdit" name="Diff_diffexpr">
           <property name="minimumSize">
            <size>
@@ -4981,7 +5016,7 @@ QPushButton:pressed {
           </property>
          </widget>
         </item>
-        <item row="3" column="0">
+        <item row="4" column="0">
          <widget class="QLabel" name="label_7">
           <property name="font">
            <font>
@@ -4999,7 +5034,7 @@ QPushButton:pressed {
           </property>
          </widget>
         </item>
-        <item row="3" column="1">
+        <item row="4" column="1">
          <widget class="QLineEdit" name="Diff_analysis">
           <property name="minimumSize">
            <size>
@@ -5020,7 +5055,7 @@ QPushButton:pressed {
           </property>
          </widget>
         </item>
-        <item row="4" column="0">
+        <item row="5" column="0">
          <widget class="QPushButton" name="Diff_btn">
           <property name="minimumSize">
            <size>
@@ -5058,7 +5093,7 @@ QPushButton:pressed{
           </property>
          </widget>
         </item>
-        <item row="4" column="1">
+        <item row="5" column="1">
          <widget class="QLineEdit" name="Diff_Val">
           <property name="minimumSize">
            <size>
@@ -5068,10 +5103,14 @@ QPushButton:pressed{
           </property>
           <property name="styleSheet">
            <string notr="true">QLineEdit {
+	background-color: #F0F3F4; 
+	border: 0px solid gray;
+	color: #000000;
 	
-	border: 1px solid rgb(169, 204, 227);
-	font: 14pt &quot;Times New Roman&quot;;
-	font-weight: normal;
+	
+	
+	font:  &quot;Segoe UI&quot;;
+	font-weight: Bold;
 }</string>
           </property>
           <property name="readOnly">
