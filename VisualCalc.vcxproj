@@ -124,9 +124,16 @@
     <QtMoc Include="MatrixRes.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="NodeforMatrix.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="statistic.h" />
     <QtUic Include="stat.ui" />
     <QtUic Include="visualcalc.ui" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="VisualCalc.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="visualcalc.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
