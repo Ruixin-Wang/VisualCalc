@@ -6,7 +6,6 @@
 #include "Node.h"
 #include "graph.h"
 #include "stat.h"
-#include "calculus.h"
 
 QT_BEGIN_NAMESPACE 
 namespace Ui { class VisualCalc; }
@@ -38,23 +37,14 @@ private slots:
     void NumPressed();
     void MathButtonPressed();
     void EqualButtonPressed();
-    void ConstButtonPressed();
-    void VarButtonPressed();
-
-
     void ChangeNumberSign();
     void DeleteButtonPressed();
     void ClearButtonPressed();
-
-    void MatrixButtonPressed();
 
 private slots:
     void StatAddData();
     void StatDelData();
     void StatAnalysis();
-private slots:
-    void IntegrationEqualButtonPressed();
-    void DerivateEqualButtonPressed();
 };
 
 

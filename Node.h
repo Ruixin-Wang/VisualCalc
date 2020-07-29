@@ -1,7 +1,7 @@
 #pragma once
 
 #include <QtWidgets>
-#include <exception>
+#include <iostream>
 #include <string>
 #include <cmath>
 #include <map>
@@ -12,31 +12,8 @@
 class Node;
 
 extern std::map<QString, int> priority;
-extern std::map<std::string, double> variables;
+extern std::map<std::string, int> variables;
 extern QString toStringExpression;
-
-struct ARITHMETIC_EXCEPTION : public std::exception
-{
-	const char* what() const throw () {
-		return "Divisor cannot be zero, radicand must bigger than zero!";
-	}
-};
-
-struct NUMBER_FORMAT_EXCEPTION : public std::exception
-{
-	const char* what() const throw () {
-		return "Evaluate with unknown variables!";
-	}
-};
-
-struct NULL_POINTER_EXCEPTION : public std::exception
-{
-	const char* what() const throw () {
-		return "Illgeal expression!";
-	}
-};
-
-
 
 class Node
 {
@@ -637,11 +614,6 @@ public:
 		return ~hasVar;
 	}
 
-	void setVar() {
-		hasVar = true;
-	}
-
-
 	void enQueue(Node* N);
 
 	void buildTree();
@@ -669,7 +641,6 @@ public:
 	{
 		sizeofQ = 0;
 		Queue[0]->setElement("");
-		hasVar = false;
 	}
 
 	inline void del()

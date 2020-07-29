@@ -1,6 +1,5 @@
 #include "Node.h"
 
-//test
 const double EPS = 0.001;
 const double PI = 3.1415926;
 const double EulerMascheroni = 0.57721566490153286060651209;
@@ -166,16 +165,7 @@ DivNode::~DivNode()
 
 double DivNode::eval()
 {
-	double r = right->eval();
-	if (r == 0)
-	{
-		throw ARITHMETIC_EXCEPTION();
-	}
-	else
-	{
-		return left->eval() / r;
-	}
-	
+	return left->eval() / right->eval();
 }
 
 Node* DivNode::derivate(std::string x)
@@ -317,12 +307,7 @@ LgNode::~LgNode()
 
 double LgNode::eval()
 {
-	double c = child->eval();
-	if (c <= 0)
-	{
-		throw ARITHMETIC_EXCEPTION();
-	}
-	return log10(c);
+	return log10(child->eval());
 }
 
 Node* LgNode::derivate(std::string x)
@@ -341,12 +326,7 @@ LnNode::~LnNode()
 
 double LnNode::eval()
 {
-	double c = child->eval();
-	if (c <= 0)
-	{
-		throw ARITHMETIC_EXCEPTION();
-	}
-	return log(c);
+	return log(child->eval());
 }
 
 Node* LnNode::derivate(std::string x)
@@ -365,15 +345,7 @@ LogNode::~LogNode()
 
 double LogNode::eval()
 {
-	double r = right->eval(), l = left->eval();
-	if (r <= 0 || l <= 0 || l == 1)
-	{
-		throw ARITHMETIC_EXCEPTION();
-	}
-	else
-	{
-		return log(r) / log(l);
-	}
+	return log(right->eval()) / log(left->eval());
 }
 
 Node* LogNode::derivate(std::string x)
@@ -438,12 +410,7 @@ SqrtNode::~SqrtNode()
 
 double SqrtNode::eval()
 {
-	double c = child->eval();
-	if (c <= 0)
-	{
-		throw ARITHMETIC_EXCEPTION();
-	}
-	return sqrt(c);
+	return sqrt(child->eval());
 }
 
 Node* SqrtNode::derivate(std::string x)
