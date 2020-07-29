@@ -23,123 +23,123 @@ std::map<QString, opr> oprtype = {
 };
 
 
-MATRIX VarNode::eval()
+MATRIX VarNodeForMatrix::eval()
 {
 	return variables[name];//using dictionary
 }
 
-AddNode::~AddNode()
+AddNodeForMatrix::~AddNodeForMatrix()
 {
 	delete left;
 	delete right;
 }
 
-MATRIX AddNode::eval()
+MATRIX AddNodeForMatrix::eval()
 {
 	return left->eval().add(right->eval());
 }
 
-SubNode::~SubNode()
+SubNodeForMatrix::~SubNodeForMatrix()
 {
 	delete left;
 	delete right;
 }
 
-MATRIX SubNode::eval()
+MATRIX SubNodeForMatrix::eval()
 {
 	return left->eval().subtract(right->eval());
 }
 
-MutliplyNode::~MutliplyNode()
+MutliplyNodeForMatrix::~MutliplyNodeForMatrix()
 {
 	delete left;
 	delete right;
 }
 
-MATRIX MutliplyNode::eval()
+MATRIX MutliplyNodeForMatrix::eval()
 {
 	return left->eval().multiply(right->eval());
 }
 
-RightDivNode::~RightDivNode()
+RightDivNodeForMatrix::~RightDivNodeForMatrix()
 {
 	delete left;
 	delete right;
 }
 
-MATRIX RightDivNode::eval()
+MATRIX RightDivNodeForMatrix::eval()
 {
 	return left->eval().rightDivide(right->eval());
 }
 
-LeftDivNode::~LeftDivNode()
+LeftDivNodeForMatrix::~LeftDivNodeForMatrix()
 {
 	delete left;
 	delete right;
 }
 
-MATRIX LeftDivNode::eval()
+MATRIX LeftDivNodeForMatrix::eval()
 {
 	return left->eval().leftDivide(right->eval());
 }
 
-TransNode::~TransNode()
+TransNodeForMatrix::~TransNodeForMatrix()
 {
 	delete child;
 }
 
-MATRIX TransNode::eval()
+MATRIX TransNodeForMatrix::eval()
 {
 	return child->eval().transpose();
 }
 
-InvNode::~InvNode()
+InvNodeForMatrix::~InvNodeForMatrix()
 {
 	delete child;
 }
 
-MATRIX InvNode::eval()
+MATRIX InvNodeForMatrix::eval()
 {
 	return child->eval().inverse();
 }
 
-AdjNode::~AdjNode()
+AdjNodeForMatrix::~AdjNodeForMatrix()
 {
 	delete child;
 }
 
-MATRIX AdjNode::eval()
+MATRIX AdjNodeForMatrix::eval()
 {
 	return child->eval().adjoint();
 }
 
-DetNode::~DetNode()
+DetNodeForMatrix::~DetNodeForMatrix()
 {
 	delete child;
 }
 
-MATRIX DetNode::eval()
+MATRIX DetNodeForMatrix::eval()
 {
 	return child->eval().determinant();
 }
 
-TrNode::~TrNode()
+TrNodeForMatrix::~TrNodeForMatrix()
 {
 	delete child;
 }
 
-MATRIX TrNode::eval()
+MATRIX TrNodeForMatrix::eval()
 {
 	return child->eval().trace();
 }
 
 
-void ExprTree::enQueue(Node* N)
+void ExprTreeForMatrix::enQueue(NodeForMatrixForMatrix* N)
 {
 	Queue[sizeofQ++] = N;
 }
 
-Node* ExprTree::createInfix(int leftx, int rightx)
+NodeForMatrixForMatrix* ExprTreeForMatrix::createInfix(int leftx, int rightx)
 {
 	int left = leftx;
 	int right = rightx;
@@ -186,52 +186,52 @@ Node* ExprTree::createInfix(int leftx, int rightx)
 				// Done.TODO: complete, and what to compare?
 				if (Queue[i]->retElement() == QString::fromStdString("+"))
 				{
-					Node* root = new AddNode(createInfix(left, i - 1), createInfix(i + 1, right));
+					NodeForMatrixForMatrix* root = new AddNodeForMatrix(createInfix(left, i - 1), createInfix(i + 1, right));
 					return root;
 				}
 				else if (Queue[i]->retElement() == QString::fromStdString("-"))
 				{
-					Node* root = new SubNode(createInfix(left, i - 1), createInfix(i + 1, right));
+					NodeForMatrix* root = new SubNodeForMatrix(createInfix(left, i - 1), createInfix(i + 1, right));
 					return root;
 				}
 				else if (Queue[i]->retElement() == QString::fromStdString("*"))
 				{
-					Node* root = new MutliplyNode(createInfix(left, i - 1), createInfix(i + 1, right));
+					NodeForMatrix* root = new MutliplyNodeForMatrix(createInfix(left, i - 1), createInfix(i + 1, right));
 					return root;
 				}
 				else if (Queue[i]->retElement() == QString::fromStdString("/"))
 				{
-					Node* root = new RightDivNode(createInfix(left, i - 1), createInfix(i + 1, right));
+					NodeForMatrix* root = new RightDivNodeForMatrix(createInfix(left, i - 1), createInfix(i + 1, right));
 					return root;
 				}
 				else if (Queue[i]->retElement() == QString::fromStdString("\\"))
 				{
-					Node* root = new LeftDivNode(createInfix(left, i - 1), createInfix(i + 1, right));
+					NodeForMatrix* root = new LeftDivNodeForMatrix(createInfix(left, i - 1), createInfix(i + 1, right));
 					return root;
 				}
 				else if (Queue[i]->retElement() == QString::fromStdString("trans"))
 				{
-					Node* root = new TransNode(createInfix(i + 1, right));
+					NodeForMatrix* root = new TransNodeForMatrix(createInfix(i + 1, right));
 					return root;
 				}
 				else if (Queue[i]->retElement() == QString::fromStdString("inv"))
 				{
-					Node* root = new InvNode(createInfix(i + 1, right));
+					NodeForMatrix* root = new InvNodeForMatrix(createInfix(i + 1, right));
 					return root;
 				}
 				else if (Queue[i]->retElement() == QString::fromStdString("adj"))
 				{
-					Node* root = new AdjNode(createInfix(i + 1, right));
+					NodeForMatrix* root = new AdjNodeForMatrix(createInfix(i + 1, right));
 					return root;
 				}
 				else if (Queue[i]->retElement() == QString::fromStdString("det"))
 				{
-					Node* root = new DetNode(createInfix(i + 1, right));
+					NodeForMatrix* root = new DetNodeForMatrix(createInfix(i + 1, right));
 					return root;
 				}
 				else if (Queue[i]->retElement() == QString::fromStdString("tr"))
 				{
-					Node* root = new TrNode(createInfix(i + 1, right));
+					NodeForMatrix* root = new TrNodeForMatrix(createInfix(i + 1, right));
 					return root;
 				}
 			}
@@ -240,18 +240,18 @@ Node* ExprTree::createInfix(int leftx, int rightx)
 	}
 }
 
-void ExprTree::buildTree()
+void ExprTreeForMatrix::buildTree()
 {
 	// Driving Function
 	Tree = createInfix(0, sizeofQ - 1);
 }
 
-MATRIX ExprTree::eval(Node* N)
+MATRIX ExprTreeForMatrix::eval(NodeForMatrix* N)
 {
 	return N->eval();
 }
 
-MATRIX ExprTree::evaluate()
+MATRIX ExprTreeForMatrix::evaluate()
 {
 	// Driving Function
 	return eval(this->Tree);

@@ -8,16 +8,16 @@
 
 #define MAXQ 100
 
-class Node;
+class NodeForMatrix;
 
 extern std::map<QString, int> priority;
 extern std::map<std::string, MATRIX> variables;
 
 
-class Node
+class NodeForMatrix
 {
 public:
-	virtual ~Node() = 0;
+	virtual ~NodeForMatrix() = 0;
 	// evaluate the node, especially the whole expression tree
 	virtual MATRIX eval() = 0;
 	// return Element
@@ -27,14 +27,14 @@ public:
 
 };
 
-class VarNode : public Node
+class VarNodeForMatrix : public NodeForMatrix
 {
 	// use dictionary to store variable
 	std::string name;
 	QString Element;
 public:
-	VarNode(std::string name) : name(name), Element(QString::fromStdString(name)) {}
-	~VarNode() {}
+	VarNodeForMatrix(std::string name) : name(name), Element(QString::fromStdString(name)) {}
+	~VarNodeForMatrix() {}
 
 	virtual MATRIX eval() override;
 
@@ -48,14 +48,14 @@ public:
 	}
 };
 
-class AddNode : public Node
+class AddNodeForMatrix : public NodeForMatrix
 {
-	Node *left, *right;
+	NodeForMatrix *left, *right;
 	QString Element;
 public:
-	AddNode(Node *left, Node *right) : left(left), right(right), 
+	AddNodeForMatrix(NodeForMatrix *left, NodeForMatrix *right) : left(left), right(right), 
 		Element(QString::fromStdString("+")) {}
-	~AddNode();
+	~AddNodeForMatrix();
 
 	virtual MATRIX eval() override;
 
@@ -69,14 +69,14 @@ public:
 	}
 };
 
-class SubNode : public Node
+class SubNodeForMatrix : public NodeForMatrix
 {
-	Node* left, * right;
+	NodeForMatrix* left, * right;
 	QString Element;
 public:
-	SubNode(Node* left, Node* right) : left(left), right(right),
+	SubNodeForMatrix(NodeForMatrix* left, NodeForMatrix* right) : left(left), right(right),
 		Element(QString::fromStdString("-")) {}
-	~SubNode();
+	~SubNodeForMatrix();
 
 	virtual MATRIX eval() override;
 
@@ -90,14 +90,14 @@ public:
 	}
 };
 
-class MutliplyNode : public Node
+class MutliplyNodeForMatrix : public NodeForMatrix
 {
-	Node *left, *right;
+	NodeForMatrix *left, *right;
 	QString Element;
 public:
-	MutliplyNode(Node* left, Node* right) : left(left), right(right),
+	MutliplyNodeForMatrix(NodeForMatrix* left, NodeForMatrix* right) : left(left), right(right),
 		Element(QString::fromStdString("*")) {}
-	~MutliplyNode();
+	~MutliplyNodeForMatrix();
 
 	virtual MATRIX eval() override;
 
@@ -111,14 +111,14 @@ public:
 	}
 };
 
-class RightDivNode : public Node
+class RightDivNodeForMatrix : public NodeForMatrix
 {
-	Node* left, * right;
+	NodeForMatrix* left, * right;
 	QString Element;
 public:
-	RightDivNode(Node* left, Node* right) : left(left), right(right),
+	RightDivNodeForMatrix(NodeForMatrix* left, NodeForMatrix* right) : left(left), right(right),
 		Element(QString::fromStdString("/")) {}
-	~RightDivNode();
+	~RightDivNodeForMatrix();
 
 	virtual MATRIX eval() override;
 
@@ -132,14 +132,14 @@ public:
 	}
 };
 
-class LeftDivNode : public Node
+class LeftDivNodeForMatrix : public NodeForMatrix
 {
-	Node* left, * right;
+	NodeForMatrix* left, * right;
 	QString Element;
 public:
-	LeftDivNode(Node* left, Node* right) : left(left), right(right),
+	LeftDivNodeForMatrix(NodeForMatrix* left, NodeForMatrix* right) : left(left), right(right),
 		Element(QString::fromStdString("\\")) {}
-	~LeftDivNode();
+	~LeftDivNodeForMatrix();
 
 	virtual MATRIX eval() override;
 
@@ -153,14 +153,14 @@ public:
 	}
 };
 
-class TransNode : public Node
+class TransNodeForMatrix : public NodeForMatrix
 {
-	Node *child;
+	NodeForMatrix *child;
 	QString Element;
 public:
-	TransNode(Node* child) : child(child),
+	TransNodeForMatrix(NodeForMatrix* child) : child(child),
 		Element(QString::fromStdString("trans")) {}
-	~TransNode();
+	~TransNodeForMatrix();
 
 	virtual MATRIX eval() override;
 
@@ -174,14 +174,14 @@ public:
 	}
 };
 
-class InvNode : public Node
+class InvNodeForMatrix : public NodeForMatrix
 {
-	Node *child;
+	NodeForMatrix *child;
 	QString Element;
 public:
-	InvNode(Node* child) : child(child),
+	InvNodeForMatrix(NodeForMatrix* child) : child(child),
 		Element(QString::fromStdString("inv")) {}
-	~InvNode();
+	~InvNodeForMatrix();
 
 	virtual MATRIX eval() override;
 
@@ -195,14 +195,14 @@ public:
 	}
 };
 
-class AdjNode : public Node
+class AdjNodeForMatrix : public NodeForMatrix
 {
-	Node *child;
+	NodeForMatrix *child;
 	QString Element;
 public:
-	AdjNode(Node* child) : child(child),
+	AdjNodeForMatrix(NodeForMatrix* child) : child(child),
 		Element(QString::fromStdString("adj")) {}
-	~AdjNode();
+	~AdjNodeForMatrix();
 
 	virtual MATRIX eval() override;
 
@@ -216,14 +216,14 @@ public:
 	}
 };
 
-class DetNode : public Node
+class DetNodeForMatrix : public NodeForMatrix
 {
-	Node *child;
+	NodeForMatrix *child;
 	QString Element;
 public:
-	DetNode(Node* child) : child(child),
+	DetNodeForMatrix(NodeForMatrix* child) : child(child),
 		Element(QString::fromStdString("det")) {}
-	~DetNode();
+	~DetNodeForMatrix();
 
 	virtual MATRIX eval() override;
 
@@ -237,14 +237,14 @@ public:
 	}
 };
 
-class TrNode : public Node
+class TrNodeForMatrix : public NodeForMatrix
 {
-	Node *child;
+	NodeForMatrix *child;
 	QString Element;
 public:
-	TrNode(Node* child) : child(child),
+	TrNodeForMatrix(NodeForMatrix* child) : child(child),
 		Element(QString::fromStdString("tr")) {}
-	~TrNode();
+	~TrNodeForMatrix();
 
 	virtual MATRIX eval() override;
 
@@ -258,12 +258,12 @@ public:
 	}
 };
 
-// to build ExprTree, with queue sorting Node
-class ExprTree
+// to build ExprTreeForMatrix, with queue sorting NodeForMatrix
+class ExprTreeForMatrix
 {
 public:
 
-	ExprTree() {
+	ExprTreeForMatrix() {
 		Tree = NULL;
 		sizeofQ = 0;
 		hasVar = false;
@@ -273,14 +273,14 @@ public:
 		return ~hasVar;
 	}
 
-	void enQueue(Node* N);
+	void enQueue(NodeForMatrix* N);
 
 	void buildTree();
-	Node* createInfix(int leftx, int rightx);
+	NodeForMatrix* createInfix(int leftx, int rightx);
 
 	// for variable, define its value using map 'variables'
 	MATRIX evaluate();
-	MATRIX eval(Node* N);
+	MATRIX eval(NodeForMatrix* N);
 
 	inline int getSizeofQ()
 	{
@@ -310,7 +310,7 @@ public:
 
 private:
 	boolean hasVar;
-	Node* Tree;
-	Node* Queue[MAXQ];		// infix expression Queue
+	NodeForMatrix* Tree;
+	NodeForMatrix* Queue[MAXQ];		// infix expression Queue
 	int sizeofQ;
 };
