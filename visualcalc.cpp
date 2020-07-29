@@ -1,9 +1,10 @@
 #include "VisualCalc.h"
 #include "ui_VisualCalc.h"
 #include <vector>
+#include <QDebug>
 
 #include "Node.h"
-#include "NodeforMatrix.h"
+// #include "NodeforMatrix.h"
 
 #define constPi 3.1415926
 #define constE  2.7182818
@@ -16,6 +17,7 @@ bool mulTrig = false;
 bool addTrig = false;
 bool subTrig = false;
 bool varTrig = false;
+int EQN_Var_cnt = 2;
 
 std::vector<double> x_;
 std::vector<double> y_;
@@ -68,6 +70,11 @@ VisualCalc::VisualCalc(QWidget* parent)
     connect(ui->Stat_Analysis, SIGNAL(released()), this, SLOT(StatAnalysis()));
     connect(ui->Stat_Del_Data, SIGNAL(released()), this, SLOT(StatDelData()));
 
+    connect(ui->EQN_AddVar, SIGNAL(released()), this, SLOT(EQNAddVar()));
+    connect(ui->EQN_DecVar, SIGNAL(released()), this, SLOT(EQNDecVar()));
+
+    connect(ui->EQN_Solve, SIGNAL(released()), this, SLOT(EQNSolve()));
+
     for (int i = 1; i <= 12; i++) {
         QString butname = "Opr00" + QString::number(i);
         numButtons[i] = VisualCalc::findChild<QPushButton*>(butname);
@@ -78,6 +85,7 @@ VisualCalc::VisualCalc(QWidget* parent)
     Tree = new ExprTree;
 
     initTable();
+    initEQN();
 }
 
 VisualCalc::~VisualCalc()
@@ -633,7 +641,7 @@ double MAX(double a[MAXN])
 
 
 /*高斯-塞德尔迭代法*/
-double* Gauss_Seidel(double a[MAXN][MAXN], double b[MAXN])
+void Gauss_Seidel(double a[MAXN][MAXN], double b[MAXN], double* x1)
 {
     int num = 0; /*迭代次数*/
     double accuracy = 0.0000001; /*精度*/
@@ -645,7 +653,6 @@ double* Gauss_Seidel(double a[MAXN][MAXN], double b[MAXN])
     double diff; /*差*/
     int flag; /*循环结束标志*/
     double x0[MAXN];
-    double x1[MAXN] = { 0 };
 
     /*判断系数矩阵是否严格对角占优*/
     for (i = 0; i < n; i++)
@@ -700,17 +707,17 @@ double* Gauss_Seidel(double a[MAXN][MAXN], double b[MAXN])
             flag = 1;
     } while (flag);
 
-    return x1;
+    for (int i = 0; i < n; i++)
+        qDebug() << x1[i];
 }
 
 
 
 /*高斯消元法*/
-double* Gauss_Eliminate(double a[MAXN][MAXN], double b[MAXN])
+void Gauss_Eliminate(double a[MAXN][MAXN], double b[MAXN], double* x)
 {
     int i, j, k;
     double x0[MAXN];/*存储初等行变换的系数，进行行相减*/
-    double x[MAXN];/*存储解*/
     /*判断是否可以使用高斯消元法*/
     for (i = 0; i < n; i++)
     {
@@ -751,14 +758,16 @@ double* Gauss_Eliminate(double a[MAXN][MAXN], double b[MAXN])
         x[i] = (b[i] - sum) / a[i][i];
     }
 
-    return x;
+    for (int i = 0; i < n; i++)
+        qDebug() << x[i];
 }
 
 
 
 /*最终计算函数*/
-double* linesolve(double a[MAXN][MAXN], double b[MAXN])
+void linesolve(double a[MAXN][MAXN], double b[MAXN], double* s)
 {
+    double* c = new double[MAXN];
     int i, j;
     double flag;
     int count = 0;
@@ -778,14 +787,75 @@ double* linesolve(double a[MAXN][MAXN], double b[MAXN])
     }
 
     if (count == 0)
-        return Gauss_Seidel(a, b);
+        Gauss_Seidel(a, b, s);
     else if (count != 0)
-        return Gauss_Eliminate(a, b);
+        Gauss_Eliminate(a, b, s);
 }
 
 
 
 
+
+void VisualCalc::initEQN()
+{
+    ui->EQN_An_Tab->setColumnCount(EQN_Var_cnt);
+    ui->EQN_An_Tab->setRowCount(EQN_Var_cnt);
+
+    ui->EQN_An_Tab->setAlternatingRowColors(true);
+    ui->EQN_An_Tab->resizeColumnsToContents();
+    ui->EQN_An_Tab->resizeRowsToContents();
+
+    ui->EQN_Bn_Tab->setColumnCount(1);
+    ui->EQN_Bn_Tab->setRowCount(EQN_Var_cnt);
+
+    ui->EQN_Bn_Tab->setAlternatingRowColors(true);
+    ui->EQN_Bn_Tab->resizeRowsToContents();
+
+    ui->EQN_Sol_Tab->setColumnCount(1);
+    ui->EQN_Sol_Tab->setRowCount(EQN_Var_cnt);
+
+    ui->EQN_Sol_Tab->setAlternatingRowColors(true);
+    ui->EQN_Sol_Tab->resizeRowsToContents();
+}
+
+void VisualCalc::EQNAddVar() {
+    if (EQN_Var_cnt < MAXN) EQN_Var_cnt++;
+    initEQN();
+}
+void VisualCalc::EQNDecVar() {
+    if (EQN_Var_cnt > 0) EQN_Var_cnt--;
+    initEQN();
+}
+
+void VisualCalc::EQNSolve() {
+    n = EQN_Var_cnt;
+    double a[MAXN][MAXN];
+    double b[MAXN];
+    QTableWidgetItem* cellItem;
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < n; j++)
+        {
+            cellItem = ui->EQN_An_Tab->item(i, j);
+            a[i][j] = cellItem->text().toDouble();
+        }
+    for (int i = 0; i < n; i++)
+    {
+        cellItem = ui->EQN_Bn_Tab->item(i, 0);
+        b[i] = cellItem->text().toDouble();
+    }
+    double* s = new double[MAXN];
+
+    linesolve(a, b, s);
+    for (int i = 0; i < n; i++)
+    qDebug() << s[i];
+
+    for (int i = 0; i < n; i++)
+    {
+        QTableWidgetItem* cell = new QTableWidgetItem;
+        cell->setText(QString::number(s[i]));
+        ui->EQN_Sol_Tab->setItem(i, 0, cell);
+    }
+}
 
 
 
