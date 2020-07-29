@@ -31,6 +31,8 @@ std::map<std::string, double> variables;
 std::map<std::string, MATRIX*> variablesforMatrix;
 std::string CurrentMat;
 
+MATRIX* MAT;
+
 VisualCalc::VisualCalc(QWidget* parent)
     : QMainWindow(parent),
     ui(new Ui::VisualCalc)
@@ -959,7 +961,11 @@ void VisualCalc::InsertMatrix()
 
 void VisualCalc::MatEval()
 {
-
-
-
+    MTree->buildTree();
+    MATRIX Res = MTree->evaluate();
+    MAT = &Res;
+    qDebug() << Res.getCol();
+    qDebug() << Res.getRow();
+    new_Mat_Res = new MatrixRes();
+    new_Mat_Res->show();
 }

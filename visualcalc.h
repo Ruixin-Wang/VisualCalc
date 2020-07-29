@@ -9,6 +9,7 @@
 #include "stat.h"
 #include "calculus.h"
 #include "MatrixView.h"
+#include "MatrixRes.h"
 
 QT_BEGIN_NAMESPACE 
 namespace Ui { class VisualCalc; }
@@ -25,6 +26,7 @@ public:
     Graph* new_graph;
     Stat* new_stat;
     MatrixView* new_Mat;
+    MatrixRes* new_Mat_Res;
 
     void initTable(); 
     void initEQN();
