@@ -105,6 +105,7 @@
     <QtUic Include="dialog.ui" />
     <QtUic Include="graph.ui" />
     <QtMoc Include="visualcalc.h" />
+    <ClCompile Include="..\..\Tencent Files\295884863\FileRecv\linesolve.cpp" />
     <ClCompile Include="calculus.cpp" />
     <ClCompile Include="graph.cpp" />
     <ClCompile Include="Node.cpp" />
