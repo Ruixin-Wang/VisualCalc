@@ -3,6 +3,8 @@
 #include <vector>
 
 #include "Node.h"
+#include "NodeforMatrix.h"
+
 #define constPi 3.1415926
 #define constE  2.7182818
 #define MAXN 8
