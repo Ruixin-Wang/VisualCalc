@@ -4,12 +4,12 @@
 #include "ui_VisualCalc.h"
 #include "visualcalc.h"
 #include "Node.h"
-#include "NodeforMatrix.h"
-#include "graph.h"
-#include "stat.h"
-#include "calculus.h"
-#include "MatrixView.h"
-#include "MatrixRes.h"
+#include "matrix/NodeforMatrix.h"
+#include "graph/graph.h"
+#include "stat/stat.h"
+#include "calculus/calculus.h"
+#include "matrix/MatrixView.h"
+#include "matrix/MatrixRes.h"
 
 QT_BEGIN_NAMESPACE 
 namespace Ui { class VisualCalc; }

@@ -24,104 +24,104 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <QtRcc Include="visualcalc.qrc">
-      <Filter>Resource Files</Filter>
-    </QtRcc>
     <QtMoc Include="visualcalc.h">
       <Filter>Header Files</Filter>
     </QtMoc>
     <ClCompile Include="visualcalc.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <QtMoc Include="stat\stat.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="matrix\MatrixRes.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="matrix\MatrixView.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="graph\graph.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="graph.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="stat.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Node.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="calculus.cpp">
+    <ClCompile Include="stat\stat.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Matrix.cpp">
+    <ClCompile Include="matrix\Matrix.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="NodeforMatrix.cpp">
+    <ClCompile Include="matrix\MatrixRes.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MatrixView.cpp">
+    <ClCompile Include="matrix\MatrixView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MatrixRes.cpp">
+    <ClCompile Include="matrix\NodeforMatrix.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="graph\graph.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="calculus\calculus.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <QtUic Include="graph.ui">
+    <QtUic Include="ui\graph.ui">
       <Filter>Form Files</Filter>
     </QtUic>
-    <QtUic Include="visualcalc.ui">
+    <QtUic Include="ui\MatrixRes.ui">
       <Filter>Form Files</Filter>
     </QtUic>
-    <QtUic Include="stat.ui">
+    <QtUic Include="ui\MatrixView.ui">
       <Filter>Form Files</Filter>
     </QtUic>
-    <QtUic Include="MatrixView.ui">
+    <QtUic Include="ui\stat.ui">
       <Filter>Form Files</Filter>
     </QtUic>
-    <QtUic Include="MatrixRes.ui">
+    <QtUic Include="ui\visualcalc.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="graph.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="stat.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="MatrixView.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="MatrixRes.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="statistic.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Node.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="calculus.h">
+    <ClInclude Include="ui\resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Matrix.h">
+    <ClInclude Include="stat\statistic.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="NodeforMatrix.h">
+    <ClInclude Include="matrix\Matrix.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="resource.h">
+    <ClInclude Include="matrix\NodeforMatrix.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="calculus\calculus.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="VisualCalc.rc">
-      <Filter>Resource Files</Filter>
-    </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="visualcalc.ico">
+    <Image Include="ui\visualcalc.ico">
       <Filter>Resource Files</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="ui\visualcalc.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ui\VisualCalc.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

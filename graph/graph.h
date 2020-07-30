@@ -8,7 +8,7 @@
 #include <QDebug>
 
 
-#include "Node.h"
+#include "../Node.h"
  
 namespace Ui {
 class Graph;

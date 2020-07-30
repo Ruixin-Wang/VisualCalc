@@ -101,39 +101,39 @@
     </QtMoc>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <QtRcc Include="visualcalc.qrc" />
-    <QtUic Include="MatrixRes.ui" />
-    <QtUic Include="MatrixView.ui" />
-    <QtUic Include="graph.ui" />
+    <QtRcc Include="ui\visualcalc.qrc" />
+    <QtUic Include="ui\MatrixRes.ui" />
+    <QtUic Include="ui\MatrixView.ui" />
+    <QtUic Include="ui\graph.ui" />
     <QtMoc Include="visualcalc.h" />
-    <ClCompile Include="calculus.cpp" />
-    <ClCompile Include="graph.cpp" />
-    <ClCompile Include="Matrix.cpp" />
-    <ClCompile Include="MatrixRes.cpp" />
-    <ClCompile Include="MatrixView.cpp" />
+    <ClCompile Include="calculus\calculus.cpp" />
+    <ClCompile Include="graph\graph.cpp" />
+    <ClCompile Include="matrix\Matrix.cpp" />
+    <ClCompile Include="matrix\MatrixRes.cpp" />
+    <ClCompile Include="matrix\MatrixView.cpp" />
     <ClCompile Include="Node.cpp" />
-    <ClCompile Include="NodeforMatrix.cpp" />
-    <ClCompile Include="stat.cpp" />
+    <ClCompile Include="matrix\NodeforMatrix.cpp" />
+    <ClCompile Include="stat\stat.cpp" />
     <ClCompile Include="visualcalc.cpp" />
     <ClCompile Include="main.cpp" />
-    <QtMoc Include="graph.h" />
-    <QtMoc Include="stat.h" />
-    <ClInclude Include="calculus.h" />
-    <ClInclude Include="Matrix.h" />
-    <QtMoc Include="MatrixView.h" />
-    <QtMoc Include="MatrixRes.h" />
+    <QtMoc Include="graph\graph.h" />
+    <QtMoc Include="stat\stat.h" />
+    <ClInclude Include="calculus\calculus.h" />
+    <ClInclude Include="matrix\Matrix.h" />
+    <QtMoc Include="matrix\MatrixView.h" />
+    <QtMoc Include="matrix\MatrixRes.h" />
     <ClInclude Include="Node.h" />
-    <ClInclude Include="NodeforMatrix.h" />
-    <ClInclude Include="resource.h" />
-    <ClInclude Include="statistic.h" />
-    <QtUic Include="stat.ui" />
-    <QtUic Include="visualcalc.ui" />
+    <ClInclude Include="matrix\NodeforMatrix.h" />
+    <ClInclude Include="ui\resource.h" />
+    <ClInclude Include="stat\statistic.h" />
+    <QtUic Include="ui\stat.ui" />
+    <QtUic Include="ui\visualcalc.ui" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="VisualCalc.rc" />
+    <ResourceCompile Include="ui\VisualCalc.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="visualcalc.ico" />
+    <Image Include="ui\visualcalc.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
